@@ -1,10 +1,6 @@
-# APICCA COMÚN
+# Re(s)etario
 
-Sitio web para APICCA COMÚN - Arte, Pedagogía e Innovación Común.
-
-## Descripción
-
-APICCA COMÚN es una iniciativa abierta, colaborativa y transicional basada en el apoyo mutuo. Este sitio web presenta el Re(s)etario de Economías Recíprocas, una colección de glyphs y resets que pueden combinarse para crear nuevas formas de organización y colaboración.
+Es una iniciativa abierta, colaborativa y transicional basada en el apoyo mutuo. Este sitio web presenta el Re(s)etario de Economías Recíprocas, una colección de glyphs y resets que pueden combinarse para crear nuevas formas de organización y colaboración.
 
 ## Estructura del Proyecto
 

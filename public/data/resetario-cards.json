@@ -1,0 +1,260 @@
+{
+  "cards": [
+    {
+      "id": 0,
+      "color": "red",
+      "number": "0000",
+      "glyph": "img/glyph/glyph_00.png",
+      "title": "Re(s)et 00",
+      "description": "loading"
+    },
+    {
+      "id": 1,
+      "color": "blue",
+      "number": "0001",
+      "glyph": "img/glyph/glyph_01.png",
+      "title": "Re(s)et 01",
+      "description": "loading"
+    },
+    {
+      "id": 2,
+      "color": "green",
+      "number": "0010",
+      "glyph": "img/glyph/glyph_02.png",
+      "title": "Re(s)et 02",
+      "description": "loading 02..."
+    },
+    {
+      "id": 3,
+      "color": "yellow",
+      "number": "0011",
+      "glyph": "img/glyph/glyph_03.png",
+      "title": "Re(s)et 03",
+      "description": "loading 03..."
+    },
+    {
+      "id": 4,
+      "color": "orange",
+      "number": "0100",
+      "glyph": "img/glyph/glyph_04.png",
+      "title": "Re(s)et 04",
+      "description": "loading 04..."
+    },
+    {
+      "id": 5,
+      "color": "red",
+      "number": "0101",
+      "glyph": "img/glyph/glyph_05.png",
+      "title": "Re(s)et 05",
+      "description": "loading 05..."
+    },
+    {
+      "id": 6,
+      "color": "green",
+      "number": "0110",
+      "glyph": "img/glyph/glyph_06.png",
+      "title": "Re(s)et 06",
+      "description": "loading 06..."
+    },
+    {
+      "id": 7,
+      "color": "blue",
+      "number": "0111",
+      "glyph": "img/glyph/glyph_07.png",
+      "title": "Re(s)et 07",
+      "description": "loading 07..."
+    },
+    {
+      "id": 8,
+      "color": "orange",
+      "number": "1000",
+      "glyph": "img/glyph/glyph_08.png",
+      "title": "Re(s)et 08",
+      "description": "loading 08..."
+    },
+    {
+      "id": 9,
+      "color": "yellow",
+      "number": "1001",
+      "glyph": "img/glyph/glyph_09.png",
+      "title": "Re(s)et 09",
+      "description": "loading 09..."
+    },
+    {
+      "id": 10,
+      "color": "red",
+      "number": "1010",
+      "glyph": "img/glyph/glyph_10.png",
+      "title": "Re(s)et 10",
+      "description": "loading 10..."
+    },
+    {
+      "id": 11,
+      "color": "green",
+      "number": "1011",
+      "glyph": "img/glyph/glyph_11.png",
+      "title": "Re(s)et 11",
+      "description": "loading 11..."
+    },
+    {
+      "id": 12,
+      "color": "blue",
+      "number": "1100",
+      "glyph": "img/glyph/glyph_12.png",
+      "title": "Re(s)et 12",
+      "description": "loading 12..."
+    },
+    {
+      "id": 13,
+      "color": "orange",
+      "number": "1101",
+      "glyph": "img/glyph/glyph_13.png",
+      "title": "Re(s)et 13",
+      "description": "loading 13..."
+    },
+    {
+      "id": 14,
+      "color": "yellow",
+      "number": "1110",
+      "glyph": "img/glyph/glyph_14.png",
+      "title": "Re(s)et 14",
+      "description": "loading 14..."
+    },
+    {
+      "id": 15,
+      "color": "red",
+      "number": "1111",
+      "glyph": "img/glyph/glyph_15.png",
+      "title": "Re(s)et 15",
+      "description": "loading 15..."
+    },
+    {
+      "id": 16,
+      "color": "green",
+      "number": "10000",
+      "glyph": "img/glyph/glyph_16.png",
+      "title": "Re(s)et 16",
+      "description": "loading 16..."
+    },
+    {
+      "id": 17,
+      "color": "blue",
+      "number": "10001",
+      "glyph": "img/glyph/glyph_17.png",
+      "title": "Re(s)et 17",
+      "description": "loading 17..."
+    },
+    {
+      "id": 18,
+      "color": "orange",
+      "number": "10010",
+      "glyph": "img/glyph/glyph_18.png",
+      "title": "Re(s)et 18",
+      "description": "loading 18..."
+    },
+    {
+      "id": 19,
+      "color": "yellow",
+      "number": "10011",
+      "glyph": "img/glyph/glyph_19.png",
+      "title": "Re(s)et 19",
+      "description": "loading 19..."
+    },
+    {
+      "id": 20,
+      "color": "red",
+      "number": "10100",
+      "glyph": "img/glyph/glyph_20.png",
+      "title": "Re(s)et 20",
+      "description": "loading 20..."
+    },
+    {
+      "id": 21,
+      "color": "green",
+      "number": "10101",
+      "glyph": "img/glyph/glyph_21.png",
+      "title": "Re(s)et 21",
+      "description": "loading 21..."
+    },
+    {
+      "id": 22,
+      "color": "blue",
+      "number": "10110",
+      "glyph": "img/glyph/glyph_22.png",
+      "title": "Re(s)et 22",
+      "description": "loading 22..."
+    },
+    {
+      "id": 23,
+      "color": "orange",
+      "number": "10111",
+      "glyph": "img/glyph/glyph_23.png",
+      "title": "Re(s)et 23",
+      "description": "loading 23..."
+    },
+    {
+      "id": 24,
+      "color": "yellow",
+      "number": "11000",
+      "glyph": "img/glyph/glyph_24.png",
+      "title": "Re(s)et 24",
+      "description": "loading 24..."
+    },
+    {
+      "id": 25,
+      "color": "red",
+      "number": "11001",
+      "glyph": "img/glyph/glyph_25.png",
+      "title": "Re(s)et 25",
+      "description": "loading 25..."
+    },
+    {
+      "id": 26,
+      "color": "green",
+      "number": "11010",
+      "glyph": "img/glyph/glyph_26.png",
+      "title": "Re(s)et 26",
+      "description": "loading 26..."
+    },
+    {
+      "id": 27,
+      "color": "blue",
+      "number": "11011",
+      "glyph": "img/glyph/glyph_27.png",
+      "title": "Re(s)et 27",
+      "description": "loading 27..."
+    },
+    {
+      "id": 28,
+      "color": "orange",
+      "number": "11100",
+      "glyph": "img/glyph/glyph_28.png",
+      "title": "Re(s)et 28",
+      "description": "loading 28..."
+    },
+    {
+      "id": 29,
+      "color": "yellow",
+      "number": "11101",
+      "glyph": "img/glyph/glyph_29.png",
+      "title": "Re(s)et 29",
+      "description": "loading 29..."
+    },
+    {
+      "id": 30,
+      "color": "red",
+      "number": "11110",
+      "glyph": "img/glyph/glyph_30.png",
+      "title": "Re(s)et 30",
+      "description": "loading 30..."
+    },
+    {
+      "id": 31,
+      "color": "green",
+      "number": "11111",
+      "glyph": "img/glyph/glyph_31.png",
+      "title": "Re(s)et 31",
+      "description": "loading 31..."
+    }
+  ]
+}

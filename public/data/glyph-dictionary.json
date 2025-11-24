@@ -1,0 +1,991 @@
+{
+  "colorMeanings": {
+    "blue": {
+      "name": "Azul",
+      "meaning": "Agua",
+      "hex": "#4598ff"
+    },
+    "red": {
+      "name": "Rojo",
+      "meaning": "Energía",
+      "hex": "#fd0202"
+    },
+    "green": {
+      "name": "Verde",
+      "meaning": "Alimento",
+      "hex": "#00d084"
+    },
+    "orange": {
+      "name": "Naranja",
+      "meaning": "Comunicación",
+      "hex": "#ff6b35"
+    },
+    "yellow": {
+      "name": "Amarillo",
+      "meaning": "Cobijo",
+      "hex": "#fee71c"
+    }
+  },
+  "glyphs": {
+    "00": {
+      "id": 0,
+      "defaultColor": "red",
+      "combinations": {
+        "standard": {
+          "meaning": "Base",
+          "description": ""
+        },
+        "blue": {
+          "meaning": "Agua",
+          "description": ""
+        },
+        "red": {
+          "meaning": "Energía",
+          "description": ""
+        },
+        "green": {
+          "meaning": "Alimento",
+          "description": ""
+        },
+        "orange": {
+          "meaning": "Comunicación",
+          "description": ""
+        },
+        "yellow": {
+          "meaning": "Cobijo",
+          "description": ""
+        }
+      }
+    },
+    "01": {
+      "id": 1,
+      "defaultColor": "blue",
+      "combinations": {
+        "standard": {
+          "meaning": "Base",
+          "description": ""
+        },
+        "blue": {
+          "meaning": "Agua",
+          "description": ""
+        },
+        "red": {
+          "meaning": "Energía",
+          "description": ""
+        },
+        "green": {
+          "meaning": "Alimento",
+          "description": ""
+        },
+        "orange": {
+          "meaning": "Comunicación",
+          "description": ""
+        },
+        "yellow": {
+          "meaning": "Cobijo",
+          "description": ""
+        }
+      }
+    },
+    "02": {
+      "id": 2,
+      "defaultColor": "green",
+      "combinations": {
+        "standard": {
+          "meaning": "Base",
+          "description": ""
+        },
+        "blue": {
+          "meaning": "Agua",
+          "description": ""
+        },
+        "red": {
+          "meaning": "Energía",
+          "description": ""
+        },
+        "green": {
+          "meaning": "Alimento",
+          "description": ""
+        },
+        "orange": {
+          "meaning": "Comunicación",
+          "description": ""
+        },
+        "yellow": {
+          "meaning": "Cobijo",
+          "description": ""
+        }
+      }
+    },
+    "03": {
+      "id": 3,
+      "defaultColor": "yellow",
+      "combinations": {
+        "standard": {
+          "meaning": "Base",
+          "description": ""
+        },
+        "blue": {
+          "meaning": "Agua",
+          "description": ""
+        },
+        "red": {
+          "meaning": "Energía",
+          "description": ""
+        },
+        "green": {
+          "meaning": "Alimento",
+          "description": ""
+        },
+        "orange": {
+          "meaning": "Comunicación",
+          "description": ""
+        },
+        "yellow": {
+          "meaning": "Cobijo",
+          "description": ""
+        }
+      }
+    },
+    "04": {
+      "id": 4,
+      "defaultColor": "orange",
+      "combinations": {
+        "standard": {
+          "meaning": "Base",
+          "description": ""
+        },
+        "blue": {
+          "meaning": "Agua",
+          "description": ""
+        },
+        "red": {
+          "meaning": "Energía",
+          "description": ""
+        },
+        "green": {
+          "meaning": "Alimento",
+          "description": ""
+        },
+        "orange": {
+          "meaning": "Comunicación",
+          "description": ""
+        },
+        "yellow": {
+          "meaning": "Cobijo",
+          "description": ""
+        }
+      }
+    },
+    "05": {
+      "id": 5,
+      "defaultColor": "red",
+      "combinations": {
+        "standard": {
+          "meaning": "Base",
+          "description": ""
+        },
+        "blue": {
+          "meaning": "Agua",
+          "description": ""
+        },
+        "red": {
+          "meaning": "Energía",
+          "description": ""
+        },
+        "green": {
+          "meaning": "Alimento",
+          "description": ""
+        },
+        "orange": {
+          "meaning": "Comunicación",
+          "description": ""
+        },
+        "yellow": {
+          "meaning": "Cobijo",
+          "description": ""
+        }
+      }
+    },
+    "06": {
+      "id": 6,
+      "defaultColor": "green",
+      "combinations": {
+        "standard": {
+          "meaning": "Base",
+          "description": ""
+        },
+        "blue": {
+          "meaning": "Agua",
+          "description": ""
+        },
+        "red": {
+          "meaning": "Energía",
+          "description": ""
+        },
+        "green": {
+          "meaning": "Alimento",
+          "description": ""
+        },
+        "orange": {
+          "meaning": "Comunicación",
+          "description": ""
+        },
+        "yellow": {
+          "meaning": "Cobijo",
+          "description": ""
+        }
+      }
+    },
+    "07": {
+      "id": 7,
+      "defaultColor": "blue",
+      "combinations": {
+        "standard": {
+          "meaning": "Base",
+          "description": ""
+        },
+        "blue": {
+          "meaning": "Agua",
+          "description": ""
+        },
+        "red": {
+          "meaning": "Energía",
+          "description": ""
+        },
+        "green": {
+          "meaning": "Alimento",
+          "description": ""
+        },
+        "orange": {
+          "meaning": "Comunicación",
+          "description": ""
+        },
+        "yellow": {
+          "meaning": "Cobijo",
+          "description": ""
+        }
+      }
+    },
+    "08": {
+      "id": 8,
+      "defaultColor": "orange",
+      "combinations": {
+        "standard": {
+          "meaning": "Base",
+          "description": ""
+        },
+        "blue": {
+          "meaning": "Agua",
+          "description": ""
+        },
+        "red": {
+          "meaning": "Energía",
+          "description": ""
+        },
+        "green": {
+          "meaning": "Alimento",
+          "description": ""
+        },
+        "orange": {
+          "meaning": "Comunicación",
+          "description": ""
+        },
+        "yellow": {
+          "meaning": "Cobijo",
+          "description": ""
+        }
+      }
+    },
+    "09": {
+      "id": 9,
+      "defaultColor": "yellow",
+      "combinations": {
+        "standard": {
+          "meaning": "Base",
+          "description": ""
+        },
+        "blue": {
+          "meaning": "Agua",
+          "description": ""
+        },
+        "red": {
+          "meaning": "Energía",
+          "description": ""
+        },
+        "green": {
+          "meaning": "Alimento",
+          "description": ""
+        },
+        "orange": {
+          "meaning": "Comunicación",
+          "description": ""
+        },
+        "yellow": {
+          "meaning": "Cobijo",
+          "description": ""
+        }
+      }
+    },
+    "10": {
+      "id": 10,
+      "defaultColor": "red",
+      "combinations": {
+        "standard": {
+          "meaning": "Base",
+          "description": ""
+        },
+        "blue": {
+          "meaning": "Agua",
+          "description": ""
+        },
+        "red": {
+          "meaning": "Energía",
+          "description": ""
+        },
+        "green": {
+          "meaning": "Alimento",
+          "description": ""
+        },
+        "orange": {
+          "meaning": "Comunicación",
+          "description": ""
+        },
+        "yellow": {
+          "meaning": "Cobijo",
+          "description": ""
+        }
+      }
+    },
+    "11": {
+      "id": 11,
+      "defaultColor": "green",
+      "combinations": {
+        "standard": {
+          "meaning": "Base",
+          "description": ""
+        },
+        "blue": {
+          "meaning": "Agua",
+          "description": ""
+        },
+        "red": {
+          "meaning": "Energía",
+          "description": ""
+        },
+        "green": {
+          "meaning": "Alimento",
+          "description": ""
+        },
+        "orange": {
+          "meaning": "Comunicación",
+          "description": ""
+        },
+        "yellow": {
+          "meaning": "Cobijo",
+          "description": ""
+        }
+      }
+    },
+    "12": {
+      "id": 12,
+      "defaultColor": "blue",
+      "combinations": {
+        "standard": {
+          "meaning": "Base",
+          "description": ""
+        },
+        "blue": {
+          "meaning": "Agua",
+          "description": ""
+        },
+        "red": {
+          "meaning": "Energía",
+          "description": ""
+        },
+        "green": {
+          "meaning": "Alimento",
+          "description": ""
+        },
+        "orange": {
+          "meaning": "Comunicación",
+          "description": ""
+        },
+        "yellow": {
+          "meaning": "Cobijo",
+          "description": ""
+        }
+      }
+    },
+    "13": {
+      "id": 13,
+      "defaultColor": "orange",
+      "combinations": {
+        "standard": {
+          "meaning": "Base",
+          "description": ""
+        },
+        "blue": {
+          "meaning": "Agua",
+          "description": ""
+        },
+        "red": {
+          "meaning": "Energía",
+          "description": ""
+        },
+        "green": {
+          "meaning": "Alimento",
+          "description": ""
+        },
+        "orange": {
+          "meaning": "Comunicación",
+          "description": ""
+        },
+        "yellow": {
+          "meaning": "Cobijo",
+          "description": ""
+        }
+      }
+    },
+    "14": {
+      "id": 14,
+      "defaultColor": "yellow",
+      "combinations": {
+        "standard": {
+          "meaning": "Base",
+          "description": ""
+        },
+        "blue": {
+          "meaning": "Agua",
+          "description": ""
+        },
+        "red": {
+          "meaning": "Energía",
+          "description": ""
+        },
+        "green": {
+          "meaning": "Alimento",
+          "description": ""
+        },
+        "orange": {
+          "meaning": "Comunicación",
+          "description": ""
+        },
+        "yellow": {
+          "meaning": "Cobijo",
+          "description": ""
+        }
+      }
+    },
+    "15": {
+      "id": 15,
+      "defaultColor": "red",
+      "combinations": {
+        "standard": {
+          "meaning": "Base",
+          "description": ""
+        },
+        "blue": {
+          "meaning": "Agua",
+          "description": ""
+        },
+        "red": {
+          "meaning": "Energía",
+          "description": ""
+        },
+        "green": {
+          "meaning": "Alimento",
+          "description": ""
+        },
+        "orange": {
+          "meaning": "Comunicación",
+          "description": ""
+        },
+        "yellow": {
+          "meaning": "Cobijo",
+          "description": ""
+        }
+      }
+    },
+    "16": {
+      "id": 16,
+      "defaultColor": "green",
+      "combinations": {
+        "standard": {
+          "meaning": "Base",
+          "description": ""
+        },
+        "blue": {
+          "meaning": "Agua",
+          "description": ""
+        },
+        "red": {
+          "meaning": "Energía",
+          "description": ""
+        },
+        "green": {
+          "meaning": "Alimento",
+          "description": ""
+        },
+        "orange": {
+          "meaning": "Comunicación",
+          "description": ""
+        },
+        "yellow": {
+          "meaning": "Cobijo",
+          "description": ""
+        }
+      }
+    },
+    "17": {
+      "id": 17,
+      "defaultColor": "blue",
+      "combinations": {
+        "standard": {
+          "meaning": "Base",
+          "description": ""
+        },
+        "blue": {
+          "meaning": "Agua",
+          "description": ""
+        },
+        "red": {
+          "meaning": "Energía",
+          "description": ""
+        },
+        "green": {
+          "meaning": "Alimento",
+          "description": ""
+        },
+        "orange": {
+          "meaning": "Comunicación",
+          "description": ""
+        },
+        "yellow": {
+          "meaning": "Cobijo",
+          "description": ""
+        }
+      }
+    },
+    "18": {
+      "id": 18,
+      "defaultColor": "orange",
+      "combinations": {
+        "standard": {
+          "meaning": "Base",
+          "description": ""
+        },
+        "blue": {
+          "meaning": "Agua",
+          "description": ""
+        },
+        "red": {
+          "meaning": "Energía",
+          "description": ""
+        },
+        "green": {
+          "meaning": "Alimento",
+          "description": ""
+        },
+        "orange": {
+          "meaning": "Comunicación",
+          "description": ""
+        },
+        "yellow": {
+          "meaning": "Cobijo",
+          "description": ""
+        }
+      }
+    },
+    "19": {
+      "id": 19,
+      "defaultColor": "yellow",
+      "combinations": {
+        "standard": {
+          "meaning": "Base",
+          "description": ""
+        },
+        "blue": {
+          "meaning": "Agua",
+          "description": ""
+        },
+        "red": {
+          "meaning": "Energía",
+          "description": ""
+        },
+        "green": {
+          "meaning": "Alimento",
+          "description": ""
+        },
+        "orange": {
+          "meaning": "Comunicación",
+          "description": ""
+        },
+        "yellow": {
+          "meaning": "Cobijo",
+          "description": ""
+        }
+      }
+    },
+    "20": {
+      "id": 20,
+      "defaultColor": "red",
+      "combinations": {
+        "standard": {
+          "meaning": "Base",
+          "description": ""
+        },
+        "blue": {
+          "meaning": "Agua",
+          "description": ""
+        },
+        "red": {
+          "meaning": "Energía",
+          "description": ""
+        },
+        "green": {
+          "meaning": "Alimento",
+          "description": ""
+        },
+        "orange": {
+          "meaning": "Comunicación",
+          "description": ""
+        },
+        "yellow": {
+          "meaning": "Cobijo",
+          "description": ""
+        }
+      }
+    },
+    "21": {
+      "id": 21,
+      "defaultColor": "green",
+      "combinations": {
+        "standard": {
+          "meaning": "Base",
+          "description": ""
+        },
+        "blue": {
+          "meaning": "Agua",
+          "description": ""
+        },
+        "red": {
+          "meaning": "Energía",
+          "description": ""
+        },
+        "green": {
+          "meaning": "Alimento",
+          "description": ""
+        },
+        "orange": {
+          "meaning": "Comunicación",
+          "description": ""
+        },
+        "yellow": {
+          "meaning": "Cobijo",
+          "description": ""
+        }
+      }
+    },
+    "22": {
+      "id": 22,
+      "defaultColor": "blue",
+      "combinations": {
+        "standard": {
+          "meaning": "Base",
+          "description": ""
+        },
+        "blue": {
+          "meaning": "Agua",
+          "description": ""
+        },
+        "red": {
+          "meaning": "Energía",
+          "description": ""
+        },
+        "green": {
+          "meaning": "Alimento",
+          "description": ""
+        },
+        "orange": {
+          "meaning": "Comunicación",
+          "description": ""
+        },
+        "yellow": {
+          "meaning": "Cobijo",
+          "description": ""
+        }
+      }
+    },
+    "23": {
+      "id": 23,
+      "defaultColor": "orange",
+      "combinations": {
+        "standard": {
+          "meaning": "Base",
+          "description": ""
+        },
+        "blue": {
+          "meaning": "Agua",
+          "description": ""
+        },
+        "red": {
+          "meaning": "Energía",
+          "description": ""
+        },
+        "green": {
+          "meaning": "Alimento",
+          "description": ""
+        },
+        "orange": {
+          "meaning": "Comunicación",
+          "description": ""
+        },
+        "yellow": {
+          "meaning": "Cobijo",
+          "description": ""
+        }
+      }
+    },
+    "24": {
+      "id": 24,
+      "defaultColor": "yellow",
+      "combinations": {
+        "standard": {
+          "meaning": "Base",
+          "description": ""
+        },
+        "blue": {
+          "meaning": "Agua",
+          "description": ""
+        },
+        "red": {
+          "meaning": "Energía",
+          "description": ""
+        },
+        "green": {
+          "meaning": "Alimento",
+          "description": ""
+        },
+        "orange": {
+          "meaning": "Comunicación",
+          "description": ""
+        },
+        "yellow": {
+          "meaning": "Cobijo",
+          "description": ""
+        }
+      }
+    },
+    "25": {
+      "id": 25,
+      "defaultColor": "red",
+      "combinations": {
+        "standard": {
+          "meaning": "Base",
+          "description": ""
+        },
+        "blue": {
+          "meaning": "Agua",
+          "description": ""
+        },
+        "red": {
+          "meaning": "Energía",
+          "description": ""
+        },
+        "green": {
+          "meaning": "Alimento",
+          "description": ""
+        },
+        "orange": {
+          "meaning": "Comunicación",
+          "description": ""
+        },
+        "yellow": {
+          "meaning": "Cobijo",
+          "description": ""
+        }
+      }
+    },
+    "26": {
+      "id": 26,
+      "defaultColor": "green",
+      "combinations": {
+        "standard": {
+          "meaning": "Base",
+          "description": ""
+        },
+        "blue": {
+          "meaning": "Agua",
+          "description": ""
+        },
+        "red": {
+          "meaning": "Energía",
+          "description": ""
+        },
+        "green": {
+          "meaning": "Alimento",
+          "description": ""
+        },
+        "orange": {
+          "meaning": "Comunicación",
+          "description": ""
+        },
+        "yellow": {
+          "meaning": "Cobijo",
+          "description": ""
+        }
+      }
+    },
+    "27": {
+      "id": 27,
+      "defaultColor": "blue",
+      "combinations": {
+        "standard": {
+          "meaning": "Base",
+          "description": ""
+        },
+        "blue": {
+          "meaning": "Agua",
+          "description": ""
+        },
+        "red": {
+          "meaning": "Energía",
+          "description": ""
+        },
+        "green": {
+          "meaning": "Alimento",
+          "description": ""
+        },
+        "orange": {
+          "meaning": "Comunicación",
+          "description": ""
+        },
+        "yellow": {
+          "meaning": "Cobijo",
+          "description": ""
+        }
+      }
+    },
+    "28": {
+      "id": 28,
+      "defaultColor": "orange",
+      "combinations": {
+        "standard": {
+          "meaning": "Base",
+          "description": ""
+        },
+        "blue": {
+          "meaning": "Agua",
+          "description": ""
+        },
+        "red": {
+          "meaning": "Energía",
+          "description": ""
+        },
+        "green": {
+          "meaning": "Alimento",
+          "description": ""
+        },
+        "orange": {
+          "meaning": "Comunicación",
+          "description": ""
+        },
+        "yellow": {
+          "meaning": "Cobijo",
+          "description": ""
+        }
+      }
+    },
+    "29": {
+      "id": 29,
+      "defaultColor": "yellow",
+      "combinations": {
+        "standard": {
+          "meaning": "Base",
+          "description": ""
+        },
+        "blue": {
+          "meaning": "Agua",
+          "description": ""
+        },
+        "red": {
+          "meaning": "Energía",
+          "description": ""
+        },
+        "green": {
+          "meaning": "Alimento",
+          "description": ""
+        },
+        "orange": {
+          "meaning": "Comunicación",
+          "description": ""
+        },
+        "yellow": {
+          "meaning": "Cobijo",
+          "description": ""
+        }
+      }
+    },
+    "30": {
+      "id": 30,
+      "defaultColor": "red",
+      "combinations": {
+        "standard": {
+          "meaning": "Base",
+          "description": ""
+        },
+        "blue": {
+          "meaning": "Agua",
+          "description": ""
+        },
+        "red": {
+          "meaning": "Energía",
+          "description": ""
+        },
+        "green": {
+          "meaning": "Alimento",
+          "description": ""
+        },
+        "orange": {
+          "meaning": "Comunicación",
+          "description": ""
+        },
+        "yellow": {
+          "meaning": "Cobijo",
+          "description": ""
+        }
+      }
+    },
+    "31": {
+      "id": 31,
+      "defaultColor": "green",
+      "combinations": {
+        "standard": {
+          "meaning": "Base",
+          "description": ""
+        },
+        "blue": {
+          "meaning": "Agua",
+          "description": ""
+        },
+        "red": {
+          "meaning": "Energía",
+          "description": ""
+        },
+        "green": {
+          "meaning": "Alimento",
+          "description": ""
+        },
+        "orange": {
+          "meaning": "Comunicación",
+          "description": ""
+        },
+        "yellow": {
+          "meaning": "Cobijo",
+          "description": ""
+        }
+      }
+    }
+  }
+}

@@ -69,6 +69,34 @@
         <div class="page-container">
             <h1 class="resetario-title">Re(s)etario</h1>
 
+            <section id="resetario-ai" class="resetario-ai-section">
+                <h2 class="resetario-ai-title">Asistente del Re(s)etario</h2>
+                <p class="resetario-ai-description">
+                    Haz preguntas sobre el Re(s)etario y sus documentos. El asistente usa la API de Gemini a través de un
+                    servidor intermedio para proteger las claves y responder en español.
+                </p>
+
+                <form id="resetario-ai-form" class="resetario-ai-form">
+                    <label for="resetario-ai-question" class="resetario-ai-label">
+                        Escribe tu pregunta:
+                    </label>
+                    <textarea id="resetario-ai-question" class="resetario-ai-textarea" rows="3"
+                        placeholder="Por ejemplo: ¿Cómo se combinan los glyphs para trabajar el eje de Agua?"
+                        required></textarea>
+
+                    <button type="submit" class="resetario-ai-button">
+                        Preguntar al Re(s)etario
+                    </button>
+                </form>
+
+                <div id="resetario-ai-status" class="resetario-ai-status" aria-live="polite"></div>
+
+                <div id="resetario-ai-answer" class="resetario-ai-answer" hidden>
+                    <h3>Respuesta</h3>
+                    <div id="resetario-ai-answer-text"></div>
+                </div>
+            </section>
+
             <!-- Los Cinco Ejes -->
             <section class="ejes-section">
 
@@ -263,6 +291,7 @@
 
     <script type="module" src="js/scripts.js"></script>
     <script type="module" src="js/documentacion.js"></script>
+    <script type="module" src="js/gemini-resetario.js"></script>
 </body>
 
 </html>

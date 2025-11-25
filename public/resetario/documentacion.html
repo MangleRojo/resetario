@@ -69,19 +69,19 @@
 
                 <!-- Tabs Navigation -->
                 <div class="tabs-container">
-                    <div class="tabs-nav">
-                        <button class="tab-button active" data-tab="intro" data-color="gray">Introducción</button>
-                        <button class="tab-button" data-tab="agua" data-color="blue">Agua</button>
-                        <button class="tab-button" data-tab="alimento" data-color="green">Alimento</button>
-                        <button class="tab-button" data-tab="cobijo" data-color="yellow">Cobijo</button>
-                        <button class="tab-button" data-tab="energia" data-color="red">Energía</button>
-                        <button class="tab-button" data-tab="comunicacion" data-color="orange">Comunicación</button>
-                    </div>
+                    <nav class="tabs-nav" role="tablist" aria-label="Navegación de ejes de autonomía común">
+                        <button class="tab-button active" data-tab="intro" data-color="gray" role="tab" aria-selected="true" aria-controls="tab-intro" id="tab-button-intro">Introducción</button>
+                        <button class="tab-button" data-tab="agua" data-color="blue" role="tab" aria-selected="false" aria-controls="tab-agua" id="tab-button-agua">Agua</button>
+                        <button class="tab-button" data-tab="alimento" data-color="green" role="tab" aria-selected="false" aria-controls="tab-alimento" id="tab-button-alimento">Alimento</button>
+                        <button class="tab-button" data-tab="cobijo" data-color="yellow" role="tab" aria-selected="false" aria-controls="tab-cobijo" id="tab-button-cobijo">Cobijo</button>
+                        <button class="tab-button" data-tab="energia" data-color="red" role="tab" aria-selected="false" aria-controls="tab-energia" id="tab-button-energia">Energía</button>
+                        <button class="tab-button" data-tab="comunicacion" data-color="orange" role="tab" aria-selected="false" aria-controls="tab-comunicacion" id="tab-button-comunicacion">Comunicación</button>
+                    </nav>
 
                     <!-- Tab Content -->
                     <div class="tabs-content">
                         <!-- Introducción -->
-                        <div class="tab-panel active" id="tab-intro">
+                        <div class="tab-panel active" id="tab-intro" role="tabpanel" aria-labelledby="tab-button-intro">
                             <h3>Introducción</h3>
                             <div class="eje-content">
                                 <h4>¿Qué es APICCA?</h4>
@@ -91,16 +91,16 @@
 
                                 <h4>¿Qué es el Re(s)etario?</h4>
                                 <p>El <strong>Re(s)etario es la interfaz para programar APICCA</strong>. Se compone de
-                                    tácticas de Economía Recíproca que pueden ser combinadas para crear nuevas formas de
+                                    tácticas de economía recíproca que pueden ser combinadas para crear nuevas formas de
                                     organización y colaboración basadas en el apoyo mutuo.</p>
 
-                                <h4>Los Cinco Ejes de Autonomía Común</h4>
+                                <h4>Los cinco ejes de autonomía común</h4>
                                 <p>La autonomía no se consigue de forma aislada, sino en conexión. Estos cinco ámbitos
                                     son fundamentales para construir autonomía común, presentados en orden de
                                     importancia vital:</p>
                                 <ul class="ejes-list">
                                     <li><strong>Agua</strong> - La base de la vida</li>
-                                    <li><strong>Alimento</strong> - El combustible del cuerpo</li>
+                                    <li><strong>Alimento</strong> - El reparador del cuerpo</li>
                                     <li><strong>Cobijo</strong> - El refugio y la estabilidad</li>
                                     <li><strong>Energía</strong> - La capacidad de acción</li>
                                     <li><strong>Comunicación</strong> - La coordinación colectiva</li>
@@ -109,7 +109,7 @@
                         </div>
 
                         <!-- Agua -->
-                        <div class="tab-panel" id="tab-agua">
+                        <div class="tab-panel" id="tab-agua" role="tabpanel" aria-labelledby="tab-button-agua" hidden>
                             <h3>Agua</h3>
                             <div class="eje-content">
                                 <h4>¿Por qué es fundamental?</h4>
@@ -131,7 +131,7 @@
                         </div>
 
                         <!-- Alimento -->
-                        <div class="tab-panel" id="tab-alimento">
+                        <div class="tab-panel" id="tab-alimento" role="tabpanel" aria-labelledby="tab-button-alimento" hidden>
                             <h3>Alimento</h3>
                             <div class="eje-content">
                                 <h4>¿Por qué es fundamental?</h4>
@@ -154,7 +154,7 @@
                         </div>
 
                         <!-- Cobijo -->
-                        <div class="tab-panel" id="tab-cobijo">
+                        <div class="tab-panel" id="tab-cobijo" role="tabpanel" aria-labelledby="tab-button-cobijo" hidden>
                             <h3>Cobijo</h3>
                             <div class="eje-content">
                                 <h4>¿Por qué es fundamental?</h4>
@@ -175,7 +175,7 @@
                         </div>
 
                         <!-- Energía -->
-                        <div class="tab-panel" id="tab-energia">
+                        <div class="tab-panel" id="tab-energia" role="tabpanel" aria-labelledby="tab-button-energia" hidden>
                             <h3>Energía</h3>
                             <div class="eje-content">
                                 <h4>¿Por qué es fundamental?</h4>
@@ -197,7 +197,7 @@
                         </div>
 
                         <!-- Comunicación -->
-                        <div class="tab-panel" id="tab-comunicacion">
+                        <div class="tab-panel" id="tab-comunicacion" role="tabpanel" aria-labelledby="tab-button-comunicacion" hidden>
                             <h3>Comunicación</h3>
                             <div class="eje-content">
                                 <h4>¿Por qué es fundamental?</h4>

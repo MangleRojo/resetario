@@ -322,7 +322,6 @@ function renderCombinations(sequenceData) {
                         <div class="card-back-content">
                             <h3>${combination.meaning}</h3>
                             ${combination.description ? `<p>${combination.description}</p>` : `<p>Glyph ${glyphData.number} - ${colorInfo.name || colorKey}</p>`}
-                            <div class="loading-spinner"></div>
                         </div>
                     </div>
                 </div>

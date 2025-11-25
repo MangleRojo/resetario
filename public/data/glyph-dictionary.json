@@ -32,28 +32,28 @@
       "defaultColor": "red",
       "combinations": {
         "standard": {
-          "meaning": "Base",
-          "description": ""
+          "meaning": "Inicio",
+          "description": "El comienzo de toda acción colectiva en economías recíprocas basadas en apoyo mutuo."
         },
         "blue": {
-          "meaning": "Agua",
-          "description": ""
+          "meaning": "Inicio - Agua",
+          "description": "El comienzo de toda acción colectiva aplicado al acceso y gestión del agua como bien común."
         },
         "red": {
-          "meaning": "Energía",
-          "description": ""
+          "meaning": "Inicio - Energía",
+          "description": "El comienzo de toda acción colectiva aplicado a la generación y gestión de energía."
         },
         "green": {
-          "meaning": "Alimento",
-          "description": ""
+          "meaning": "Inicio - Alimento",
+          "description": "El comienzo de toda acción colectiva aplicado a la producción y distribución de alimentos."
         },
         "orange": {
-          "meaning": "Comunicación",
-          "description": ""
+          "meaning": "Inicio - Comunicación",
+          "description": "El comienzo de toda acción colectiva aplicado a redes de información y coordinación."
         },
         "yellow": {
-          "meaning": "Cobijo",
-          "description": ""
+          "meaning": "Inicio - Cobijo",
+          "description": "El comienzo de toda acción colectiva aplicado a la vivienda y espacios comunes."
         }
       }
     },
@@ -62,28 +62,28 @@
       "defaultColor": "blue",
       "combinations": {
         "standard": {
-          "meaning": "Base",
-          "description": ""
+          "meaning": "Flujo",
+          "description": "El movimiento y circulación de recursos en economías recíprocas basadas en apoyo mutuo."
         },
         "blue": {
-          "meaning": "Agua",
-          "description": ""
+          "meaning": "Flujo - Agua",
+          "description": "El movimiento y circulación de recursos aplicado al acceso y gestión del agua como bien común."
         },
         "red": {
-          "meaning": "Energía",
-          "description": ""
+          "meaning": "Flujo - Energía",
+          "description": "El movimiento y circulación de recursos aplicado a la generación y gestión de energía."
         },
         "green": {
-          "meaning": "Alimento",
-          "description": ""
+          "meaning": "Flujo - Alimento",
+          "description": "El movimiento y circulación de recursos aplicado a la producción y distribución de alimentos."
         },
         "orange": {
-          "meaning": "Comunicación",
-          "description": ""
+          "meaning": "Flujo - Comunicación",
+          "description": "El movimiento y circulación de recursos aplicado a redes de información y coordinación."
         },
         "yellow": {
-          "meaning": "Cobijo",
-          "description": ""
+          "meaning": "Flujo - Cobijo",
+          "description": "El movimiento y circulación de recursos aplicado a la vivienda y espacios comunes."
         }
       }
     },
@@ -92,28 +92,28 @@
       "defaultColor": "green",
       "combinations": {
         "standard": {
-          "meaning": "Base",
-          "description": ""
+          "meaning": "Cultivo",
+          "description": "El cuidado y desarrollo de lo común en economías recíprocas basadas en apoyo mutuo."
         },
         "blue": {
-          "meaning": "Agua",
-          "description": ""
+          "meaning": "Cultivo - Agua",
+          "description": "El cuidado y desarrollo de lo común aplicado al acceso y gestión del agua como bien común."
         },
         "red": {
-          "meaning": "Energía",
-          "description": ""
+          "meaning": "Cultivo - Energía",
+          "description": "El cuidado y desarrollo de lo común aplicado a la generación y gestión de energía."
         },
         "green": {
-          "meaning": "Alimento",
-          "description": ""
+          "meaning": "Cultivo - Alimento",
+          "description": "El cuidado y desarrollo de lo común aplicado a la producción y distribución de alimentos."
         },
         "orange": {
-          "meaning": "Comunicación",
-          "description": ""
+          "meaning": "Cultivo - Comunicación",
+          "description": "El cuidado y desarrollo de lo común aplicado a redes de información y coordinación."
         },
         "yellow": {
-          "meaning": "Cobijo",
-          "description": ""
+          "meaning": "Cultivo - Cobijo",
+          "description": "El cuidado y desarrollo de lo común aplicado a la vivienda y espacios comunes."
         }
       }
     },
@@ -122,28 +122,28 @@
       "defaultColor": "yellow",
       "combinations": {
         "standard": {
-          "meaning": "Base",
-          "description": ""
+          "meaning": "Refugio",
+          "description": "El espacio seguro de acogida en economías recíprocas basadas en apoyo mutuo."
         },
         "blue": {
-          "meaning": "Agua",
-          "description": ""
+          "meaning": "Refugio - Agua",
+          "description": "El espacio seguro de acogida aplicado al acceso y gestión del agua como bien común."
         },
         "red": {
-          "meaning": "Energía",
-          "description": ""
+          "meaning": "Refugio - Energía",
+          "description": "El espacio seguro de acogida aplicado a la generación y gestión de energía."
         },
         "green": {
-          "meaning": "Alimento",
-          "description": ""
+          "meaning": "Refugio - Alimento",
+          "description": "El espacio seguro de acogida aplicado a la producción y distribución de alimentos."
         },
         "orange": {
-          "meaning": "Comunicación",
-          "description": ""
+          "meaning": "Refugio - Comunicación",
+          "description": "El espacio seguro de acogida aplicado a redes de información y coordinación."
         },
         "yellow": {
-          "meaning": "Cobijo",
-          "description": ""
+          "meaning": "Refugio - Cobijo",
+          "description": "El espacio seguro de acogida aplicado a la vivienda y espacios comunes."
         }
       }
     },
@@ -152,28 +152,28 @@
       "defaultColor": "orange",
       "combinations": {
         "standard": {
-          "meaning": "Base",
-          "description": ""
+          "meaning": "Red",
+          "description": "La conexión entre muchos nodos en economías recíprocas basadas en apoyo mutuo."
         },
         "blue": {
-          "meaning": "Agua",
-          "description": ""
+          "meaning": "Red - Agua",
+          "description": "La conexión entre muchos nodos aplicado al acceso y gestión del agua como bien común."
         },
         "red": {
-          "meaning": "Energía",
-          "description": ""
+          "meaning": "Red - Energía",
+          "description": "La conexión entre muchos nodos aplicado a la generación y gestión de energía."
         },
         "green": {
-          "meaning": "Alimento",
-          "description": ""
+          "meaning": "Red - Alimento",
+          "description": "La conexión entre muchos nodos aplicado a la producción y distribución de alimentos."
         },
         "orange": {
-          "meaning": "Comunicación",
-          "description": ""
+          "meaning": "Red - Comunicación",
+          "description": "La conexión entre muchos nodos aplicado a redes de información y coordinación."
         },
         "yellow": {
-          "meaning": "Cobijo",
-          "description": ""
+          "meaning": "Red - Cobijo",
+          "description": "La conexión entre muchos nodos aplicado a la vivienda y espacios comunes."
         }
       }
     },
@@ -182,28 +182,28 @@
       "defaultColor": "red",
       "combinations": {
         "standard": {
-          "meaning": "Base",
-          "description": ""
+          "meaning": "Transformación",
+          "description": "El cambio y la metamorfosis colectiva en economías recíprocas basadas en apoyo mutuo."
         },
         "blue": {
-          "meaning": "Agua",
-          "description": ""
+          "meaning": "Transformación - Agua",
+          "description": "El cambio y la metamorfosis colectiva aplicado al acceso y gestión del agua como bien común."
         },
         "red": {
-          "meaning": "Energía",
-          "description": ""
+          "meaning": "Transformación - Energía",
+          "description": "El cambio y la metamorfosis colectiva aplicado a la generación y gestión de energía."
         },
         "green": {
-          "meaning": "Alimento",
-          "description": ""
+          "meaning": "Transformación - Alimento",
+          "description": "El cambio y la metamorfosis colectiva aplicado a la producción y distribución de alimentos."
         },
         "orange": {
-          "meaning": "Comunicación",
-          "description": ""
+          "meaning": "Transformación - Comunicación",
+          "description": "El cambio y la metamorfosis colectiva aplicado a redes de información y coordinación."
         },
         "yellow": {
-          "meaning": "Cobijo",
-          "description": ""
+          "meaning": "Transformación - Cobijo",
+          "description": "El cambio y la metamorfosis colectiva aplicado a la vivienda y espacios comunes."
         }
       }
     },
@@ -212,28 +212,28 @@
       "defaultColor": "green",
       "combinations": {
         "standard": {
-          "meaning": "Base",
-          "description": ""
+          "meaning": "Cosecha",
+          "description": "El resultado compartido del trabajo común en economías recíprocas basadas en apoyo mutuo."
         },
         "blue": {
-          "meaning": "Agua",
-          "description": ""
+          "meaning": "Cosecha - Agua",
+          "description": "El resultado compartido del trabajo común aplicado al acceso y gestión del agua como bien común."
         },
         "red": {
-          "meaning": "Energía",
-          "description": ""
+          "meaning": "Cosecha - Energía",
+          "description": "El resultado compartido del trabajo común aplicado a la generación y gestión de energía."
         },
         "green": {
-          "meaning": "Alimento",
-          "description": ""
+          "meaning": "Cosecha - Alimento",
+          "description": "El resultado compartido del trabajo común aplicado a la producción y distribución de alimentos."
         },
         "orange": {
-          "meaning": "Comunicación",
-          "description": ""
+          "meaning": "Cosecha - Comunicación",
+          "description": "El resultado compartido del trabajo común aplicado a redes de información y coordinación."
         },
         "yellow": {
-          "meaning": "Cobijo",
-          "description": ""
+          "meaning": "Cosecha - Cobijo",
+          "description": "El resultado compartido del trabajo común aplicado a la vivienda y espacios comunes."
         }
       }
     },
@@ -242,28 +242,28 @@
       "defaultColor": "blue",
       "combinations": {
         "standard": {
-          "meaning": "Base",
-          "description": ""
+          "meaning": "Ciclo",
+          "description": "La repetición regenerativa en economías recíprocas basadas en apoyo mutuo."
         },
         "blue": {
-          "meaning": "Agua",
-          "description": ""
+          "meaning": "Ciclo - Agua",
+          "description": "La repetición regenerativa aplicado al acceso y gestión del agua como bien común."
         },
         "red": {
-          "meaning": "Energía",
-          "description": ""
+          "meaning": "Ciclo - Energía",
+          "description": "La repetición regenerativa aplicado a la generación y gestión de energía."
         },
         "green": {
-          "meaning": "Alimento",
-          "description": ""
+          "meaning": "Ciclo - Alimento",
+          "description": "La repetición regenerativa aplicado a la producción y distribución de alimentos."
         },
         "orange": {
-          "meaning": "Comunicación",
-          "description": ""
+          "meaning": "Ciclo - Comunicación",
+          "description": "La repetición regenerativa aplicado a redes de información y coordinación."
         },
         "yellow": {
-          "meaning": "Cobijo",
-          "description": ""
+          "meaning": "Ciclo - Cobijo",
+          "description": "La repetición regenerativa aplicado a la vivienda y espacios comunes."
         }
       }
     },
@@ -272,28 +272,28 @@
       "defaultColor": "orange",
       "combinations": {
         "standard": {
-          "meaning": "Base",
-          "description": ""
+          "meaning": "Encuentro",
+          "description": "El espacio de confluencia y diálogo en economías recíprocas basadas en apoyo mutuo."
         },
         "blue": {
-          "meaning": "Agua",
-          "description": ""
+          "meaning": "Encuentro - Agua",
+          "description": "El espacio de confluencia y diálogo aplicado al acceso y gestión del agua como bien común."
         },
         "red": {
-          "meaning": "Energía",
-          "description": ""
+          "meaning": "Encuentro - Energía",
+          "description": "El espacio de confluencia y diálogo aplicado a la generación y gestión de energía."
         },
         "green": {
-          "meaning": "Alimento",
-          "description": ""
+          "meaning": "Encuentro - Alimento",
+          "description": "El espacio de confluencia y diálogo aplicado a la producción y distribución de alimentos."
         },
         "orange": {
-          "meaning": "Comunicación",
-          "description": ""
+          "meaning": "Encuentro - Comunicación",
+          "description": "El espacio de confluencia y diálogo aplicado a redes de información y coordinación."
         },
         "yellow": {
-          "meaning": "Cobijo",
-          "description": ""
+          "meaning": "Encuentro - Cobijo",
+          "description": "El espacio de confluencia y diálogo aplicado a la vivienda y espacios comunes."
         }
       }
     },
@@ -302,28 +302,28 @@
       "defaultColor": "yellow",
       "combinations": {
         "standard": {
-          "meaning": "Base",
-          "description": ""
+          "meaning": "Balance",
+          "description": "El equilibrio entre dar y recibir en economías recíprocas basadas en apoyo mutuo."
         },
         "blue": {
-          "meaning": "Agua",
-          "description": ""
+          "meaning": "Balance - Agua",
+          "description": "El equilibrio entre dar y recibir aplicado al acceso y gestión del agua como bien común."
         },
         "red": {
-          "meaning": "Energía",
-          "description": ""
+          "meaning": "Balance - Energía",
+          "description": "El equilibrio entre dar y recibir aplicado a la generación y gestión de energía."
         },
         "green": {
-          "meaning": "Alimento",
-          "description": ""
+          "meaning": "Balance - Alimento",
+          "description": "El equilibrio entre dar y recibir aplicado a la producción y distribución de alimentos."
         },
         "orange": {
-          "meaning": "Comunicación",
-          "description": ""
+          "meaning": "Balance - Comunicación",
+          "description": "El equilibrio entre dar y recibir aplicado a redes de información y coordinación."
         },
         "yellow": {
-          "meaning": "Cobijo",
-          "description": ""
+          "meaning": "Balance - Cobijo",
+          "description": "El equilibrio entre dar y recibir aplicado a la vivienda y espacios comunes."
         }
       }
     },
@@ -332,28 +332,28 @@
       "defaultColor": "red",
       "combinations": {
         "standard": {
-          "meaning": "Base",
-          "description": ""
+          "meaning": "Impulso",
+          "description": "La energía que moviliza la acción en economías recíprocas basadas en apoyo mutuo."
         },
         "blue": {
-          "meaning": "Agua",
-          "description": ""
+          "meaning": "Impulso - Agua",
+          "description": "La energía que moviliza la acción aplicado al acceso y gestión del agua como bien común."
         },
         "red": {
-          "meaning": "Energía",
-          "description": ""
+          "meaning": "Impulso - Energía",
+          "description": "La energía que moviliza la acción aplicado a la generación y gestión de energía."
         },
         "green": {
-          "meaning": "Alimento",
-          "description": ""
+          "meaning": "Impulso - Alimento",
+          "description": "La energía que moviliza la acción aplicado a la producción y distribución de alimentos."
         },
         "orange": {
-          "meaning": "Comunicación",
-          "description": ""
+          "meaning": "Impulso - Comunicación",
+          "description": "La energía que moviliza la acción aplicado a redes de información y coordinación."
         },
         "yellow": {
-          "meaning": "Cobijo",
-          "description": ""
+          "meaning": "Impulso - Cobijo",
+          "description": "La energía que moviliza la acción aplicado a la vivienda y espacios comunes."
         }
       }
     },
@@ -362,28 +362,28 @@
       "defaultColor": "green",
       "combinations": {
         "standard": {
-          "meaning": "Base",
-          "description": ""
+          "meaning": "Arraigo",
+          "description": "La conexión con el territorio en economías recíprocas basadas en apoyo mutuo."
         },
         "blue": {
-          "meaning": "Agua",
-          "description": ""
+          "meaning": "Arraigo - Agua",
+          "description": "La conexión con el territorio aplicado al acceso y gestión del agua como bien común."
         },
         "red": {
-          "meaning": "Energía",
-          "description": ""
+          "meaning": "Arraigo - Energía",
+          "description": "La conexión con el territorio aplicado a la generación y gestión de energía."
         },
         "green": {
-          "meaning": "Alimento",
-          "description": ""
+          "meaning": "Arraigo - Alimento",
+          "description": "La conexión con el territorio aplicado a la producción y distribución de alimentos."
         },
         "orange": {
-          "meaning": "Comunicación",
-          "description": ""
+          "meaning": "Arraigo - Comunicación",
+          "description": "La conexión con el territorio aplicado a redes de información y coordinación."
         },
         "yellow": {
-          "meaning": "Cobijo",
-          "description": ""
+          "meaning": "Arraigo - Cobijo",
+          "description": "La conexión con el territorio aplicado a la vivienda y espacios comunes."
         }
       }
     },
@@ -392,28 +392,28 @@
       "defaultColor": "blue",
       "combinations": {
         "standard": {
-          "meaning": "Base",
-          "description": ""
+          "meaning": "Fuente",
+          "description": "El origen de los recursos comunes en economías recíprocas basadas en apoyo mutuo."
         },
         "blue": {
-          "meaning": "Agua",
-          "description": ""
+          "meaning": "Fuente - Agua",
+          "description": "El origen de los recursos comunes aplicado al acceso y gestión del agua como bien común."
         },
         "red": {
-          "meaning": "Energía",
-          "description": ""
+          "meaning": "Fuente - Energía",
+          "description": "El origen de los recursos comunes aplicado a la generación y gestión de energía."
         },
         "green": {
-          "meaning": "Alimento",
-          "description": ""
+          "meaning": "Fuente - Alimento",
+          "description": "El origen de los recursos comunes aplicado a la producción y distribución de alimentos."
         },
         "orange": {
-          "meaning": "Comunicación",
-          "description": ""
+          "meaning": "Fuente - Comunicación",
+          "description": "El origen de los recursos comunes aplicado a redes de información y coordinación."
         },
         "yellow": {
-          "meaning": "Cobijo",
-          "description": ""
+          "meaning": "Fuente - Cobijo",
+          "description": "El origen de los recursos comunes aplicado a la vivienda y espacios comunes."
         }
       }
     },
@@ -422,28 +422,28 @@
       "defaultColor": "orange",
       "combinations": {
         "standard": {
-          "meaning": "Base",
-          "description": ""
+          "meaning": "Transmisión",
+          "description": "El paso de saberes y recursos en economías recíprocas basadas en apoyo mutuo."
         },
         "blue": {
-          "meaning": "Agua",
-          "description": ""
+          "meaning": "Transmisión - Agua",
+          "description": "El paso de saberes y recursos aplicado al acceso y gestión del agua como bien común."
         },
         "red": {
-          "meaning": "Energía",
-          "description": ""
+          "meaning": "Transmisión - Energía",
+          "description": "El paso de saberes y recursos aplicado a la generación y gestión de energía."
         },
         "green": {
-          "meaning": "Alimento",
-          "description": ""
+          "meaning": "Transmisión - Alimento",
+          "description": "El paso de saberes y recursos aplicado a la producción y distribución de alimentos."
         },
         "orange": {
-          "meaning": "Comunicación",
-          "description": ""
+          "meaning": "Transmisión - Comunicación",
+          "description": "El paso de saberes y recursos aplicado a redes de información y coordinación."
         },
         "yellow": {
-          "meaning": "Cobijo",
-          "description": ""
+          "meaning": "Transmisión - Cobijo",
+          "description": "El paso de saberes y recursos aplicado a la vivienda y espacios comunes."
         }
       }
     },
@@ -452,28 +452,28 @@
       "defaultColor": "yellow",
       "combinations": {
         "standard": {
-          "meaning": "Base",
-          "description": ""
+          "meaning": "Resguardo",
+          "description": "La protección y conservación en economías recíprocas basadas en apoyo mutuo."
         },
         "blue": {
-          "meaning": "Agua",
-          "description": ""
+          "meaning": "Resguardo - Agua",
+          "description": "La protección y conservación aplicado al acceso y gestión del agua como bien común."
         },
         "red": {
-          "meaning": "Energía",
-          "description": ""
+          "meaning": "Resguardo - Energía",
+          "description": "La protección y conservación aplicado a la generación y gestión de energía."
         },
         "green": {
-          "meaning": "Alimento",
-          "description": ""
+          "meaning": "Resguardo - Alimento",
+          "description": "La protección y conservación aplicado a la producción y distribución de alimentos."
         },
         "orange": {
-          "meaning": "Comunicación",
-          "description": ""
+          "meaning": "Resguardo - Comunicación",
+          "description": "La protección y conservación aplicado a redes de información y coordinación."
         },
         "yellow": {
-          "meaning": "Cobijo",
-          "description": ""
+          "meaning": "Resguardo - Cobijo",
+          "description": "La protección y conservación aplicado a la vivienda y espacios comunes."
         }
       }
     },
@@ -482,28 +482,28 @@
       "defaultColor": "red",
       "combinations": {
         "standard": {
-          "meaning": "Base",
-          "description": ""
+          "meaning": "Activación",
+          "description": "El despertar de potencialidades en economías recíprocas basadas en apoyo mutuo."
         },
         "blue": {
-          "meaning": "Agua",
-          "description": ""
+          "meaning": "Activación - Agua",
+          "description": "El despertar de potencialidades aplicado al acceso y gestión del agua como bien común."
         },
         "red": {
-          "meaning": "Energía",
-          "description": ""
+          "meaning": "Activación - Energía",
+          "description": "El despertar de potencialidades aplicado a la generación y gestión de energía."
         },
         "green": {
-          "meaning": "Alimento",
-          "description": ""
+          "meaning": "Activación - Alimento",
+          "description": "El despertar de potencialidades aplicado a la producción y distribución de alimentos."
         },
         "orange": {
-          "meaning": "Comunicación",
-          "description": ""
+          "meaning": "Activación - Comunicación",
+          "description": "El despertar de potencialidades aplicado a redes de información y coordinación."
         },
         "yellow": {
-          "meaning": "Cobijo",
-          "description": ""
+          "meaning": "Activación - Cobijo",
+          "description": "El despertar de potencialidades aplicado a la vivienda y espacios comunes."
         }
       }
     },
@@ -512,28 +512,28 @@
       "defaultColor": "green",
       "combinations": {
         "standard": {
-          "meaning": "Base",
-          "description": ""
+          "meaning": "Siembra",
+          "description": "La inversión para el futuro común en economías recíprocas basadas en apoyo mutuo."
         },
         "blue": {
-          "meaning": "Agua",
-          "description": ""
+          "meaning": "Siembra - Agua",
+          "description": "La inversión para el futuro común aplicado al acceso y gestión del agua como bien común."
         },
         "red": {
-          "meaning": "Energía",
-          "description": ""
+          "meaning": "Siembra - Energía",
+          "description": "La inversión para el futuro común aplicado a la generación y gestión de energía."
         },
         "green": {
-          "meaning": "Alimento",
-          "description": ""
+          "meaning": "Siembra - Alimento",
+          "description": "La inversión para el futuro común aplicado a la producción y distribución de alimentos."
         },
         "orange": {
-          "meaning": "Comunicación",
-          "description": ""
+          "meaning": "Siembra - Comunicación",
+          "description": "La inversión para el futuro común aplicado a redes de información y coordinación."
         },
         "yellow": {
-          "meaning": "Cobijo",
-          "description": ""
+          "meaning": "Siembra - Cobijo",
+          "description": "La inversión para el futuro común aplicado a la vivienda y espacios comunes."
         }
       }
     },
@@ -542,28 +542,28 @@
       "defaultColor": "blue",
       "combinations": {
         "standard": {
-          "meaning": "Base",
-          "description": ""
+          "meaning": "Filtración",
+          "description": "La purificación y discernimiento en economías recíprocas basadas en apoyo mutuo."
         },
         "blue": {
-          "meaning": "Agua",
-          "description": ""
+          "meaning": "Filtración - Agua",
+          "description": "La purificación y discernimiento aplicado al acceso y gestión del agua como bien común."
         },
         "red": {
-          "meaning": "Energía",
-          "description": ""
+          "meaning": "Filtración - Energía",
+          "description": "La purificación y discernimiento aplicado a la generación y gestión de energía."
         },
         "green": {
-          "meaning": "Alimento",
-          "description": ""
+          "meaning": "Filtración - Alimento",
+          "description": "La purificación y discernimiento aplicado a la producción y distribución de alimentos."
         },
         "orange": {
-          "meaning": "Comunicación",
-          "description": ""
+          "meaning": "Filtración - Comunicación",
+          "description": "La purificación y discernimiento aplicado a redes de información y coordinación."
         },
         "yellow": {
-          "meaning": "Cobijo",
-          "description": ""
+          "meaning": "Filtración - Cobijo",
+          "description": "La purificación y discernimiento aplicado a la vivienda y espacios comunes."
         }
       }
     },
@@ -572,28 +572,28 @@
       "defaultColor": "orange",
       "combinations": {
         "standard": {
-          "meaning": "Base",
-          "description": ""
+          "meaning": "Código",
+          "description": "Las reglas compartidas de convivencia en economías recíprocas basadas en apoyo mutuo."
         },
         "blue": {
-          "meaning": "Agua",
-          "description": ""
+          "meaning": "Código - Agua",
+          "description": "Las reglas compartidas de convivencia aplicado al acceso y gestión del agua como bien común."
         },
         "red": {
-          "meaning": "Energía",
-          "description": ""
+          "meaning": "Código - Energía",
+          "description": "Las reglas compartidas de convivencia aplicado a la generación y gestión de energía."
         },
         "green": {
-          "meaning": "Alimento",
-          "description": ""
+          "meaning": "Código - Alimento",
+          "description": "Las reglas compartidas de convivencia aplicado a la producción y distribución de alimentos."
         },
         "orange": {
-          "meaning": "Comunicación",
-          "description": ""
+          "meaning": "Código - Comunicación",
+          "description": "Las reglas compartidas de convivencia aplicado a redes de información y coordinación."
         },
         "yellow": {
-          "meaning": "Cobijo",
-          "description": ""
+          "meaning": "Código - Cobijo",
+          "description": "Las reglas compartidas de convivencia aplicado a la vivienda y espacios comunes."
         }
       }
     },
@@ -602,28 +602,28 @@
       "defaultColor": "yellow",
       "combinations": {
         "standard": {
-          "meaning": "Base",
-          "description": ""
+          "meaning": "Techo",
+          "description": "La cobertura y protección colectiva en economías recíprocas basadas en apoyo mutuo."
         },
         "blue": {
-          "meaning": "Agua",
-          "description": ""
+          "meaning": "Techo - Agua",
+          "description": "La cobertura y protección colectiva aplicado al acceso y gestión del agua como bien común."
         },
         "red": {
-          "meaning": "Energía",
-          "description": ""
+          "meaning": "Techo - Energía",
+          "description": "La cobertura y protección colectiva aplicado a la generación y gestión de energía."
         },
         "green": {
-          "meaning": "Alimento",
-          "description": ""
+          "meaning": "Techo - Alimento",
+          "description": "La cobertura y protección colectiva aplicado a la producción y distribución de alimentos."
         },
         "orange": {
-          "meaning": "Comunicación",
-          "description": ""
+          "meaning": "Techo - Comunicación",
+          "description": "La cobertura y protección colectiva aplicado a redes de información y coordinación."
         },
         "yellow": {
-          "meaning": "Cobijo",
-          "description": ""
+          "meaning": "Techo - Cobijo",
+          "description": "La cobertura y protección colectiva aplicado a la vivienda y espacios comunes."
         }
       }
     },
@@ -632,28 +632,28 @@
       "defaultColor": "red",
       "combinations": {
         "standard": {
-          "meaning": "Base",
-          "description": ""
+          "meaning": "Chispa",
+          "description": "El inicio de la transformación energética en economías recíprocas basadas en apoyo mutuo."
         },
         "blue": {
-          "meaning": "Agua",
-          "description": ""
+          "meaning": "Chispa - Agua",
+          "description": "El inicio de la transformación energética aplicado al acceso y gestión del agua como bien común."
         },
         "red": {
-          "meaning": "Energía",
-          "description": ""
+          "meaning": "Chispa - Energía",
+          "description": "El inicio de la transformación energética aplicado a la generación y gestión de energía."
         },
         "green": {
-          "meaning": "Alimento",
-          "description": ""
+          "meaning": "Chispa - Alimento",
+          "description": "El inicio de la transformación energética aplicado a la producción y distribución de alimentos."
         },
         "orange": {
-          "meaning": "Comunicación",
-          "description": ""
+          "meaning": "Chispa - Comunicación",
+          "description": "El inicio de la transformación energética aplicado a redes de información y coordinación."
         },
         "yellow": {
-          "meaning": "Cobijo",
-          "description": ""
+          "meaning": "Chispa - Cobijo",
+          "description": "El inicio de la transformación energética aplicado a la vivienda y espacios comunes."
         }
       }
     },
@@ -662,28 +662,28 @@
       "defaultColor": "green",
       "combinations": {
         "standard": {
-          "meaning": "Base",
-          "description": ""
+          "meaning": "Fermentación",
+          "description": "La transformación lenta y nutritiva en economías recíprocas basadas en apoyo mutuo."
         },
         "blue": {
-          "meaning": "Agua",
-          "description": ""
+          "meaning": "Fermentación - Agua",
+          "description": "La transformación lenta y nutritiva aplicado al acceso y gestión del agua como bien común."
         },
         "red": {
-          "meaning": "Energía",
-          "description": ""
+          "meaning": "Fermentación - Energía",
+          "description": "La transformación lenta y nutritiva aplicado a la generación y gestión de energía."
         },
         "green": {
-          "meaning": "Alimento",
-          "description": ""
+          "meaning": "Fermentación - Alimento",
+          "description": "La transformación lenta y nutritiva aplicado a la producción y distribución de alimentos."
         },
         "orange": {
-          "meaning": "Comunicación",
-          "description": ""
+          "meaning": "Fermentación - Comunicación",
+          "description": "La transformación lenta y nutritiva aplicado a redes de información y coordinación."
         },
         "yellow": {
-          "meaning": "Cobijo",
-          "description": ""
+          "meaning": "Fermentación - Cobijo",
+          "description": "La transformación lenta y nutritiva aplicado a la vivienda y espacios comunes."
         }
       }
     },
@@ -692,28 +692,28 @@
       "defaultColor": "blue",
       "combinations": {
         "standard": {
-          "meaning": "Base",
-          "description": ""
+          "meaning": "Pozos",
+          "description": "El acceso compartido a recursos profundos en economías recíprocas basadas en apoyo mutuo."
         },
         "blue": {
-          "meaning": "Agua",
-          "description": ""
+          "meaning": "Pozos - Agua",
+          "description": "El acceso compartido a recursos profundos aplicado al acceso y gestión del agua como bien común."
         },
         "red": {
-          "meaning": "Energía",
-          "description": ""
+          "meaning": "Pozos - Energía",
+          "description": "El acceso compartido a recursos profundos aplicado a la generación y gestión de energía."
         },
         "green": {
-          "meaning": "Alimento",
-          "description": ""
+          "meaning": "Pozos - Alimento",
+          "description": "El acceso compartido a recursos profundos aplicado a la producción y distribución de alimentos."
         },
         "orange": {
-          "meaning": "Comunicación",
-          "description": ""
+          "meaning": "Pozos - Comunicación",
+          "description": "El acceso compartido a recursos profundos aplicado a redes de información y coordinación."
         },
         "yellow": {
-          "meaning": "Cobijo",
-          "description": ""
+          "meaning": "Pozos - Cobijo",
+          "description": "El acceso compartido a recursos profundos aplicado a la vivienda y espacios comunes."
         }
       }
     },
@@ -722,28 +722,28 @@
       "defaultColor": "orange",
       "combinations": {
         "standard": {
-          "meaning": "Base",
-          "description": ""
+          "meaning": "Antena",
+          "description": "La captación de señales y energías en economías recíprocas basadas en apoyo mutuo."
         },
         "blue": {
-          "meaning": "Agua",
-          "description": ""
+          "meaning": "Antena - Agua",
+          "description": "La captación de señales y energías aplicado al acceso y gestión del agua como bien común."
         },
         "red": {
-          "meaning": "Energía",
-          "description": ""
+          "meaning": "Antena - Energía",
+          "description": "La captación de señales y energías aplicado a la generación y gestión de energía."
         },
         "green": {
-          "meaning": "Alimento",
-          "description": ""
+          "meaning": "Antena - Alimento",
+          "description": "La captación de señales y energías aplicado a la producción y distribución de alimentos."
         },
         "orange": {
-          "meaning": "Comunicación",
-          "description": ""
+          "meaning": "Antena - Comunicación",
+          "description": "La captación de señales y energías aplicado a redes de información y coordinación."
         },
         "yellow": {
-          "meaning": "Cobijo",
-          "description": ""
+          "meaning": "Antena - Cobijo",
+          "description": "La captación de señales y energías aplicado a la vivienda y espacios comunes."
         }
       }
     },
@@ -752,28 +752,28 @@
       "defaultColor": "yellow",
       "combinations": {
         "standard": {
-          "meaning": "Base",
-          "description": ""
+          "meaning": "Hogar",
+          "description": "El espacio de intimidad y pertenencia en economías recíprocas basadas en apoyo mutuo."
         },
         "blue": {
-          "meaning": "Agua",
-          "description": ""
+          "meaning": "Hogar - Agua",
+          "description": "El espacio de intimidad y pertenencia aplicado al acceso y gestión del agua como bien común."
         },
         "red": {
-          "meaning": "Energía",
-          "description": ""
+          "meaning": "Hogar - Energía",
+          "description": "El espacio de intimidad y pertenencia aplicado a la generación y gestión de energía."
         },
         "green": {
-          "meaning": "Alimento",
-          "description": ""
+          "meaning": "Hogar - Alimento",
+          "description": "El espacio de intimidad y pertenencia aplicado a la producción y distribución de alimentos."
         },
         "orange": {
-          "meaning": "Comunicación",
-          "description": ""
+          "meaning": "Hogar - Comunicación",
+          "description": "El espacio de intimidad y pertenencia aplicado a redes de información y coordinación."
         },
         "yellow": {
-          "meaning": "Cobijo",
-          "description": ""
+          "meaning": "Hogar - Cobijo",
+          "description": "El espacio de intimidad y pertenencia aplicado a la vivienda y espacios comunes."
         }
       }
     },
@@ -782,28 +782,28 @@
       "defaultColor": "red",
       "combinations": {
         "standard": {
-          "meaning": "Base",
-          "description": ""
+          "meaning": "Combustión",
+          "description": "La transformación intensa de energía en economías recíprocas basadas en apoyo mutuo."
         },
         "blue": {
-          "meaning": "Agua",
-          "description": ""
+          "meaning": "Combustión - Agua",
+          "description": "La transformación intensa de energía aplicado al acceso y gestión del agua como bien común."
         },
         "red": {
-          "meaning": "Energía",
-          "description": ""
+          "meaning": "Combustión - Energía",
+          "description": "La transformación intensa de energía aplicado a la generación y gestión de energía."
         },
         "green": {
-          "meaning": "Alimento",
-          "description": ""
+          "meaning": "Combustión - Alimento",
+          "description": "La transformación intensa de energía aplicado a la producción y distribución de alimentos."
         },
         "orange": {
-          "meaning": "Comunicación",
-          "description": ""
+          "meaning": "Combustión - Comunicación",
+          "description": "La transformación intensa de energía aplicado a redes de información y coordinación."
         },
         "yellow": {
-          "meaning": "Cobijo",
-          "description": ""
+          "meaning": "Combustión - Cobijo",
+          "description": "La transformación intensa de energía aplicado a la vivienda y espacios comunes."
         }
       }
     },
@@ -812,28 +812,28 @@
       "defaultColor": "green",
       "combinations": {
         "standard": {
-          "meaning": "Base",
-          "description": ""
+          "meaning": "Riego",
+          "description": "La distribución nutritiva de recursos en economías recíprocas basadas en apoyo mutuo."
         },
         "blue": {
-          "meaning": "Agua",
-          "description": ""
+          "meaning": "Riego - Agua",
+          "description": "La distribución nutritiva de recursos aplicado al acceso y gestión del agua como bien común."
         },
         "red": {
-          "meaning": "Energía",
-          "description": ""
+          "meaning": "Riego - Energía",
+          "description": "La distribución nutritiva de recursos aplicado a la generación y gestión de energía."
         },
         "green": {
-          "meaning": "Alimento",
-          "description": ""
+          "meaning": "Riego - Alimento",
+          "description": "La distribución nutritiva de recursos aplicado a la producción y distribución de alimentos."
         },
         "orange": {
-          "meaning": "Comunicación",
-          "description": ""
+          "meaning": "Riego - Comunicación",
+          "description": "La distribución nutritiva de recursos aplicado a redes de información y coordinación."
         },
         "yellow": {
-          "meaning": "Cobijo",
-          "description": ""
+          "meaning": "Riego - Cobijo",
+          "description": "La distribución nutritiva de recursos aplicado a la vivienda y espacios comunes."
         }
       }
     },
@@ -842,28 +842,28 @@
       "defaultColor": "blue",
       "combinations": {
         "standard": {
-          "meaning": "Base",
-          "description": ""
+          "meaning": "Cisterna",
+          "description": "El almacenamiento y gestión de lo común en economías recíprocas basadas en apoyo mutuo."
         },
         "blue": {
-          "meaning": "Agua",
-          "description": ""
+          "meaning": "Cisterna - Agua",
+          "description": "El almacenamiento y gestión de lo común aplicado al acceso y gestión del agua como bien común."
         },
         "red": {
-          "meaning": "Energía",
-          "description": ""
+          "meaning": "Cisterna - Energía",
+          "description": "El almacenamiento y gestión de lo común aplicado a la generación y gestión de energía."
         },
         "green": {
-          "meaning": "Alimento",
-          "description": ""
+          "meaning": "Cisterna - Alimento",
+          "description": "El almacenamiento y gestión de lo común aplicado a la producción y distribución de alimentos."
         },
         "orange": {
-          "meaning": "Comunicación",
-          "description": ""
+          "meaning": "Cisterna - Comunicación",
+          "description": "El almacenamiento y gestión de lo común aplicado a redes de información y coordinación."
         },
         "yellow": {
-          "meaning": "Cobijo",
-          "description": ""
+          "meaning": "Cisterna - Cobijo",
+          "description": "El almacenamiento y gestión de lo común aplicado a la vivienda y espacios comunes."
         }
       }
     },
@@ -872,28 +872,28 @@
       "defaultColor": "orange",
       "combinations": {
         "standard": {
-          "meaning": "Base",
-          "description": ""
+          "meaning": "Canal",
+          "description": "El medio para el flujo de información en economías recíprocas basadas en apoyo mutuo."
         },
         "blue": {
-          "meaning": "Agua",
-          "description": ""
+          "meaning": "Canal - Agua",
+          "description": "El medio para el flujo de información aplicado al acceso y gestión del agua como bien común."
         },
         "red": {
-          "meaning": "Energía",
-          "description": ""
+          "meaning": "Canal - Energía",
+          "description": "El medio para el flujo de información aplicado a la generación y gestión de energía."
         },
         "green": {
-          "meaning": "Alimento",
-          "description": ""
+          "meaning": "Canal - Alimento",
+          "description": "El medio para el flujo de información aplicado a la producción y distribución de alimentos."
         },
         "orange": {
-          "meaning": "Comunicación",
-          "description": ""
+          "meaning": "Canal - Comunicación",
+          "description": "El medio para el flujo de información aplicado a redes de información y coordinación."
         },
         "yellow": {
-          "meaning": "Cobijo",
-          "description": ""
+          "meaning": "Canal - Cobijo",
+          "description": "El medio para el flujo de información aplicado a la vivienda y espacios comunes."
         }
       }
     },
@@ -902,28 +902,28 @@
       "defaultColor": "yellow",
       "combinations": {
         "standard": {
-          "meaning": "Base",
-          "description": ""
+          "meaning": "Nido",
+          "description": "El espacio de reproducción de lo común en economías recíprocas basadas en apoyo mutuo."
         },
         "blue": {
-          "meaning": "Agua",
-          "description": ""
+          "meaning": "Nido - Agua",
+          "description": "El espacio de reproducción de lo común aplicado al acceso y gestión del agua como bien común."
         },
         "red": {
-          "meaning": "Energía",
-          "description": ""
+          "meaning": "Nido - Energía",
+          "description": "El espacio de reproducción de lo común aplicado a la generación y gestión de energía."
         },
         "green": {
-          "meaning": "Alimento",
-          "description": ""
+          "meaning": "Nido - Alimento",
+          "description": "El espacio de reproducción de lo común aplicado a la producción y distribución de alimentos."
         },
         "orange": {
-          "meaning": "Comunicación",
-          "description": ""
+          "meaning": "Nido - Comunicación",
+          "description": "El espacio de reproducción de lo común aplicado a redes de información y coordinación."
         },
         "yellow": {
-          "meaning": "Cobijo",
-          "description": ""
+          "meaning": "Nido - Cobijo",
+          "description": "El espacio de reproducción de lo común aplicado a la vivienda y espacios comunes."
         }
       }
     },
@@ -932,28 +932,28 @@
       "defaultColor": "red",
       "combinations": {
         "standard": {
-          "meaning": "Base",
-          "description": ""
+          "meaning": "Motor",
+          "description": "El mecanismo de acción sostenida en economías recíprocas basadas en apoyo mutuo."
         },
         "blue": {
-          "meaning": "Agua",
-          "description": ""
+          "meaning": "Motor - Agua",
+          "description": "El mecanismo de acción sostenida aplicado al acceso y gestión del agua como bien común."
         },
         "red": {
-          "meaning": "Energía",
-          "description": ""
+          "meaning": "Motor - Energía",
+          "description": "El mecanismo de acción sostenida aplicado a la generación y gestión de energía."
         },
         "green": {
-          "meaning": "Alimento",
-          "description": ""
+          "meaning": "Motor - Alimento",
+          "description": "El mecanismo de acción sostenida aplicado a la producción y distribución de alimentos."
         },
         "orange": {
-          "meaning": "Comunicación",
-          "description": ""
+          "meaning": "Motor - Comunicación",
+          "description": "El mecanismo de acción sostenida aplicado a redes de información y coordinación."
         },
         "yellow": {
-          "meaning": "Cobijo",
-          "description": ""
+          "meaning": "Motor - Cobijo",
+          "description": "El mecanismo de acción sostenida aplicado a la vivienda y espacios comunes."
         }
       }
     },
@@ -962,28 +962,28 @@
       "defaultColor": "green",
       "combinations": {
         "standard": {
-          "meaning": "Base",
-          "description": ""
+          "meaning": "Raíz",
+          "description": "La conexión profunda con lo fundamental en economías recíprocas basadas en apoyo mutuo."
         },
         "blue": {
-          "meaning": "Agua",
-          "description": ""
+          "meaning": "Raíz - Agua",
+          "description": "La conexión profunda con lo fundamental aplicado al acceso y gestión del agua como bien común."
         },
         "red": {
-          "meaning": "Energía",
-          "description": ""
+          "meaning": "Raíz - Energía",
+          "description": "La conexión profunda con lo fundamental aplicado a la generación y gestión de energía."
         },
         "green": {
-          "meaning": "Alimento",
-          "description": ""
+          "meaning": "Raíz - Alimento",
+          "description": "La conexión profunda con lo fundamental aplicado a la producción y distribución de alimentos."
         },
         "orange": {
-          "meaning": "Comunicación",
-          "description": ""
+          "meaning": "Raíz - Comunicación",
+          "description": "La conexión profunda con lo fundamental aplicado a redes de información y coordinación."
         },
         "yellow": {
-          "meaning": "Cobijo",
-          "description": ""
+          "meaning": "Raíz - Cobijo",
+          "description": "La conexión profunda con lo fundamental aplicado a la vivienda y espacios comunes."
         }
       }
     }

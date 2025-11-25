@@ -1813,3 +1813,365 @@ body.keyboard-mode .key:hover {
 body.keyboard-mode .key:focus {
     transform: translateY(1px);
 }
+
+/* ==========================================================================
+   DOCUMENTATION PAGE STYLES
+   ========================================================================== */
+
+/* Introduction Section */
+.doc-intro {
+    max-width: 800px;
+    margin: 0 auto 4rem;
+    background: var(--primary-white);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.doc-intro h2 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #2d2d2d;
+    margin-bottom: 1rem;
+    margin-top: 2rem;
+}
+
+.doc-intro h2:first-child {
+    margin-top: 0;
+}
+
+.doc-intro p {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: #535353;
+    margin-bottom: 1rem;
+}
+
+.doc-intro em {
+    color: #2d2d2d;
+    font-style: italic;
+}
+
+.doc-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 1rem 0 1.5rem 1.5rem;
+}
+
+.doc-list li {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: #535353;
+    padding-left: 1.5rem;
+    position: relative;
+    margin-bottom: 0.5rem;
+}
+
+.doc-list li:before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #535353;
+    font-weight: bold;
+}
+
+/* Ejes Section */
+.ejes-section {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.ejes-section h2 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #2d2d2d;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.ejes-intro {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #535353;
+    text-align: center;
+    margin-bottom: 2.5rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Tabs Container */
+.tabs-container {
+    background: var(--primary-white);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+}
+
+/* Tabs Navigation */
+.tabs-nav {
+    display: flex;
+    border-bottom: 2px solid #e0e0e0;
+    background: #f8f8f8;
+    overflow-x: auto;
+}
+
+.tabs-nav::-webkit-scrollbar {
+    height: 4px;
+}
+
+.tabs-nav::-webkit-scrollbar-track {
+    background: #e0e0e0;
+}
+
+.tabs-nav::-webkit-scrollbar-thumb {
+    background: #999;
+    border-radius: 2px;
+}
+
+.tab-button {
+    flex: 1;
+    min-width: 140px;
+    padding: 1.2rem 1rem 1.2rem 2.5rem;
+    background: transparent;
+    border: none;
+    font-family: 'Outfit', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #666;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-bottom: 3px solid transparent;
+    position: relative;
+}
+
+/* Color dots for each tab */
+.tab-button::before {
+    content: '';
+    position: absolute;
+    left: 0.8rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 12px;
+    height: 12px;
+    border-radius: 0;
+    /* Squares like Re(s)etario cards */
+    background: #ccc;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.tab-button[data-color="gray"]::before {
+    background: linear-gradient(135deg, #535353 0%, #2d2d2d 100%);
+}
+
+.tab-button[data-color="blue"]::before {
+    background: linear-gradient(135deg, #4598ff 0%, #3580e6 100%);
+}
+
+.tab-button[data-color="green"]::before {
+    background: linear-gradient(135deg, #00d084 0%, #00a869 100%);
+}
+
+.tab-button[data-color="yellow"]::before {
+    background: linear-gradient(135deg, #fee71c 0%, #fdd800 100%);
+}
+
+.tab-button[data-color="red"]::before {
+    background: linear-gradient(135deg, #fd0202 0%, #cc0000 100%);
+}
+
+.tab-button[data-color="orange"]::before {
+    background: linear-gradient(135deg, #ff6b35 0%, #ff5722 100%);
+}
+
+.tab-button:hover {
+    background: rgba(0, 0, 0, 0.03);
+    color: #2d2d2d;
+}
+
+.tab-button:hover::before {
+    transform: translateY(-50%) scale(1.3);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
+}
+
+/* Active tab states with colors */
+.tab-button.active {
+    font-weight: 700;
+}
+
+.tab-button.active::before {
+    width: 16px;
+    height: 16px;
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.5), 0 3px 8px rgba(0, 0, 0, 0.3);
+}
+
+.tab-button.active[data-tab="intro"] {
+    color: #535353;
+    border-bottom-color: #535353;
+    background: rgba(83, 83, 83, 0.05);
+}
+
+.tab-button.active[data-tab="agua"] {
+    color: #4598ff;
+    border-bottom-color: #4598ff;
+    background: rgba(69, 152, 255, 0.05);
+}
+
+.tab-button.active[data-tab="alimento"] {
+    color: #00d084;
+    border-bottom-color: #00d084;
+    background: rgba(0, 208, 132, 0.05);
+}
+
+.tab-button.active[data-tab="cobijo"] {
+    color: #fdd800;
+    border-bottom-color: #fdd800;
+    background: rgba(254, 231, 28, 0.08);
+}
+
+.tab-button.active[data-tab="energia"] {
+    color: #fd0202;
+    border-bottom-color: #fd0202;
+    background: rgba(253, 2, 2, 0.05);
+}
+
+.tab-button.active[data-tab="comunicacion"] {
+    color: #ff6b35;
+    border-bottom-color: #ff6b35;
+    background: rgba(255, 107, 53, 0.05);
+}
+
+/* Tab Content */
+.tabs-content {
+    padding: 2.5rem 2rem;
+    min-height: 400px;
+}
+
+.tab-panel {
+    display: none;
+}
+
+.tab-panel.active {
+    display: block;
+    animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.tab-panel h3 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #2d2d2d;
+    margin-bottom: 2rem;
+}
+
+.eje-content h4 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #2d2d2d;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.eje-content h4:first-child {
+    margin-top: 0;
+}
+
+.eje-content p {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: #535353;
+    margin-bottom: 1rem;
+}
+
+.ejes-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 1.5rem 0;
+}
+
+.ejes-list li {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.05rem;
+    line-height: 1.9;
+    color: #535353;
+    padding-left: 1.8rem;
+    position: relative;
+    margin-bottom: 0.8rem;
+}
+
+.ejes-list li:before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: #535353;
+    font-weight: bold;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .doc-intro {
+        padding: 1.5rem;
+    }
+
+    .doc-intro h2 {
+        font-size: 1.3rem;
+    }
+
+    .doc-intro p {
+        font-size: 1rem;
+    }
+
+    .ejes-section h2 {
+        font-size: 1.6rem;
+    }
+
+    .ejes-intro {
+        font-size: 1rem;
+    }
+
+    .tabs-nav {
+        flex-direction: column;
+    }
+
+    .tab-button {
+        min-width: 100%;
+        text-align: left;
+        padding: 1rem 1.5rem;
+    }
+
+    .tabs-content {
+        padding: 1.5rem 1rem;
+    }
+
+    .tab-panel h3 {
+        font-size: 1.5rem;
+    }
+
+    .eje-content h4 {
+        font-size: 1.2rem;
+    }
+
+    .eje-content p {
+        font-size: 1rem;
+    }
+}

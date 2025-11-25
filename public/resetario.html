@@ -70,30 +70,59 @@
             <h1 class="resetario-title">Re(s)etario</h1>
 
             <section id="resetario-ai" class="resetario-ai-section">
-                <h2 class="resetario-ai-title">Asistente del Re(s)etario</h2>
-                <p class="resetario-ai-description">
-                    Haz preguntas sobre el Re(s)etario y sus documentos. El asistente usa la API de Gemini a través de un
-                    servidor intermedio para proteger las claves y responder en español.
-                </p>
+                <div class="resetario-ai-device">
+                    <div class="tp7-top-row">
+                        <div class="tp7-disk">
+                            <div class="tp7-disk-center"></div>
+                        </div>
+                        <div class="tp7-screen">
+                            <div class="tp7-screen-header">
+                                <span class="tp7-screen-label">TODAY</span>
+                            </div>
+                            <div class="tp7-screen-meta">
+                                <span class="tp7-screen-meta-time">0.0|1.37</span>
+                                <span class="tp7-screen-meta-slot">04</span>
+                            </div>
+                            <div id="resetario-ai-status" class="resetario-ai-status" aria-live="polite"></div>
+                        </div>
+                    </div>
 
-                <form id="resetario-ai-form" class="resetario-ai-form">
-                    <label for="resetario-ai-question" class="resetario-ai-label">
-                        Escribe tu pregunta:
-                    </label>
-                    <textarea id="resetario-ai-question" class="resetario-ai-textarea" rows="3"
-                        placeholder="Por ejemplo: ¿Cómo se combinan los glyphs para trabajar el eje de Agua?"
-                        required></textarea>
+                    <div class="tp7-middle">
+                        <h2 class="resetario-ai-title">Asistente del Re(s)etario</h2>
+                        <p class="resetario-ai-description">
+                            Haz preguntas sobre el Re(s)etario y sus documentos. El asistente usa la API de Gemini a
+                            través de un servidor intermedio para proteger las claves y responder en español.
+                        </p>
 
-                    <button type="submit" class="resetario-ai-button">
-                        Preguntar al Re(s)etario
-                    </button>
-                </form>
+                        <form id="resetario-ai-form" class="resetario-ai-form">
+                            <div class="resetario-ai-input-block">
+                                <label for="resetario-ai-question" class="resetario-ai-label">
+                                    Escribe tu pregunta:
+                                </label>
+                                <textarea id="resetario-ai-question" class="resetario-ai-textarea" rows="3"
+                                    placeholder="Por ejemplo: ¿Cómo se combinan los glyphs para trabajar el eje de Agua?"
+                                    required></textarea>
+                            </div>
 
-                <div id="resetario-ai-status" class="resetario-ai-status" aria-live="polite"></div>
+                            <div class="tp7-transport-bar">
+                                <button type="button" class="tp7-key tp7-key-rec" aria-hidden="true"
+                                    tabindex="-1"></button>
 
-                <div id="resetario-ai-answer" class="resetario-ai-answer" hidden>
-                    <h3>Respuesta</h3>
-                    <div id="resetario-ai-answer-text"></div>
+                                <button type="submit"
+                                    class="resetario-ai-button tp7-key tp7-key-play">
+                                    Preguntar
+                                </button>
+
+                                <button type="button" class="tp7-key tp7-key-stop" aria-hidden="true"
+                                    tabindex="-1"></button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div id="resetario-ai-answer" class="resetario-ai-answer" hidden>
+                        <h3>Respuesta</h3>
+                        <div id="resetario-ai-answer-text"></div>
+                    </div>
                 </div>
             </section>
 

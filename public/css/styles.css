@@ -1325,6 +1325,21 @@ footer {
 
 /* Responsive para tarjetas */
 @media (max-width: 768px) {
+    .resetario-container {
+        max-width: 100%;
+        padding: 1.5rem 2rem;
+        margin-left: -2rem;
+        margin-right: -2rem;
+        width: calc(100% + 4rem);
+    }
+
+    .keyboard-section {
+        width: calc(100% + 4rem);
+        margin-left: -2rem;
+        margin-right: -2rem;
+        border-radius: 8px;
+    }
+
     .resetario-title {
         font-size: 2rem;
         margin-bottom: 1.5rem;
@@ -2149,7 +2164,7 @@ body.keyboard-mode .key:focus {
 
     .tabs-container {
         width: 100%;
-        border-radius: 0;
+        border-radius: 8px;
         margin-left: -2rem;
         margin-right: -2rem;
         width: calc(100% + 4rem);
@@ -2157,14 +2172,14 @@ body.keyboard-mode .key:focus {
 
     .tabs-nav {
         flex-direction: row;
-        overflow-x: auto;
+        overflow-x: hidden;
         -webkit-overflow-scrolling: touch;
     }
 
     .tab-button {
-        min-width: 50px;
-        flex: 0 0 auto;
-        padding: 0.8rem 0.5rem;
+        min-width: 0;
+        flex: 1;
+        padding: 1.2rem 1rem;
         justify-content: center;
     }
 

@@ -4,10 +4,12 @@
 firebase-debug.log
 firestore-debug.log
 ui-debug.log
+firebase.json
 
 # Dependencies
 node_modules/
 package-lock.json
+package.json
 
 # Logs
 *.log

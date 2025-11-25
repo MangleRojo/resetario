@@ -7,6 +7,87 @@ let glyphSequence = []; // Array para almacenar la secuencia de glyphs
 let awaitingColorSelection = false; // Se activa al presionar Alt
 let pendingGlyphColor = null; // Color que se aplicará al siguiente glyph
 let glyphDictionary = null; // Diccionario de combinaciones
+let audioContext = null; // Contexto de audio compartido
+
+// Inicializa o reanuda el contexto de audio cuando sea necesario
+function getAudioContext() {
+    if (audioContext && audioContext.state === 'suspended') {
+        audioContext.resume();
+        return audioContext;
+    }
+
+    if (!audioContext) {
+        const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+        if (!AudioContextClass) {
+            console.warn('AudioContext no soportado en este navegador');
+            return null;
+        }
+        audioContext = new AudioContextClass();
+    }
+
+    return audioContext;
+}
+
+// Reproduce un sonido breve y sutil en cada tecla
+function playKeyClickSound() {
+    const ctx = getAudioContext();
+    if (!ctx) return;
+
+    const clickOsc = ctx.createOscillator();
+    const clickGain = ctx.createGain();
+    const bodyOsc = ctx.createOscillator();
+    const bodyGain = ctx.createGain();
+    const noiseSource = ctx.createBufferSource();
+    const noiseGain = ctx.createGain();
+    const filter = ctx.createBiquadFilter();
+    const now = ctx.currentTime;
+
+    // Ruido corto para dar más pegada
+    const noiseBuffer = ctx.createBuffer(1, ctx.sampleRate * 0.05, ctx.sampleRate);
+    const noiseData = noiseBuffer.getChannelData(0);
+    for (let i = 0; i < noiseData.length; i++) {
+        noiseData[i] = (Math.random() * 2 - 1) * 0.6;
+    }
+    noiseSource.buffer = noiseBuffer;
+    noiseGain.gain.setValueAtTime(0.05, now);
+    noiseGain.gain.exponentialRampToValueAtTime(0.0001, now + 0.04);
+
+    // Pico inicial tipo "click" metálico
+    clickOsc.type = 'square';
+    clickOsc.frequency.setValueAtTime(720, now);
+    clickOsc.frequency.exponentialRampToValueAtTime(260, now + 0.05);
+
+    clickGain.gain.setValueAtTime(0.11, now);
+    clickGain.gain.exponentialRampToValueAtTime(0.001, now + 0.05);
+
+    // Cuerpo breve para emular tecla mecánica
+    bodyOsc.type = 'triangle';
+    bodyOsc.frequency.setValueAtTime(420, now);
+    bodyOsc.frequency.exponentialRampToValueAtTime(180, now + 0.09);
+
+    bodyGain.gain.setValueAtTime(0.08, now);
+    bodyGain.gain.exponentialRampToValueAtTime(0.0008, now + 0.1);
+
+    filter.type = 'bandpass';
+    filter.frequency.setValueAtTime(1500, now);
+    filter.Q.setValueAtTime(8, now);
+
+    clickOsc.connect(clickGain);
+    bodyOsc.connect(bodyGain);
+    noiseSource.connect(noiseGain);
+    clickGain.connect(filter);
+    bodyGain.connect(filter);
+    noiseGain.connect(filter);
+    filter.connect(ctx.destination);
+
+    noiseSource.start(now);
+    noiseSource.stop(now + 0.05);
+    clickOsc.start(now);
+    clickOsc.stop(now + 0.08);
+
+    bodyOsc.start(now);
+    bodyOsc.stop(now + 0.12);
+}
 
 // Cargar datos del JSON
 async function loadCardsData() {
@@ -450,6 +531,7 @@ function setupKeyboardListeners() {
     // Listener para teclas Glyph
     document.querySelectorAll('.key-glyph').forEach(key => {
         key.addEventListener('click', function () {
+            playKeyClickSound();
             const glyphData = {
                 id: this.dataset.id,
                 number: this.dataset.number,
@@ -463,6 +545,7 @@ function setupKeyboardListeners() {
     // Listener para teclas de Color
     document.querySelectorAll('.key-color').forEach(key => {
         key.addEventListener('click', function () {
+            playKeyClickSound();
             const color = this.dataset.color;
             handleColorKeyPress(color);
         });
@@ -470,6 +553,7 @@ function setupKeyboardListeners() {
 
     // Listener para tecla Esc (limpiar display)
     document.querySelector('.key-esc').addEventListener('click', function () {
+        playKeyClickSound();
         clearDisplay();
         awaitingColorSelection = false;
         pendingGlyphColor = null;
@@ -477,6 +561,7 @@ function setupKeyboardListeners() {
 
     // Listener para tecla Alt (activar modo selección de color)
     document.querySelector('.key-alt').addEventListener('click', function () {
+        playKeyClickSound();
         awaitingColorSelection = true;
         pendingGlyphColor = null;
         this.classList.add('active');
@@ -486,11 +571,13 @@ function setupKeyboardListeners() {
 
     // Listener para tecla Re(s)et (submit)
     document.querySelector('.key-enter').addEventListener('click', function () {
+        playKeyClickSound();
         handleResetSubmit();
     });
 
     // Listener para tecla Info (spacebar)
     document.querySelector('.key-spacebar').addEventListener('click', function () {
+        playKeyClickSound();
         renderInfoCard();
     });
 
@@ -638,6 +725,7 @@ function setupPhysicalKeyboardListeners() {
         // Escape - Clear display
         if (e.key === 'Escape') {
             e.preventDefault();
+            playKeyClickSound();
             clearDisplay();
             const escKey = document.querySelector('.key-esc');
             if (escKey) {
@@ -650,6 +738,7 @@ function setupPhysicalKeyboardListeners() {
         // Enter - Submit sequence
         if (e.key === 'Enter') {
             e.preventDefault();
+            playKeyClickSound();
             handleResetSubmit();
             const enterKey = document.querySelector('.key-enter');
             if (enterKey) {
@@ -662,6 +751,7 @@ function setupPhysicalKeyboardListeners() {
         // Alt - Activate color selection mode
         if (e.key === 'Alt') {
             e.preventDefault();
+            playKeyClickSound();
             awaitingColorSelection = true;
             pendingGlyphColor = null;
             const altKey = document.querySelector('.key-alt');
@@ -677,6 +767,7 @@ function setupPhysicalKeyboardListeners() {
         // Space - Show info
         if (e.key === ' ') {
             e.preventDefault();
+            playKeyClickSound();
             renderInfoCard();
             const spaceKey = document.querySelector('.key-spacebar');
             if (spaceKey) {
@@ -698,6 +789,7 @@ function setupPhysicalKeyboardListeners() {
         const key = e.key.toLowerCase();
         if (colorKeyMap[key]) {
             e.preventDefault();
+            playKeyClickSound();
             const color = colorKeyMap[key];
             handleColorKeyPress(color);
 
@@ -713,6 +805,7 @@ function setupPhysicalKeyboardListeners() {
         // Number keys (0-9) for glyphs
         if (/^[0-9]$/.test(e.key)) {
             e.preventDefault();
+            playKeyClickSound();
             const glyphNumber = e.key;
             selectGlyphByNumber(glyphNumber);
             return;

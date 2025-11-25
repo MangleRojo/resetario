@@ -28,7 +28,8 @@ header {
     position: relative;
     z-index: 1000;
     background-color: var(--primary-white);
-    min-height: 110px; /* Mantener altura consistente */
+    min-height: 110px;
+    /* Mantener altura consistente */
 }
 
 .logo {
@@ -74,7 +75,7 @@ nav {
     background-color: var(--primary-white);
     width: 200px;
     display: none;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     margin-top: 10px;
     border-radius: 4px;
 }
@@ -130,16 +131,7 @@ nav ul li ul li a {
     padding-left: 2rem;
     font-weight: 400;
     font-size: 0.95em;
-    position: relative;
     color: #666;
-}
-
-nav ul li ul li a::before {
-    content: "→";
-    position: absolute;
-    left: 1.2rem;
-    color: #999;
-    font-size: 0.9em;
 }
 
 nav ul li ul li a:hover {
@@ -153,10 +145,6 @@ nav ul li ul li a.active {
     font-weight: 600;
 }
 
-nav ul li ul li a.active::before {
-    color: #535353;
-}
-
 /* Main Content */
 main {
     flex: 1;
@@ -165,8 +153,10 @@ main {
     align-items: center;
     padding: 2rem;
     width: 100%;
-    position: relative; /* Needed for canvas positioning */
-    overflow: hidden;   /* Contain canvas */
+    position: relative;
+    /* Needed for canvas positioning */
+    overflow: hidden;
+    /* Contain canvas */
 }
 
 /* Fondo como pseudo-elemento (z-index más bajo) */
@@ -184,8 +174,10 @@ main::before {
 .art-container {
     position: relative;
     width: 100%;
-    max-width: 1200px; /* Increased to match visual prominence */
-    z-index: 10; /* Ensure content is above background animation */
+    max-width: 1200px;
+    /* Increased to match visual prominence */
+    z-index: 10;
+    /* Ensure content is above background animation */
 }
 
 .main-art {
@@ -201,6 +193,7 @@ main::before {
         opacity: 0;
         transform: scale(0.95);
     }
+
     100% {
         opacity: 1;
         transform: scale(1);
@@ -210,7 +203,8 @@ main::before {
 
 .glyph {
     position: absolute;
-    width: 8.5%; /* Adjusted size based on grid fit */
+    width: 8.5%;
+    /* Adjusted size based on grid fit */
     height: auto;
     z-index: 10;
 }
@@ -265,7 +259,7 @@ main::before {
 footer {
     padding: 2rem;
     text-align: center;
-    background-color: var(--primary-white); 
+    background-color: var(--primary-white);
     margin-top: auto;
 }
 
@@ -308,6 +302,7 @@ footer {
     width: auto;
     filter: brightness(0) saturate(0%) invert(20%);
 }
+
 .supporter-logo-2 {
     height: 18px;
     width: auto;
@@ -326,60 +321,60 @@ footer {
         padding: 3rem 5rem 2.5rem 5rem;
         min-height: 160px;
     }
-    
+
     .logo-img {
         height: 85px;
     }
-    
+
     .menu-toggle {
         height: 36px;
         width: 36px;
     }
-    
+
     .menu-bar {
         height: 7px;
         width: 7px;
     }
-    
+
     footer {
         padding: 4rem 5rem;
     }
-    
+
     .footer-beca-text {
         font-size: 1rem;
         max-width: 800px;
         padding-bottom: 3rem;
     }
-    
+
     .footer-text {
         font-size: 1.2rem;
     }
-    
+
     .supporter-logo-1 {
         height: 55px;
     }
-    
+
     .supporter-logo-2 {
         height: 34px;
     }
-    
+
     .text-logo {
         font-size: 1.3rem;
     }
-    
+
     .supporters-logos {
         gap: 4rem;
         margin-top: 1rem;
     }
-    
+
     .sponsors-section {
         padding: 3rem 5rem;
     }
-    
+
     .sponsors-logos {
         gap: 5rem;
     }
-    
+
     .sponsor-logo {
         height: 70px;
     }
@@ -485,8 +480,13 @@ footer {
 }
 
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 .loading-text {
@@ -571,6 +571,7 @@ footer {
     from {
         opacity: 0;
     }
+
     to {
         opacity: 1;
     }
@@ -752,6 +753,7 @@ footer {
     from {
         transform: rotate(0deg);
     }
+
     to {
         transform: rotate(360deg);
     }
@@ -1111,62 +1113,62 @@ footer {
     .keyboard-section {
         padding: 1rem;
     }
-    
+
     .glyph-display {
         padding: 0.5rem;
         margin-bottom: 1.5rem;
     }
-    
+
     .display-screen {
         min-height: 60px;
         padding: 0.5rem;
         gap: 8px;
     }
-    
+
     .display-glyph {
         width: 40px;
         height: 40px;
         padding: 6px;
     }
-    
+
     .keyboard-grid {
         gap: 10px;
         grid-template-rows: auto 1fr auto;
     }
-    
+
     .keyboard-center-sector {
         grid-template-columns: repeat(4, 1fr);
         gap: 6px;
     }
-    
+
     .keyboard-top-sector {
         gap: 6px;
     }
-    
+
     .keyboard-left-sector {
         gap: 6px;
     }
-    
+
     .key {
         max-width: 50px;
         border-radius: 3px;
         box-shadow: 0 3px 0 #c0c0c0, 0 4px 6px rgba(0, 0, 0, 0.15);
     }
-    
+
     .key-spacebar {
         width: 50px;
         height: 50px;
         max-width: 50px;
     }
-    
+
     .key-color {
         max-width: 40px;
     }
-    
+
     .key-special .key-label {
         font-size: 0.7rem;
     }
-    
+
     .key-special.key-esc,
     .key-special.key-alt {
         width: 50px;
@@ -1174,7 +1176,7 @@ footer {
         min-width: 50px;
         max-width: 50px;
     }
-    
+
     .key-enter-large {
         width: 70px;
         height: 70px;
@@ -1182,15 +1184,15 @@ footer {
         aspect-ratio: 1;
         box-shadow: 0 3px 0 #2a2a2a, 0 4px 6px rgba(0, 0, 0, 0.3);
     }
-    
+
     .key-enter-large:hover {
         box-shadow: 0 1px 0 #2a2a2a, 0 2px 4px rgba(0, 0, 0, 0.3);
     }
-    
+
     .key-enter-large:active {
         box-shadow: 0 0 0 #2a2a2a, 0 1px 3px rgba(0, 0, 0, 0.3);
     }
-    
+
     .key-enter-large .key-label {
         font-size: 0.7rem;
     }
@@ -1327,67 +1329,67 @@ footer {
         font-size: 2rem;
         margin-bottom: 1.5rem;
     }
-    
+
     .color-graph {
         gap: 0.75rem;
         margin-bottom: 2rem;
     }
-    
+
     .color-node {
         width: 32px;
         height: 32px;
         border-radius: 6px;
     }
-    
+
     .cards-grid {
         gap: 1.5rem;
     }
-    
+
     .reset-card {
         max-width: 280px;
     }
-    
+
     .card-top {
         padding: 2rem 1.5rem;
         min-height: 150px;
     }
-    
+
     .card-glyph {
         width: 80px;
         height: 80px;
         object-fit: contain;
     }
-    
+
     .card-bottom {
         padding: 1.5rem 1.5rem;
         min-height: 100px;
     }
-    
+
     .card-number {
         font-size: 2.5rem;
     }
-    
+
     .card-back-content h3 {
         font-size: 1.5rem;
     }
-    
+
     .card-back-content p {
         font-size: 0.9rem;
     }
-    
+
     .card-top-instructions {
         padding: 2rem 1.5rem;
     }
-    
+
     .instructions-circle {
         width: 60px;
         height: 60px;
     }
-    
+
     .card-bottom-instructions {
         padding: 1.5rem 1.5rem;
     }
-    
+
     .card-bottom-instructions p {
         font-size: 1rem;
     }
@@ -1405,50 +1407,50 @@ footer {
         max-width: 1200px;
         margin: 0 auto;
     }
-    
+
     .resetario-title {
         font-size: 3rem;
         margin-bottom: 4rem;
     }
-    
+
     .contact-info {
         padding: 3.5rem 3rem;
         margin-top: 3rem;
     }
-    
+
     .contact-info p {
         font-size: 1.3rem;
         margin-bottom: 2rem;
     }
-    
+
     .telegram-link {
         margin-top: 3rem;
         padding-top: 2.5rem;
     }
-    
+
     .telegram-link a {
         padding: 1rem 2rem;
     }
-    
+
     .telegram-icon {
         width: 28px;
         height: 28px;
     }
-    
+
     .telegram-link span {
         font-size: 1.1rem;
     }
-    
+
     .loading-container {
         padding: 6rem 2rem;
     }
-    
+
     .loader {
         width: 80px;
         height: 80px;
         border-width: 6px;
     }
-    
+
     .loading-text {
         font-size: 1.5rem;
     }
@@ -1520,15 +1522,294 @@ footer {
     .combinations-section {
         padding: 1rem;
     }
-    
+
     .combinations-title {
         font-size: 1.5rem;
         margin-bottom: 1.5rem;
     }
-    
+
     .combinations-grid {
         grid-template-columns: 1fr;
         gap: 1.5rem;
     }
 }
 
+/* ==========================================================================
+   UX IMPROVEMENTS - Visual Feedback
+   ========================================================================== */
+
+/* Estado activo para tecla Alt */
+.key-alt.active {
+    background: #b8b8b8 !important;
+    opacity: 1 !important;
+    box-shadow: 0 4px 0 #8a8a8a, 0 5px 12px rgba(0, 0, 0, 0.2) !important;
+}
+
+.key-alt.active .key-label {
+    color: #2d2d2d !important;
+    font-weight: 900;
+}
+
+/* Animación de pulso sutil */
+@keyframes pulsate {
+
+    0%,
+    100% {
+        transform: translateY(0) scale(1);
+    }
+
+    50% {
+        transform: translateY(0) scale(1.05);
+    }
+}
+
+/* Estado seleccionado para teclas de color - hundida */
+.key-color.selected {
+    transform: translateY(4px);
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0.3), 0 1px 4px rgba(0, 0, 0, 0.15);
+}
+
+/* Indicador de color pendiente en el display */
+.glyph-display.pending-color {
+    position: relative;
+}
+
+.glyph-display.pending-color::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 3px solid transparent;
+    border-radius: 8px;
+    pointer-events: none;
+    animation: borderPulse 1s ease-in-out infinite;
+}
+
+.glyph-display.pending-color-red::before {
+    border-color: #fd0202;
+}
+
+.glyph-display.pending-color-blue::before {
+    border-color: #4598ff;
+}
+
+.glyph-display.pending-color-green::before {
+    border-color: #00d084;
+}
+
+.glyph-display.pending-color-yellow::before {
+    border-color: #fee71c;
+}
+
+.glyph-display.pending-color-orange::before {
+    border-color: #ff6b35;
+}
+
+@keyframes borderPulse {
+
+    0%,
+    100% {
+        opacity: 0.6;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+/* Etiqueta de color pendiente */
+.color-pending-label {
+    position: absolute;
+    top: -12px;
+    right: 10px;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--primary-white);
+    z-index: 10;
+    animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-10px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Animación de entrada para glyphs en el display */
+.display-glyph {
+    animation: glyphEnter 0.3s ease-out;
+}
+
+@keyframes glyphEnter {
+    from {
+        opacity: 0;
+        transform: scale(0.8) translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* Feedback visual al presionar teclas */
+.key.pressed {
+    animation: keyPress 0.15s ease-out;
+}
+
+@keyframes keyPress {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(4px);
+    }
+
+    100% {
+        transform: translateY(2px);
+    }
+}
+
+/* ==========================================================================
+   ACCESSIBILITY IMPROVEMENTS
+   ========================================================================== */
+
+/* Screen reader only class */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/* Skip to main content link */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--primary-black);
+    color: var(--primary-white);
+    padding: 8px 16px;
+    text-decoration: none;
+    z-index: 10000;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 600;
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+/* Focus visible styles for keyboard navigation */
+.key:focus-visible {
+    outline: 3px solid #4598ff;
+    outline-offset: 3px;
+    z-index: 10;
+}
+
+.key-color:focus-visible {
+    outline: 3px solid var(--primary-white);
+    outline-offset: 3px;
+}
+
+.key-special:focus-visible,
+.key-glyph:focus-visible {
+    outline: 3px solid #4598ff;
+    outline-offset: 3px;
+}
+
+/* Better focus for navigation links */
+nav a:focus-visible {
+    outline: 2px solid #4598ff;
+    outline-offset: 2px;
+    background-color: #f0f0f0;
+}
+
+/* Focus visible for color nodes */
+.color-node:focus-visible {
+    outline: 3px solid #4598ff;
+    outline-offset: 4px;
+    transform: scale(1.15);
+}
+
+/* Focus visible for cards */
+.reset-card:focus-visible {
+    outline: 3px solid #4598ff;
+    outline-offset: 4px;
+}
+
+/* High contrast mode improvements */
+@media (prefers-contrast: high) {
+    .key {
+        border: 2px solid #000;
+    }
+
+    .key-special {
+        border: 3px solid #000;
+    }
+
+    .display-glyph {
+        border: 2px solid #000;
+    }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    .key-alt.active {
+        animation: none;
+    }
+
+    .key-color.selected {
+        animation: none;
+    }
+
+    .glyph-display.pending-color::before {
+        animation: none;
+        opacity: 1;
+    }
+
+    .display-glyph {
+        animation: none;
+    }
+
+    .color-pending-label {
+        animation: none;
+    }
+}
+
+/* Visual indicator for keyboard mode */
+body.keyboard-mode .key:hover {
+    transform: none;
+    box-shadow: 0 4px 0 #c0c0c0, 0 5px 8px rgba(0, 0, 0, 0.15);
+}
+
+body.keyboard-mode .key:focus {
+    transform: translateY(1px);
+}

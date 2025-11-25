@@ -1,20 +1,21 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Re(s)etario - APICCA COMÚN</title>
-    
+
     <!-- Meta tags para SEO -->
     <meta name="description" content="Re(s)etario - Colección de glyphs y resets de APICCA">
-    
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://apicca.com/resetario">
     <meta property="og:title" content="Re(s)etario - APICCA COMÚN">
     <meta property="og:description" content="Re(s)etario de Economías Recíprocas">
     <meta property="og:image" content="https://apicca.com/img/social-share.jpg">
-    
+
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://apicca.com/resetario">
@@ -30,7 +31,14 @@
     <link rel="manifest" href="img/favicon_io/site.webmanifest">
     <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
+    <!-- Skip to main content link for accessibility -->
+    <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+
+    <!-- Screen reader announcements -->
+    <div id="sr-announcements" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+
     <header>
         <div class="logo">
             <a href="index.html">
@@ -57,20 +65,20 @@
         </div>
     </header>
 
-    <main>
+    <main id="main-content">
         <div class="resetario-container">
             <h1 class="resetario-title">Re(s)etario</h1>
-            
+
             <!-- Grafo de colores - Se genera con JavaScript -->
             <div class="color-graph" id="colorGraph" style="display: none;"></div>
-            
+
             <!-- Teclado Teenage Engineering - Se genera con JavaScript -->
             <div class="keyboard-section">
                 <!-- Display de Glyphs -->
                 <div class="glyph-display" id="glyphDisplay">
                     <div class="display-screen" id="displayScreen"></div>
                 </div>
-                
+
                 <div id="resetario-keyboard" class="keyboard-grid">
                     <div class="keyboard-left-sector" id="keyboard-left"></div>
                     <div class="keyboard-top-sector" id="keyboard-top"></div>
@@ -79,13 +87,13 @@
                     <div class="keyboard-bottom-sector" id="keyboard-bottom"></div>
                 </div>
             </div>
-            
+
             <!-- Cartas de combinaciones - Se genera con JavaScript -->
             <div class="combinations-section" id="combinationsSection" style="display: none;">
                 <h2 class="combinations-title">Tácticas</h2>
                 <div class="combinations-grid" id="combinationsGrid"></div>
             </div>
-            
+
             <!-- Grid de tarjetas - Se genera con JavaScript -->
             <div class="cards-grid" id="cardsGrid" style="display: none;"></div>
         </div>
@@ -93,9 +101,10 @@
 
     <section class="sponsors-section">
         <div class="sponsors-content">
-            <p class="footer-beca-text">Gracias a la Beca para la Realización de Laboratorios de Co-Creación de Objetos Digitales Expandidos 2025</p>
+            <p class="footer-beca-text">Gracias a la Beca para la Realización de Laboratorios de Co-Creación de Objetos
+                Digitales Expandidos 2025</p>
             <div class="sponsors-logos">
-                
+
                 <img src="img/pde_logo_negro.png" alt="PDE" class="sponsor-logo">
                 <img src="img/aqui_si_pasa_logo_negro.png" alt="Aquí Sí Pasa" class="sponsor-logo">
                 <img src="img/bogota_logo_negro.png" alt="Bogotá" class="sponsor-logo">
@@ -120,6 +129,5 @@
     <script type="module" src="js/scripts.js"></script>
     <script src="js/resetario.js"></script>
 </body>
+
 </html>
-
-

@@ -33,60 +33,21 @@ function playKeyClickSound() {
     const ctx = getAudioContext();
     if (!ctx) return;
 
-    const clickOsc = ctx.createOscillator();
-    const clickGain = ctx.createGain();
-    const bodyOsc = ctx.createOscillator();
-    const bodyGain = ctx.createGain();
-    const noiseSource = ctx.createBufferSource();
-    const noiseGain = ctx.createGain();
-    const filter = ctx.createBiquadFilter();
+    const oscillator = ctx.createOscillator();
+    const gainNode = ctx.createGain();
     const now = ctx.currentTime;
 
-    // Ruido corto para dar más pegada
-    const noiseBuffer = ctx.createBuffer(1, ctx.sampleRate * 0.05, ctx.sampleRate);
-    const noiseData = noiseBuffer.getChannelData(0);
-    for (let i = 0; i < noiseData.length; i++) {
-        noiseData[i] = (Math.random() * 2 - 1) * 0.6;
-    }
-    noiseSource.buffer = noiseBuffer;
-    noiseGain.gain.setValueAtTime(0.05, now);
-    noiseGain.gain.exponentialRampToValueAtTime(0.0001, now + 0.04);
+    oscillator.type = 'triangle';
+    oscillator.frequency.setValueAtTime(260, now);
 
-    // Pico inicial tipo "click" metálico
-    clickOsc.type = 'square';
-    clickOsc.frequency.setValueAtTime(720, now);
-    clickOsc.frequency.exponentialRampToValueAtTime(260, now + 0.05);
+    gainNode.gain.setValueAtTime(0.05, now);
+    gainNode.gain.exponentialRampToValueAtTime(0.001, now + 0.09);
 
-    clickGain.gain.setValueAtTime(0.11, now);
-    clickGain.gain.exponentialRampToValueAtTime(0.001, now + 0.05);
+    oscillator.connect(gainNode);
+    gainNode.connect(ctx.destination);
 
-    // Cuerpo breve para emular tecla mecánica
-    bodyOsc.type = 'triangle';
-    bodyOsc.frequency.setValueAtTime(420, now);
-    bodyOsc.frequency.exponentialRampToValueAtTime(180, now + 0.09);
-
-    bodyGain.gain.setValueAtTime(0.08, now);
-    bodyGain.gain.exponentialRampToValueAtTime(0.0008, now + 0.1);
-
-    filter.type = 'bandpass';
-    filter.frequency.setValueAtTime(1500, now);
-    filter.Q.setValueAtTime(8, now);
-
-    clickOsc.connect(clickGain);
-    bodyOsc.connect(bodyGain);
-    noiseSource.connect(noiseGain);
-    clickGain.connect(filter);
-    bodyGain.connect(filter);
-    noiseGain.connect(filter);
-    filter.connect(ctx.destination);
-
-    noiseSource.start(now);
-    noiseSource.stop(now + 0.05);
-    clickOsc.start(now);
-    clickOsc.stop(now + 0.08);
-
-    bodyOsc.start(now);
-    bodyOsc.stop(now + 0.12);
+    oscillator.start(now);
+    oscillator.stop(now + 0.1);
 }
 
 // Cargar datos del JSON

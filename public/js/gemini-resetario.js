@@ -198,9 +198,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const bodyHtml = `
       <div class="resetario-sections">
         <div class="resetario-section">
-          <div class="resetario-section-label">Dimensiones</div>
-          <div class="resetario-section-content">
-            <p>${dimsText}</p>
+          <div class="resetario-section-content resetario-tactics-row">
+            ${tacticsHtml}
           </div>
         </div>
         <div class="resetario-section">
@@ -208,9 +207,9 @@ document.addEventListener("DOMContentLoaded", () => {
           ${resetHtml}
         </div>
         <div class="resetario-section">
-          <div class="resetario-section-label">Tácticas</div>
-          <div class="resetario-section-content resetario-tactics-row">
-            ${tacticsHtml}
+          <div class="resetario-section-label">Dimensiones</div>
+          <div class="resetario-section-content">
+            <p>${dimsText}</p>
           </div>
         </div>
       </div>
@@ -652,9 +651,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const prompt = tacticsText
       ? `${userText}\n\nTacticas:\n\n${tacticsText}`
       : `${userText}`;
-
-    // Mostrar cuadro de diálogo con el prompt que se va a enviar
-    window.alert(`Prompt enviado al asistente:\n\n${prompt}`);
 
     statusEl.textContent = "Consultando...";
     if (answerSection) {

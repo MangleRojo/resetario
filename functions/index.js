@@ -57,8 +57,8 @@ exports.callGemini = onRequest({cors: true}, async (req, res) => {
   const fileSearchStoreName = process.env.FILE_SEARCH_STORE_NAME;
   if (!fileSearchStoreName) {
     logger.error(
-        "FILE_SEARCH_STORE_NAME no está definida en las variables de " +
-        "entorno.",
+        "FILE_SEARCH_STORE_NAME no está definida en las " +
+        "variables de entorno.",
     );
     return res.status(500).json({
       error: "Configuración del servidor incompleta: " +
@@ -82,22 +82,35 @@ exports.callGemini = onRequest({cors: true}, async (req, res) => {
     `${model}:generateContent?key=${encodeURIComponent(apiKey)}`;
 
   try {
+    const systemTextLines = [
+      "Eres experto en APICCA COMÚN y solo respondes temas " +
+        "relacionados con las tácticas del Re(s)etario.",
+      "APICCA COMÚN quiere decir API para Crear y Conectar " +
+        "Autonomías Compartidas.",
+      "Se basa en el Apoyo Mutuo para explorar tácticas de " +
+        "Economías Recíprocas.",
+      "APICCA COMÚN se basa en el diseño convivencial centrado " +
+        "en las personas.",
+      "Responde siempre en español, de forma clara, concreta " +
+        "y breve, usando un máximo de 80 palabras.",
+      "No utilices markdown en tus respuestas, utiliza siempre " +
+        "etiquetas html.",
+      "Usa los documentos del File Search Store del Re(s)etario " +
+        "como fuente principal de información.",
+      "La respuesta la debes estructurar como si fuera una " +
+        "receta de cocina que utiliza como ingredientes a las " +
+        "tácticas que el usuario ha enviado.",
+      "Estructura SIEMPRE tu respuesta en dos secciones, en este orden:",
+      "<h4>1. Poner la mesa común.</h4>",
+      "<h4>2. Preparar presentes alternativos.</h4>",
+    ];
+
     const payload = {
       systemInstruction: {
         role: "system",
         parts: [
           {
-            text: "Eres experto en APICCA COMÚN y solo respondes temas " +
-              "relacionados con las tácticas para explorar Autonomías " +
-              "Compartidas. APICCA COMÚN quiere decir API para Crear y " +
-              "Conectar Autonomías Compartidas y se basa en el Apoyo Mutuo " +
-              "para explorar tácticas de Economías Recíprocas. APICCA " +
-              "COMÚN se basa en el diseño convivencial centrado en las " +
-              "personas. Responde siempre en español, de forma clara, " +
-              "concreta y breve, usando un máximo de 35 palabras. No " +
-              "utilices markdown en tus respuestas. Usa sobre todo los " +
-              "documentos del File Search Store del Re(s)etario como " +
-              "fuente principal de información.",
+            text: systemTextLines.join(" "),
           },
         ],
       },

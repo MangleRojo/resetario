@@ -801,32 +801,74 @@ footer {
 /* Barra de transporte inferior (tres teclas) */
 .tp7-transport-bar {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 0.75rem;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 0.55rem;
     align-items: stretch;
 }
 
-.tp7-key {
+.tp7-eje-button {
     position: relative;
-    border: none;
-    border-radius: 8px;
-    background: transparent;
-    box-shadow: none;
-    border: 1px solid rgba(220, 222, 232, 0.6);
-    cursor: default;
+    border-radius: 999px;
+    border: 1px solid rgba(220, 222, 232, 0.5);
+    background: rgba(8, 10, 16, 0.7);
+    color: #e3e5ec;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.55rem 0.4rem;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    white-space: nowrap;
+    transition: background 0.15s ease-out, border-color 0.15s ease-out, color 0.15s ease-out,
+        transform 0.08s ease-out;
 }
 
-.tp7-key::before {
-    content: '';
-    position: absolute;
-    inset: 30%;
-    border-radius: 4px;
-    background: rgba(220, 222, 232, 0.85);
-    opacity: 0.8;
+.tp7-eje-button:hover {
+    background: rgba(230, 231, 236, 0.12);
+    border-color: rgba(240, 242, 252, 0.8);
 }
 
-.tp7-key-rec {
-    background: transparent;
+.tp7-eje-button.active {
+    color: #ffffff;
+}
+
+.tp7-eje-button[data-eje="agua"].active {
+    background: linear-gradient(135deg, #4598ff 0%, #3580e6 100%);
+    border-color: #4598ff;
+    box-shadow: 0 0 12px rgba(69, 152, 255, 0.7);
+}
+
+.tp7-eje-button[data-eje="alimento"].active {
+    background: linear-gradient(135deg, #00d084 0%, #00a869 100%);
+    border-color: #00d084;
+    box-shadow: 0 0 12px rgba(0, 208, 132, 0.7);
+}
+
+.tp7-eje-button[data-eje="cobijo"].active {
+    background: linear-gradient(135deg, #fee71c 0%, #fdd800 100%);
+    border-color: #fee71c;
+    box-shadow: 0 0 12px rgba(254, 231, 28, 0.7);
+}
+
+.tp7-eje-button[data-eje="energia"].active {
+    background: linear-gradient(135deg, #fd0202 0%, #cc0000 100%);
+    border-color: #fd0202;
+    box-shadow: 0 0 12px rgba(253, 2, 2, 0.7);
+}
+
+.tp7-eje-button[data-eje="comunicacion"].active {
+    background: linear-gradient(135deg, #ff6b35 0%, #ff5722 100%);
+    border-color: #ff6b35;
+    box-shadow: 0 0 12px rgba(255, 107, 53, 0.7);
+}
+
+.tp7-submit-button {
+    margin-top: 1rem;
+    width: 100%;
 }
 
 .tp7-key-rec::before {

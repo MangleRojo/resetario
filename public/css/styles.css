@@ -566,6 +566,7 @@ footer {
     background: transparent;
     box-shadow: none;
     border: 1px solid rgba(220, 222, 232, 0.6);
+    z-index: 1;
 }
 
 .tp7-disk::before {
@@ -591,6 +592,53 @@ footer {
     border-radius: 50%;
     background: transparent;
     box-shadow: 0 0 0 1px rgba(220, 222, 232, 0.8);
+    z-index: 1;
+}
+
+/* Capa para dibujar glyphs dentro del círculo */
+.tp7-disk-glyph-layer {
+    position: absolute;
+    inset: 10%;
+    border-radius: 50%;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 3;
+}
+
+.tp7-disk-glyph {
+    position: absolute;
+    width: 20%;
+    max-width: 90px;
+    opacity: 0.95;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+}
+
+.tp7-disk-glyph img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Colores de glyph según eje (tinte por filtros) */
+.tp7-disk-glyph-agua img {
+    filter: brightness(0) saturate(100%) invert(48%) sepia(83%) saturate(3926%) hue-rotate(200deg) brightness(103%) contrast(101%);
+}
+
+.tp7-disk-glyph-alimento img {
+    filter: brightness(0) saturate(100%) invert(52%) sepia(94%) saturate(690%) hue-rotate(113deg) brightness(98%) contrast(96%);
+}
+
+.tp7-disk-glyph-cobijo img {
+    filter: brightness(0) saturate(100%) invert(83%) sepia(93%) saturate(628%) hue-rotate(11deg) brightness(103%) contrast(104%);
+}
+
+.tp7-disk-glyph-energia img {
+    filter: brightness(0) saturate(100%) invert(16%) sepia(99%) saturate(7443%) hue-rotate(2deg) brightness(103%) contrast(116%);
+}
+
+.tp7-disk-glyph-comunicacion img {
+    filter: brightness(0) saturate(100%) invert(55%) sepia(95%) saturate(1025%) hue-rotate(337deg) brightness(101%) contrast(104%);
 }
 
 /* Pantalla derecha tipo “TODAY” */

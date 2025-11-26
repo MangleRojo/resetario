@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const answerContainer = document.getElementById("resetario-ai-answer");
   const answerTextEl = document.getElementById("resetario-ai-answer-text");
   const ejeButtons = document.querySelectorAll(".tp7-eje-button");
+  const glyphLayer = document.querySelector(".tp7-disk-glyph-layer");
 
   if (!form || !questionEl) return;
 
@@ -34,6 +35,33 @@ document.addEventListener("DOMContentLoaded", () => {
         if (label) {
           questionEl.value = `[${label}] `;
           questionEl.focus();
+        }
+
+        // Dibujar un glyph aleatorio dentro del círculo
+        if (glyphLayer) {
+          // Borrar cualquier glyph previo al cambiar de color
+          while (glyphLayer.firstChild) {
+            glyphLayer.removeChild(glyphLayer.firstChild);
+          }
+
+          const wrapper = document.createElement("div");
+          wrapper.className = `tp7-disk-glyph tp7-disk-glyph-${ejeKey}`;
+
+          const img = document.createElement("img");
+          const index = Math.floor(Math.random() * 32); // glyph_00 a glyph_31
+          const padded = index.toString().padStart(2, "0");
+          img.src = `img/glyph/glyph_${padded}.png`;
+          img.alt = `Glyph ${padded}`;
+
+          // Posición aleatoria dentro de la capa (en porcentaje)
+          const top = 15 + Math.random() * 70;
+          const left = 15 + Math.random() * 70;
+          wrapper.style.top = `${top}%`;
+          wrapper.style.left = `${left}%`;
+
+          wrapper.appendChild(img);
+
+          glyphLayer.appendChild(wrapper);
         }
       });
     });

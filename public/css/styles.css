@@ -745,6 +745,59 @@ footer {
     margin-bottom: 0.4rem;
 }
 
+.resetario-ai-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 1.5rem;
+    margin-top: 0.5rem;
+}
+
+.resetario-ai-option {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.9rem;
+    color: #e3e5ec;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.resetario-ai-option input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    border-radius: 4px;
+    border: 1px solid rgba(220, 222, 232, 0.6);
+    background: rgba(8, 10, 16, 0.9);
+    box-shadow:
+        0 0 0 1px rgba(0, 0, 0, 0.8),
+        inset 0 0 0 1px rgba(30, 32, 40, 0.8);
+    appearance: none;
+    -webkit-appearance: none;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+}
+
+.resetario-ai-option input[type="checkbox"]::before {
+    content: "";
+    position: absolute;
+    inset: 3px;
+    border-radius: 2px;
+    background: var(--primary-white);
+    opacity: 0;
+    transition: opacity 0.14s ease-out;
+}
+
+.resetario-ai-option input[type="checkbox"]:checked::before {
+    opacity: 1;
+}
+
+.resetario-ai-option input[type="checkbox"]:focus-visible {
+    outline: 2px solid #4598ff;
+    outline-offset: 2px;
+}
+
 .resetario-ai-textarea {
     width: 100%;
     min-height: 110px;

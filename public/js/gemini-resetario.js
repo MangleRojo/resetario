@@ -3,7 +3,6 @@
 
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("resetario-ai-form");
-  const questionEl = document.getElementById("resetario-ai-question");
   const statusEl = document.getElementById("resetario-ai-status");
   const answerSection = document.getElementById("resetario-ai-answer");
   const answerTextEl = document.getElementById("resetario-ai-answer-text");
@@ -78,7 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  if (!form || !questionEl) return;
+  if (!form) return;
 
   // Desactivar envío hasta que se seleccione un eje de color
   if (submitButton) {
@@ -94,7 +93,6 @@ document.addEventListener("DOMContentLoaded", () => {
     ejeButtons.forEach((btn) => {
       btn.addEventListener("click", () => {
         const ejeKey = btn.dataset.eje;
-        const label = ejeLabels[ejeKey] || ejeKey || "";
 
         // Cambiar estado visual activo
         ejeButtons.forEach((b) => b.classList.remove("active"));
@@ -105,9 +103,6 @@ document.addEventListener("DOMContentLoaded", () => {
         if (submitButton) {
           submitButton.disabled = false;
           submitButton.classList.remove("tp7-submit-disabled");
-        }
-        if (label) {
-          questionEl.focus();
         }
 
         // Dibujar un glyph aleatorio dentro del círculo
@@ -144,17 +139,24 @@ document.addEventListener("DOMContentLoaded", () => {
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
 
-    const userText = questionEl.value.trim();
-    if (!userText) return;
+    // Construir texto de usuario a partir de las dimensiones seleccionadas
+    const dimensionCheckboxes = form.querySelectorAll('input[name="dimension"]');
+    const selectedDimensions = Array.from(dimensionCheckboxes)
+      .filter((cb) => cb.checked)
+      .map((cb) => cb.value);
+
+    if (selectedDimensions.length === 0) {
+      statusEl.textContent = "Selecciona al menos una dimensión: Tiempo, Espacio o Conocimiento.";
+      return;
+    }
+
+    const userText = `Dimensiones seleccionadas: ${selectedDimensions.join(", ")}.`;
 
     const ejeLabel =
       currentEjeKey && ejeLabels[currentEjeKey]
         ? `[${ejeLabels[currentEjeKey]}] `
         : "";
     const prompt = `${ejeLabel}${userText}`;
-
-    // Limpiar el textarea justo después de construir el prompt
-    questionEl.value = "";
 
     statusEl.textContent = "Consultando...";
     if (answerSection) {

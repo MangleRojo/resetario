@@ -92,12 +92,22 @@
 
                         <form id="resetario-ai-form" class="resetario-ai-form">
                             <div class="resetario-ai-input-block">
-                                <label for="resetario-ai-question" class="resetario-ai-label">
+                                <span class="resetario-ai-label">
                                     
-                                </label>
-                                <textarea id="resetario-ai-question" class="resetario-ai-textarea" rows="3"
-                                    placeholder="Por ejemplo: ¿Cómo se combinan los glyphs para trabajar el eje de Agua?"
-                                    required></textarea>
+                                <div class="resetario-ai-options">
+                                    <label class="resetario-ai-option">
+                                        <input type="checkbox" name="dimension" value="Tiempo">
+                                        <span>Tiempo</span>
+                                    </label>
+                                    <label class="resetario-ai-option">
+                                        <input type="checkbox" name="dimension" value="Espacio">
+                                        <span>Espacio</span>
+                                    </label>
+                                    <label class="resetario-ai-option">
+                                        <input type="checkbox" name="dimension" value="Información">
+                                        <span>Información</span>
+                                    </label>
+                                </div>
                             </div>
 
                             <div class="tp7-transport-bar">

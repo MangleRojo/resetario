@@ -78,7 +78,7 @@
                         </div>
                         <div class="tp7-screen">
                             <div class="tp7-screen-header">
-                                <span class="tp7-screen-label">APICCA</span>
+                                <span class="tp7-screen-label">Re(s)etario</span>
                             </div>
                             <div class="tp7-screen-meta">
                                 <span class="tp7-screen-meta-time">v.0.2</span>
@@ -99,6 +99,34 @@
                         </div>
 
                         <form id="resetario-ai-form" class="resetario-ai-form">
+                            <!-- Contenedor de tácticas dentro del aparato -->
+                            <div class="resetario-ai-answer">
+                                <div id="resetario-ai-answer-text" class="resetario-ai-answer-text tactics-carousel"></div>
+                                <div class="tactics-nav">
+                                    <button
+                                        type="button"
+                                        id="resetario-ai-tactics-prev"
+                                        class="tactics-nav-button"
+                                        aria-label="Táctica anterior"
+                                        disabled
+                                    >
+                                        ‹
+                                    </button>
+                                    <span id="resetario-ai-tactics-counter" class="tactics-counter">
+                                        0 / 0
+                                    </span>
+                                    <button
+                                        type="button"
+                                        id="resetario-ai-tactics-next"
+                                        class="tactics-nav-button"
+                                        aria-label="Siguiente táctica"
+                                        disabled
+                                    >
+                                        ›
+                                    </button>
+                                </div>
+                            </div>
+
                             <div class="resetario-ai-input-block">
                                 <span class="resetario-ai-label">
                                     
@@ -139,34 +167,6 @@
                                     aria-label="Eje Comunicación">
                                     <span class="sr-only">Comunicación</span>
                                 </button>
-                            </div>
-
-                            <!-- Contenedor de tácticas dentro del aparato -->
-                            <div class="resetario-ai-answer">
-                                <div id="resetario-ai-answer-text" class="resetario-ai-answer-text tactics-carousel"></div>
-                                <div class="tactics-nav">
-                                    <button
-                                        type="button"
-                                        id="resetario-ai-tactics-prev"
-                                        class="tactics-nav-button"
-                                        aria-label="Táctica anterior"
-                                        disabled
-                                    >
-                                        ‹
-                                    </button>
-                                    <span id="resetario-ai-tactics-counter" class="tactics-counter">
-                                        0 / 0
-                                    </span>
-                                    <button
-                                        type="button"
-                                        id="resetario-ai-tactics-next"
-                                        class="tactics-nav-button"
-                                        aria-label="Siguiente táctica"
-                                        disabled
-                                    >
-                                        ›
-                                    </button>
-                                </div>
                             </div>
 
                             <div class="tp7-control-row">

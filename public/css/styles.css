@@ -655,8 +655,8 @@ footer {
 }
 
 .tp7-top-row {
-    display: grid;
-    grid-template-columns: minmax(0, 1.35fr) 190px;
+    display: flex;
+    justify-content: space-between;
     gap: 1.8rem;
     align-items: center;
 }
@@ -665,7 +665,7 @@ footer {
 .tp7-disk {
     position: relative;
     width: 100%;
-    max-width: 360px;
+    max-width: 100px;
     aspect-ratio: 1 / 1;
     margin-left: 0.4rem;
     border-radius: 50%;
@@ -1482,18 +1482,12 @@ footer {
     }
 
     .tp7-top-row {
-        grid-template-columns: minmax(0, 1fr);
+        flex-direction: row;
         gap: 1.2rem;
     }
 
     .tp7-disk {
-        margin-inline: auto;
-        max-width: 280px;
-    }
-
-    .tp7-screen {
-        max-width: 220px;
-        margin-left: auto;
+        max-width: 80px;
     }
 
     .tp7-middle {

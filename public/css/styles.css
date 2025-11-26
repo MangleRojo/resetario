@@ -1070,7 +1070,7 @@ footer {
     background: transparent;
     border-radius: 18px;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 2.4rem 2rem;
+    padding: 2.8rem 2rem;
 }
 
 .resetario-ai-answer-title {
@@ -1092,7 +1092,8 @@ footer {
     justify-content: center;
     align-items: center;
     gap: 1.75rem;
-    padding-bottom: 0.5rem;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
 }
 
 /* Modo información inicial: comportamiento original, sin carrusel */
@@ -1107,10 +1108,10 @@ footer {
 /* Carrusel solo para las tarjetas de tácticas dentro del aparato */
 .tactics-carousel {
     flex-wrap: nowrap;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: stretch;
     overflow-x: auto;
-    overflow-y: visible;
+    overflow-y: hidden;
     scroll-snap-type: x mandatory;
 }
 
@@ -1133,7 +1134,7 @@ footer {
     background: linear-gradient(180deg, #3d3f45 0%, #23252a 55%, #181a1f 100%);
     box-shadow: 0 10px 24px rgba(0, 0, 0, 0.45);
     padding: 2.8rem 2.6rem;
-    min-height: 260px;
+    min-height: 350px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -2431,6 +2432,14 @@ footer {
     font-size: 2rem;
     color: var(--primary-black);
     margin-bottom: 2rem;
+    text-align: center;
+}
+
+/* Título específico del contenedor de tácticas del aparato */
+#resetario-ai-answer-title.combinations-title {
+    font-size: 1.1rem;
+    color: var(--primary-white) !important;
+    margin-bottom: 0.75rem;
     text-align: center;
 }
 

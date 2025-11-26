@@ -544,7 +544,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (answerSection) {
         answerSection.hidden = false;
-        answerSection.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+
+      // Hacer scroll suave hasta el contenedor de la respuesta
+      if (responseTextEl) {
+        responseTextEl.scrollIntoView({behavior: "smooth", block: "start"});
       }
     } catch (err) {
       console.error("Error llamando al asistente del Re(s)etario:", err);

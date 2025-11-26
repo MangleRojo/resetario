@@ -863,6 +863,64 @@ footer {
     align-items: center;
 }
 
+/* Tarjeta de información inicial del Re(s)etario AI */
+.resetario-ai-info-card {
+    width: 100%;
+    max-width: 920px;
+}
+
+.resetario-ai-info-front {
+    width: 100%;
+    border-radius: 16px;
+    background: linear-gradient(180deg, #3d3f45 0%, #23252a 55%, #181a1f 100%);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.45);
+    padding: 2.8rem 2.6rem;
+    min-height: 260px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.4rem;
+}
+
+.resetario-ai-info-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 1.2rem;
+    opacity: 0.95;
+}
+
+.resetario-ai-info-label {
+    font-family: 'Outfit', sans-serif;
+    font-size: 2.2rem;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    text-transform: capitalize;
+    color: #ffffff;
+}
+
+@media (max-width: 768px) {
+    .resetario-ai-info-card {
+        max-width: 100%;
+    }
+
+    .resetario-ai-info-front {
+        padding: 1.6rem 1.4rem;
+    }
+
+    .resetario-ai-info-label {
+        font-size: 1.8rem;
+    }
+}
+
 @media (max-width: 768px) {
     .resetario-ai-answer-section {
         margin-top: 2rem;
@@ -1234,7 +1292,7 @@ footer {
     background: linear-gradient(135deg, #f3f3f3 0%, #e0e0e0 100%);
     justify-content: center;
     align-items: center;
-    padding: 2rem;
+    padding: 2.6rem 2.2rem;
     border-radius: 12px;
     overflow: hidden;
 }
@@ -1254,7 +1312,7 @@ footer {
 
 .card-back-content p {
     font-family: 'Outfit', sans-serif;
-    font-size: 1rem;
+    font-size: 0.9rem;
     line-height: 1.6;
     color: #555;
 }

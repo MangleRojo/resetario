@@ -35,12 +35,52 @@ document.addEventListener("DOMContentLoaded", () => {
     return cardsData;
   }
 
-  // Asegurar que la respuesta no se muestre al cargar
-  if (answerSection) {
-    answerSection.hidden = true;
+  // Dibujar una tarjeta de información inicial bajo el dispositivo
+  function renderInitialInfoCard() {
+    if (!answerSection || !answerTextEl) return;
+
+    answerSection.hidden = false;
+    answerTextEl.innerHTML = `
+      <div class="reset-card resetario-ai-info-card active" aria-label="Información sobre el Re(s)etario" tabindex="0">
+        <div class="card-inner">
+          <div class="card-front">
+            <div class="resetario-ai-info-front">
+              <div class="resetario-ai-info-icon">
+                <span>i</span>
+              </div>
+              <div class="resetario-ai-info-label">Info</div>
+            </div>
+          </div>
+          <div class="card-back">
+            <div class="card-back-content">
+              <h4>Instrucciones</h4>
+              <p>Selecciona un eje de color y oprime <strong>Re(s)et</strong>. El Re(s)etario generará una tarjeta de táctica con una propuesta concreta para ese eje.</p>
+              <p>Puedes cambiar de eje en cualquier momento y volver a pulsar <strong>Re(s)et</strong> para explorar nuevas tácticas.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+
+    const infoCard = answerTextEl.querySelector(".resetario-ai-info-card");
+    if (infoCard) {
+      const toggleFlip = () => {
+        infoCard.classList.toggle("flipped");
+      };
+      infoCard.addEventListener("click", toggleFlip);
+      infoCard.addEventListener("keydown", (ev) => {
+        if (ev.key === "Enter" || ev.key === " ") {
+          ev.preventDefault();
+          toggleFlip();
+        }
+      });
+    }
   }
 
   if (!form || !questionEl) return;
+
+  // Mostrar tarjeta de información al cargar la página
+  renderInitialInfoCard();
 
   // Botones de ejes de color (agua, alimento, cobijo, etc.)
   if (ejeButtons && ejeButtons.length > 0) {
@@ -207,6 +247,7 @@ document.addEventListener("DOMContentLoaded", () => {
               <div class="card-back">
                 <div class="card-back-content">
                   <h3>${backTitle}</h3>
+                  <p>Selecciona un eje de color y oprime <strong>Re(s)et</strong>. Luego aparecerá una tarjeta de táctica como esta, con una propuesta para ese eje.</p>
                   <p>${text}</p>
                 </div>
               </div>

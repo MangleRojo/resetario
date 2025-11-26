@@ -576,20 +576,7 @@ footer {
 }
 
 .tp7-disk::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 140%;
-    height: 1px;
-    background: linear-gradient(to right,
-            transparent 0%,
-            rgba(140, 142, 150, 0.85) 15%,
-            rgba(140, 142, 150, 0.85) 85%,
-            transparent 100%);
-    transform-origin: center;
-    transform: translate(-50%, -50%) rotate(36deg);
-    opacity: 0.9;
+    content: none;
 }
 
 .tp7-disk-center {
@@ -808,12 +795,12 @@ footer {
 
 .tp7-eje-button {
     position: relative;
-    border-radius: 999px;
+    border-radius: 6px;
     border: 1px solid rgba(220, 222, 232, 0.5);
     background: rgba(8, 10, 16, 0.7);
     color: #e3e5ec;
     font-family: 'Outfit', sans-serif;
-    font-size: 0.72rem;
+    font-size: 0;
     letter-spacing: 0.12em;
     text-transform: uppercase;
     padding: 0.55rem 0.4rem;
@@ -836,34 +823,61 @@ footer {
     color: #ffffff;
 }
 
-.tp7-eje-button[data-eje="agua"].active {
-    background: linear-gradient(135deg, #4598ff 0%, #3580e6 100%);
+/* Colores por defecto (claros) para cada eje */
+.tp7-eje-button[data-eje="agua"] {
+    background: linear-gradient(135deg, rgba(69, 152, 255, 0.75) 0%, rgba(53, 128, 230, 0.75) 100%);
     border-color: #4598ff;
-    box-shadow: 0 0 12px rgba(69, 152, 255, 0.7);
+}
+
+.tp7-eje-button[data-eje="alimento"] {
+    background: linear-gradient(135deg, rgba(0, 208, 132, 0.75) 0%, rgba(0, 168, 105, 0.75) 100%);
+    border-color: #00d084;
+}
+
+.tp7-eje-button[data-eje="cobijo"] {
+    background: linear-gradient(135deg, rgba(254, 231, 28, 0.8) 0%, rgba(253, 216, 0, 0.8) 100%);
+    border-color: #fee71c;
+}
+
+.tp7-eje-button[data-eje="energia"] {
+    background: linear-gradient(135deg, rgba(253, 2, 2, 0.8) 0%, rgba(204, 0, 0, 0.8) 100%);
+    border-color: #fd0202;
+}
+
+.tp7-eje-button[data-eje="comunicacion"] {
+    background: linear-gradient(135deg, rgba(255, 107, 53, 0.85) 0%, rgba(255, 87, 34, 0.85) 100%);
+    border-color: #ff6b35;
+}
+
+/* Estado activo: versión más oscura del mismo color */
+.tp7-eje-button[data-eje="agua"].active {
+    background: linear-gradient(135deg, #2764c9 0%, #184fa8 100%);
+    border-color: #2764c9;
+    box-shadow: 0 0 10px rgba(39, 100, 201, 0.7);
 }
 
 .tp7-eje-button[data-eje="alimento"].active {
-    background: linear-gradient(135deg, #00d084 0%, #00a869 100%);
-    border-color: #00d084;
-    box-shadow: 0 0 12px rgba(0, 208, 132, 0.7);
+    background: linear-gradient(135deg, #00945e 0%, #007247 100%);
+    border-color: #00945e;
+    box-shadow: 0 0 10px rgba(0, 148, 94, 0.7);
 }
 
 .tp7-eje-button[data-eje="cobijo"].active {
-    background: linear-gradient(135deg, #fee71c 0%, #fdd800 100%);
-    border-color: #fee71c;
-    box-shadow: 0 0 12px rgba(254, 231, 28, 0.7);
+    background: linear-gradient(135deg, #d6b800 0%, #ad9200 100%);
+    border-color: #d6b800;
+    box-shadow: 0 0 10px rgba(214, 184, 0, 0.7);
 }
 
 .tp7-eje-button[data-eje="energia"].active {
-    background: linear-gradient(135deg, #fd0202 0%, #cc0000 100%);
-    border-color: #fd0202;
-    box-shadow: 0 0 12px rgba(253, 2, 2, 0.7);
+    background: linear-gradient(135deg, #b40000 0%, #7f0000 100%);
+    border-color: #b40000;
+    box-shadow: 0 0 10px rgba(180, 0, 0, 0.7);
 }
 
 .tp7-eje-button[data-eje="comunicacion"].active {
-    background: linear-gradient(135deg, #ff6b35 0%, #ff5722 100%);
-    border-color: #ff6b35;
-    box-shadow: 0 0 12px rgba(255, 107, 53, 0.7);
+    background: linear-gradient(135deg, #d24a1b 0%, #a0330f 100%);
+    border-color: #d24a1b;
+    box-shadow: 0 0 10px rgba(210, 74, 27, 0.7);
 }
 
 .tp7-submit-button {

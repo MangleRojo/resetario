@@ -1163,9 +1163,7 @@ footer {
 
 /* Ocultar barra de navegación de tácticas cuando se muestra la tarjeta de info */
 .resetario-ai-answer-text.info-mode + .tactics-nav {
-    /* Mantener el espacio pero sin mostrar controles ni permitir clics */
-    visibility: hidden;
-    pointer-events: none;
+    display: none;
 }
 
 .resetario-ai-loading {

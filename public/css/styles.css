@@ -514,8 +514,13 @@ footer {
     padding: 2.4rem 2.1rem 2.2rem;
     max-width: 960px;
     border-radius: 22px;
-    background: radial-gradient(circle at 20% 0, #f7f7f8 0, #ececee 40%, #dadce0 100%);
-    color: #222;
+    /* Fondo blueprint en grises: plano, oscuro y con retícula sutil */
+    background:
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        radial-gradient(circle at 20% 0, #32343a 0, #181a1f 45%, #101218 100%);
+    background-size: 40px 40px, 40px 40px, 100% 100%;
+    color: #e3e4e8;
     box-shadow:
         0 20px 40px rgba(0, 0, 0, 0.35),
         0 0 0 1px rgba(255, 255, 255, 0.6),
@@ -528,7 +533,7 @@ footer {
     position: absolute;
     inset: 9px;
     border-radius: 18px;
-    border: 1px solid rgba(200, 202, 210, 0.9);
+    border: 1px solid rgba(230, 232, 240, 0.2);
     pointer-events: none;
 }
 
@@ -538,6 +543,8 @@ footer {
     display: flex;
     flex-direction: column;
     gap: 1.6rem;
+    /* Dibujo tipo blueprint: solo contornos */
+    color: #e3e5ec;
 }
 
 .tp7-top-row {
@@ -555,11 +562,9 @@ footer {
     aspect-ratio: 1 / 1;
     margin-left: 0.4rem;
     border-radius: 50%;
-    background: #e0e2e7;
-    box-shadow:
-        0 0 0 1px rgba(255, 255, 255, 0.9),
-        0 0 0 2px #babdc4,
-        0 6px 10px rgba(0, 0, 0, 0.18);
+    background: transparent;
+    box-shadow: none;
+    border: 1px dashed rgba(220, 222, 232, 0.7);
 }
 
 .tp7-disk::before {
@@ -567,7 +572,7 @@ footer {
     position: absolute;
     inset: 11%;
     border-radius: 50%;
-    border: 1px solid rgba(175, 177, 186, 0.9);
+    border: 1px dashed rgba(220, 222, 232, 0.5);
 }
 
 .tp7-disk::after {
@@ -591,11 +596,8 @@ footer {
     position: absolute;
     inset: 37%;
     border-radius: 50%;
-    background: #d7d9df;
-    box-shadow:
-        0 0 0 1px rgba(255, 255, 255, 0.95),
-        0 0 0 3px #b7bac2,
-        0 2px 4px rgba(0, 0, 0, 0.16);
+    background: transparent;
+    box-shadow: 0 0 0 1px rgba(220, 222, 232, 0.8);
 }
 
 /* Pantalla derecha tipo “TODAY” */
@@ -604,10 +606,8 @@ footer {
     align-self: stretch;
     padding: 0.7rem 0.9rem 0.8rem;
     border-radius: 10px;
-    background: radial-gradient(circle at 20% 0, #15171d 0, #05070b 55%, #000000 100%);
-    box-shadow:
-        0 0 0 1px rgba(0, 0, 0, 0.85),
-        0 12px 20px rgba(0, 0, 0, 0.75);
+    background: rgba(5, 7, 12, 0.9);
+    box-shadow: 0 0 0 1px rgba(230, 232, 240, 0.4);
     color: #f6f7fb;
     display: flex;
     flex-direction: column;
@@ -648,7 +648,7 @@ footer {
     min-width: 1.4rem;
     padding: 0.08rem 0.25rem;
     border-radius: 4px;
-    border: 1px solid rgba(255, 255, 255, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.6);
     font-weight: 600;
     font-size: 0.7rem;
 }
@@ -656,7 +656,7 @@ footer {
 .tp7-screen .resetario-ai-status {
     margin-top: 0.35rem;
     font-size: 0.7rem;
-    color: #cfd2e5;
+    color: #d4d7ec;
 }
 
 .tp7-middle {
@@ -679,7 +679,7 @@ footer {
     font-family: 'Outfit', sans-serif;
     font-size: 0.95rem;
     line-height: 1.7;
-    color: #4b4f58;
+    color: #c7cad4;
     margin-bottom: 1.75rem;
 }
 
@@ -700,7 +700,7 @@ footer {
     font-size: 0.78rem;
     text-transform: uppercase;
     letter-spacing: 0.16em;
-    color: #a0a0a0;
+    color: #aeb2c0;
     margin-bottom: 0.4rem;
 }
 
@@ -709,36 +709,36 @@ footer {
     min-height: 110px;
     padding: 1rem 1.1rem;
     border-radius: 14px;
-    border: 1px solid rgba(180, 182, 190, 0.9);
-    background: linear-gradient(135deg, #fdfdff, #f3f4f8);
-    color: #222;
+    border: 1px solid rgba(220, 222, 232, 0.5);
+    background: rgba(10, 12, 18, 0.6);
+    color: #f4f5fb;
     resize: vertical;
     font-family: 'Outfit', sans-serif;
     font-size: 0.95rem;
     line-height: 1.6;
     outline: none;
-    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
-    backdrop-filter: blur(2px);
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(4px);
 }
 
 .resetario-ai-textarea::placeholder {
-    color: #9599a4;
+    color: #878ca0;
 }
 
 .resetario-ai-textarea:focus-visible {
-    border-color: #8a8ea0;
+    border-color: rgba(255, 255, 255, 0.7);
     box-shadow:
-        0 0 0 1px rgba(50, 54, 72, 0.45),
-        0 0 0 1px rgba(255, 255, 255, 0.5) inset;
+        0 0 0 1px rgba(255, 255, 255, 0.4),
+        0 0 0 1px rgba(0, 0, 0, 0.9) inset;
 }
 
 .resetario-ai-button {
     position: relative;
     padding: 0.9rem 1.6rem;
     border-radius: 10px;
-    border: 0;
-    background: linear-gradient(145deg, #f5f5f5, #bfbfbf);
-    color: #121212;
+    border: 1px solid rgba(220, 222, 232, 0.8);
+    background: rgba(230, 231, 236, 0.06);
+    color: #f5f6fb;
     font-family: 'Outfit', sans-serif;
     font-size: 0.92rem;
     font-weight: 700;
@@ -746,20 +746,20 @@ footer {
     text-transform: uppercase;
     cursor: pointer;
     box-shadow:
-        0 7px 0 #707070,
-        0 10px 18px rgba(0, 0, 0, 0.7);
+        0 0 0 1px rgba(0, 0, 0, 0.7),
+        0 6px 16px rgba(0, 0, 0, 0.65);
     transition: transform 0.08s ease-out, box-shadow 0.08s ease-out, background 0.15s ease-out;
 }
 
 .resetario-ai-button:hover {
-    background: linear-gradient(145deg, #ffffff, #cdcdcd);
+    background: rgba(230, 231, 236, 0.14);
 }
 
 .resetario-ai-button:active {
     transform: translateY(2px);
     box-shadow:
-        0 4px 0 #707070,
-        0 6px 12px rgba(0, 0, 0, 0.7);
+        0 0 0 1px rgba(0, 0, 0, 0.9),
+        0 3px 8px rgba(0, 0, 0, 0.8);
 }
 
 .resetario-ai-status {
@@ -767,7 +767,7 @@ footer {
     margin-top: 0.8rem;
     font-family: 'Outfit', sans-serif;
     font-size: 0.78rem;
-    color: #9c9c9c;
+    color: #9da1b0;
     min-height: 1.1rem;
 }
 
@@ -810,24 +810,23 @@ footer {
     position: relative;
     border: none;
     border-radius: 8px;
-    background: #f1f2f5;
-    box-shadow:
-        0 5px 0 #9c9c9c,
-        0 8px 14px rgba(0, 0, 0, 0.55);
+    background: transparent;
+    box-shadow: none;
+    border: 1px solid rgba(220, 222, 232, 0.6);
     cursor: default;
 }
 
 .tp7-key::before {
     content: '';
     position: absolute;
-    inset: 28%;
+    inset: 30%;
     border-radius: 4px;
-    background: #1d1d1d;
-    opacity: 0.9;
+    background: rgba(220, 222, 232, 0.85);
+    opacity: 0.8;
 }
 
 .tp7-key-rec {
-    background: #f1f2f5;
+    background: transparent;
 }
 
 .tp7-key-rec::before {

@@ -970,6 +970,10 @@ footer {
 }
 
 @media (max-width: 768px) {
+    .page-container {
+        padding: 1.25rem;
+    }
+
     .resetario-ai-info-card {
         max-width: 100%;
     }
@@ -1210,7 +1214,7 @@ footer {
 /* Layout responsive del panel IA */
 @media (max-width: 768px) {
     .resetario-ai-section {
-        padding: 1.6rem 1.4rem 1.8rem;
+        padding: 1.9rem 1.4rem 2rem;
         margin-bottom: 2.5rem;
     }
 
@@ -2116,7 +2120,7 @@ footer {
     }
 
     .card-back-content p {
-        font-size: 0.9rem;
+        font-size: 0.8rem;
     }
 
     .card-top-instructions {

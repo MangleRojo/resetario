@@ -845,8 +845,8 @@ footer {
 }
 
 .tp7-eje-button[data-eje="comunicacion"] {
-    background: linear-gradient(135deg, rgba(255, 107, 53, 0.85) 0%, rgba(255, 87, 34, 0.85) 100%);
-    border-color: #ff6b35;
+    background: linear-gradient(135deg, rgba(255, 132, 53, 0.95) 0%, rgba(255, 90, 0, 0.95) 100%);
+    border-color: #ff6b00;
 }
 
 /* Estado activo: versión más oscura del mismo color */
@@ -875,9 +875,9 @@ footer {
 }
 
 .tp7-eje-button[data-eje="comunicacion"].active {
-    background: linear-gradient(135deg, #d24a1b 0%, #a0330f 100%);
-    border-color: #d24a1b;
-    box-shadow: 0 0 10px rgba(210, 74, 27, 0.7);
+    background: linear-gradient(135deg, #c54200 0%, #8a2a00 100%);
+    border-color: #c54200;
+    box-shadow: 0 0 10px rgba(197, 66, 0, 0.8);
 }
 
 .tp7-submit-button {

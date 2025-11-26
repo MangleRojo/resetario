@@ -7,8 +7,37 @@ document.addEventListener("DOMContentLoaded", () => {
   const statusEl = document.getElementById("resetario-ai-status");
   const answerContainer = document.getElementById("resetario-ai-answer");
   const answerTextEl = document.getElementById("resetario-ai-answer-text");
+  const ejeButtons = document.querySelectorAll(".tp7-eje-button");
 
   if (!form || !questionEl) return;
+
+  // Botones de ejes de color (agua, alimento, cobijo, etc.)
+  if (ejeButtons && ejeButtons.length > 0) {
+    const ejeLabels = {
+      agua: "Agua",
+      alimento: "Alimento",
+      cobijo: "Cobijo",
+      energia: "Energía",
+      comunicacion: "Comunicación",
+    };
+
+    ejeButtons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const ejeKey = btn.dataset.eje;
+        const label = ejeLabels[ejeKey] || ejeKey || "";
+
+        // Cambiar estado visual activo
+        ejeButtons.forEach((b) => b.classList.remove("active"));
+        btn.classList.add("active");
+
+        // Escribir el eje en el textarea
+        if (label) {
+          questionEl.value = `${label} `;
+          questionEl.focus();
+        }
+      });
+    });
+  }
 
   form.addEventListener("submit", async (event) => {
     event.preventDefault();

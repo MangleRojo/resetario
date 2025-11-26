@@ -554,7 +554,7 @@ footer {
     align-items: center;
 }
 
-/* Gran disco izquierdo */
+/* Panel izquierdo tipo blueprint basado en patrón de cuadrícula recursiva */
 .tp7-disk {
     position: relative;
     width: 100%;
@@ -562,7 +562,7 @@ footer {
     aspect-ratio: 1 / 1;
     margin-left: 0.4rem;
     border-radius: 50%;
-    /* Disco blueprint: sólo contornos y líneas técnicas en gris claro */
+    /* Círculo blueprint: sólo contornos en gris claro */
     background: transparent;
     box-shadow: none;
     border: 1px solid rgba(220, 222, 232, 0.6);

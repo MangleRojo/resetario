@@ -311,8 +311,8 @@ document.addEventListener("DOMContentLoaded", () => {
           <div class="card-back">
             <div class="card-back-content">
               <h4>Instrucciones</h4>
-              <p>Seleccione un eje de color y oprime <strong>Re(s)et</strong>. Luego aparecerá una tarjeta de táctica con una propuesta para ese eje.</p>
-              <p>Puede cambiar de eje en cualquier momento y volver a pulsar <strong>Re(s)et</strong> para explorar nuevas tácticas.</p>
+              <p>1. Escoga hasta tres tácticas de <strong>Agua</strong>, <strong>Alimentación</strong>, <strong>Cobijo</strong>, <strong>Energía</strong> o <strong>Comunicación</strong>. <p>2. Seleccione las dimensiones de <strong>Tiempo</strong>, <strong>Espacio</strong> o <strong>Información</strong>.</p> <p>3. Pulse <strong>Re(s)et</strong>. para crear una Re(s)eta con las tácticas seleccionadas.
+              <p>Para explorar nuevas tácticas pulse <strong>Esc</strong>.</p>
             </div>
           </div>
         </div>

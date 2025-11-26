@@ -665,7 +665,7 @@ footer {
 .tp7-disk {
     position: relative;
     width: 100%;
-    max-width: 100px;
+    max-width: 120px;
     aspect-ratio: 1 / 1;
     margin-left: 0.4rem;
     border-radius: 50%;
@@ -752,7 +752,9 @@ footer {
 .tp7-screen {
     position: relative;
     align-self: stretch;
-    padding: 0.7rem 0.9rem 0.8rem;
+    /* Que se vea más claramente rectangular y horizontal */
+    padding: 0.55rem 1.4rem 0.7rem;
+    max-width: 420px;
     border-radius: 10px;
     background: rgba(5, 7, 12, 0.9);
     box-shadow: 0 0 0 1px rgba(230, 232, 240, 0.4);
@@ -760,7 +762,7 @@ footer {
     display: flex;
     flex-direction: column;
     gap: 0.15rem;
-    min-height: 82px;
+    min-height: 64px;
 }
 
 .tp7-screen-header {
@@ -808,7 +810,7 @@ footer {
 }
 
 .tp7-middle {
-    margin-top: 1.2rem;
+    margin-top: 0.4rem;
 }
 
 .resetario-ai-title {
@@ -1491,7 +1493,7 @@ footer {
     }
 
     .tp7-middle {
-        margin-top: 1.4rem;
+        margin-top: 0.2rem;
     }
 }
 

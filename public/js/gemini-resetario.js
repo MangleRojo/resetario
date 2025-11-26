@@ -54,8 +54,8 @@ document.addEventListener("DOMContentLoaded", () => {
           <div class="card-back">
             <div class="card-back-content">
               <h4>Instrucciones</h4>
-              <p>Selecciona un eje de color y oprime <strong>Re(s)et</strong>. El Re(s)etario generará una tarjeta de táctica con una propuesta concreta para ese eje.</p>
-              <p>Puedes cambiar de eje en cualquier momento y volver a pulsar <strong>Re(s)et</strong> para explorar nuevas tácticas.</p>
+              <p>Seleccione un eje de color y oprime <strong>Re(s)et</strong>. Luego aparecerá una tarjeta de táctica con una propuesta para ese eje.</p>
+              <p>Puede cambiar de eje en cualquier momento y volver a pulsar <strong>Re(s)et</strong> para explorar nuevas tácticas.</p>
             </div>
           </div>
         </div>
@@ -247,7 +247,6 @@ document.addEventListener("DOMContentLoaded", () => {
               <div class="card-back">
                 <div class="card-back-content">
                   <h3>${backTitle}</h3>
-                  <p>Selecciona un eje de color y oprime <strong>Re(s)et</strong>. Luego aparecerá una tarjeta de táctica como esta, con una propuesta para ese eje.</p>
                   <p>${text}</p>
                 </div>
               </div>

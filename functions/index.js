@@ -64,13 +64,26 @@ exports.callGemini = onRequest({cors: true}, async (req, res) => {
 
   try {
     const payload = {
+      systemInstruction: {
+        role: "system",
+        parts: [
+          {
+            text: "Eres experto en APICCA COMÚN y solo respondes temas " +
+              "relacionados con las tácticas para explorar Autonomías Compartidas. " +
+              "APICCA COMÚN quiere decir API para Crear y Conectar Autonomías Compartidas " +
+              "y se basa en el Apoyo Mutuo para explorar tácticas de Economías Recíprocas. " +
+              "APICCA COMÚN se basa en el diseño convivencial centrado en las personas. " +
+              "Responde siempre en español, de forma clara, concreta y breve. " +
+              "No utilices markdown en tus respuestas.",
+          },
+        ],
+      },
       contents: [
         {
           role: "user",
           parts: [
             {
-              text: "Responde en español de forma clara y breve.\n\n" +
-                "Pregunta del usuario sobre el Re(s)etario de APICCA:\n" +
+              text: "Pregunta del usuario sobre el Re(s)etario de APICCA:\n" +
                 prompt,
             },
           ],

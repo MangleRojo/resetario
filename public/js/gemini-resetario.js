@@ -73,6 +73,8 @@ document.addEventListener("DOMContentLoaded", () => {
     if (answerTitleEl) {
       answerTitleEl.hidden = true;
     }
+    // Volver al modo información (sin carrusel)
+    answerTextEl.classList.add("info-mode");
     answerTextEl.innerHTML = `
       <div class="reset-card resetario-ai-info-card active" aria-label="Información sobre el Re(s)etario" tabindex="0">
         <div class="card-inner">
@@ -121,8 +123,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (!selectedGlyphCards.length) {
       answerTextEl.innerHTML = "";
+      // Si no hay tácticas, podemos volver a modo información cuando toque
       return;
     }
+
+    // Al mostrar tácticas, quitar el modo información para activar el carrusel
+    answerTextEl.classList.remove("info-mode");
 
     const cardsHtml = selectedGlyphCards
       .slice(0, 3)
@@ -321,6 +327,8 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
   }
+
+  // (sin navegación por flechas: el usuario desplaza el carrusel con scroll horizontal)
 
   form.addEventListener("submit", async (event) => {
     event.preventDefault();

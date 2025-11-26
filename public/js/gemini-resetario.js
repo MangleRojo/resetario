@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const statusEl = document.getElementById("resetario-ai-status");
   const answerSection = document.getElementById("resetario-ai-answer");
   const answerTextEl = document.getElementById("resetario-ai-answer-text");
+  const answerTitleEl = document.getElementById("resetario-ai-answer-title");
   const ejeButtons = document.querySelectorAll(".tp7-eje-button");
   const glyphLayer = document.querySelector(".tp7-disk-glyph-layer");
   const submitButton = document.querySelector(".tp7-submit-button");
@@ -40,6 +41,9 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!answerSection || !answerTextEl) return;
 
     answerSection.hidden = false;
+    if (answerTitleEl) {
+      answerTitleEl.hidden = true;
+    }
     answerTextEl.innerHTML = `
       <div class="reset-card resetario-ai-info-card active" aria-label="Información sobre el Re(s)etario" tabindex="0">
         <div class="card-inner">
@@ -160,9 +164,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
     statusEl.textContent = "Consultando...";
     if (answerSection) {
-      answerSection.hidden = true;
+      answerSection.hidden = false;
     }
-    answerTextEl.textContent = "";
+    if (answerTitleEl) {
+      answerTitleEl.hidden = false;
+    }
+    // Mostrar spinner mientras llega la respuesta
+    answerTextEl.innerHTML = `
+      <div class="resetario-ai-loading">
+        <div class="loading-spinner"></div>
+      </div>
+    `;
 
     try {
       // URL de la Firebase Function HTTP.

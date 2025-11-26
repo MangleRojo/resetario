@@ -1108,11 +1108,11 @@ footer {
 /* Carrusel solo para las tarjetas de tácticas dentro del aparato */
 .tactics-carousel {
     flex-wrap: nowrap;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: stretch;
     overflow-x: auto;
     overflow-y: hidden;
-    scroll-snap-type: x mandatory;
+    scroll-snap-type: none;
 }
 
 .resetario-ai-loading {

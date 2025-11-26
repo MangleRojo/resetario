@@ -528,6 +528,113 @@ footer {
     overflow: hidden;
 }
 
+/* Variante clara del panel Resetario IA */
+.resetario-ai-section.resetario-ai-light {
+    background:
+        linear-gradient(rgba(0, 0, 0, 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 0, 0, 0.08) 1px, transparent 1px),
+        #f1f1f1;
+    color: #1d1f24;
+    box-shadow:
+        0 10px 22px rgba(0, 0, 0, 0.14),
+        0 0 0 1px rgba(0, 0, 0, 0.06),
+        0 0 0 1px rgba(255, 255, 255, 0.5) inset;
+    background-size: 32px 32px, 32px 32px, 100% 100%;
+}
+
+.resetario-ai-section.resetario-ai-light::before {
+    border-color: rgba(40, 42, 52, 0.18);
+}
+
+.resetario-ai-section.resetario-ai-light .tp7-disk {
+    border-color: rgba(80, 82, 92, 0.7);
+}
+
+.resetario-ai-section.resetario-ai-light .tp7-disk::before {
+    border-color: rgba(80, 82, 92, 0.45);
+}
+
+.resetario-ai-section.resetario-ai-light .tp7-disk::after {
+    border-color: rgba(80, 82, 92, 0.5);
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.6);
+}
+
+.resetario-ai-section.resetario-ai-light .tp7-disk-center {
+    box-shadow: 0 0 0 1px rgba(80, 82, 92, 0.8);
+}
+
+.resetario-ai-section.resetario-ai-light .tp7-screen {
+    background: rgba(255, 255, 255, 0.96);
+    box-shadow: 0 0 0 1px rgba(40, 42, 52, 0.25);
+    color: #161821;
+}
+
+.resetario-ai-section.resetario-ai-light .tp7-screen-meta-slot {
+    border-color: rgba(40, 42, 52, 0.8);
+}
+
+.resetario-ai-section.resetario-ai-light .tp7-screen .resetario-ai-status {
+    color: #4a4c56;
+}
+
+.resetario-ai-section.resetario-ai-light .resetario-ai-label {
+    color: #3a3c44;
+}
+
+.resetario-ai-section.resetario-ai-light .resetario-ai-option {
+    color: #3a3c44;
+}
+
+.resetario-ai-section.resetario-ai-light .resetario-ai-option input[type="checkbox"] {
+    background: var(--primary-white);
+    border-color: rgba(80, 82, 92, 0.6);
+    box-shadow:
+        0 0 0 1px rgba(255, 255, 255, 0.7),
+        inset 0 0 0 1px rgba(200, 202, 210, 0.8);
+}
+
+.resetario-ai-section.resetario-ai-light .resetario-ai-option input[type="checkbox"]::before {
+    background: #20232c;
+}
+
+.resetario-ai-section.resetario-ai-light .theme-switch {
+    color: #3a3c44;
+}
+
+.resetario-ai-section.resetario-ai-light .theme-switch-slider {
+    background: var(--primary-white);
+    border-color: rgba(120, 122, 132, 0.8);
+    box-shadow:
+        0 0 0 1px rgba(255, 255, 255, 0.7),
+        inset 0 0 0 1px rgba(200, 202, 210, 0.8);
+}
+
+.resetario-ai-section.resetario-ai-light .theme-switch-slider::before {
+    background: #20232c;
+}
+
+.resetario-ai-section.resetario-ai-light .resetario-ai-button {
+    background: rgba(252, 252, 255, 0.9);
+    color: #101218;
+    border-color: rgba(120, 122, 132, 0.8);
+    box-shadow:
+        0 0 0 1px rgba(0, 0, 0, 0.25),
+        0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.resetario-ai-section.resetario-ai-light .resetario-ai-button:hover {
+    background: rgba(240, 242, 250, 1);
+}
+
+.resetario-ai-section.resetario-ai-light .tp7-submit-button:disabled,
+.resetario-ai-section.resetario-ai-light .tp7-submit-button.tp7-submit-disabled {
+    opacity: 1;
+    cursor: default;
+    box-shadow:
+        0 0 0 1px rgba(0, 0, 0, 0.25),
+        0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
 .resetario-ai-section::before {
     content: '';
     position: absolute;
@@ -649,7 +756,7 @@ footer {
     border-radius: 10px;
     background: rgba(5, 7, 12, 0.9);
     box-shadow: 0 0 0 1px rgba(230, 232, 240, 0.4);
-    color: #f6f7fb;
+    color: var(--primary-white);
     display: flex;
     flex-direction: column;
     gap: 0.15rem;
@@ -745,6 +852,63 @@ footer {
     margin-bottom: 0.4rem;
 }
 
+/* Switch de tema claro/oscuro */
+.resetario-ai-theme-toggle {
+    margin-bottom: 0.9rem;
+    display: none;
+    justify-content: flex-end;
+}
+
+.theme-switch {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.8rem;
+    color: #d0d2dd;
+}
+
+.theme-switch input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.theme-switch-slider {
+    width: 34px;
+    height: 18px;
+    border-radius: 999px;
+    background: rgba(15, 18, 26, 0.9);
+    border: 1px solid rgba(220, 222, 232, 0.6);
+    box-shadow:
+        0 0 0 1px rgba(0, 0, 0, 0.8),
+        inset 0 0 0 1px rgba(30, 32, 40, 0.8);
+    position: relative;
+    cursor: pointer;
+}
+
+.theme-switch-slider::before {
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 3px;
+    width: 12px;
+    height: 12px;
+    border-radius: 999px;
+    background: var(--primary-white);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    transition: transform 0.16s ease-out;
+}
+
+.theme-switch input:checked + .theme-switch-slider::before {
+    transform: translateX(13px);
+}
+
+.theme-switch-label {
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+}
+
 .resetario-ai-options {
     display: flex;
     flex-wrap: wrap;
@@ -832,7 +996,7 @@ footer {
     border-radius: 10px;
     border: 1px solid rgba(220, 222, 232, 0.8);
     background: rgba(230, 231, 236, 0.06);
-    color: #f5f6fb;
+    color: var(--primary-white);
     font-family: 'Outfit', sans-serif;
     font-size: 0.92rem;
     font-weight: 700;
@@ -919,7 +1083,7 @@ footer {
     font-family: 'Outfit', sans-serif;
     font-size: 0.95rem;
     line-height: 1.7;
-    color: #f3f3f3;
+    color: var(--primary-white);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -956,7 +1120,7 @@ footer {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    border: 2px solid #ffffff;
+    border: 2px solid var(--primary-white);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -973,7 +1137,7 @@ footer {
     font-weight: 900;
     letter-spacing: 0.12em;
     text-transform: capitalize;
-    color: #ffffff;
+    color: var(--primary-white);
 }
 
 @media (max-width: 768px) {
@@ -1362,7 +1526,7 @@ footer {
     width: 100%;
     height: 100%;
     transform: rotateY(180deg);
-    background: linear-gradient(135deg, #f3f3f3 0%, #e0e0e0 100%);
+    background: linear-gradient(135deg, var(--primary-white) 0%, #e0e0e0 100%);
     justify-content: center;
     align-items: center;
     padding: 2.6rem 2.2rem;

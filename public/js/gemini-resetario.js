@@ -7,6 +7,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const answerSection = document.getElementById("resetario-ai-answer");
   const answerTextEl = document.getElementById("resetario-ai-answer-text");
   const answerTitleEl = document.getElementById("resetario-ai-answer-title");
+  const themeToggle = document.getElementById("resetario-ai-theme-toggle");
+  const resetarioSection = document.getElementById("resetario-ai");
   const ejeButtons = document.querySelectorAll(".tp7-eje-button");
   const glyphLayer = document.querySelector(".tp7-disk-glyph-layer");
   const submitButton = document.querySelector(".tp7-submit-button");
@@ -82,6 +84,17 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   if (!form) return;
+
+  // Toggle de modo claro/oscuro del aparato
+  if (themeToggle && resetarioSection) {
+    themeToggle.addEventListener("change", () => {
+      if (themeToggle.checked) {
+        resetarioSection.classList.add("resetario-ai-light");
+      } else {
+        resetarioSection.classList.remove("resetario-ai-light");
+      }
+    });
+  }
 
   // Desactivar envío hasta que se seleccione un eje de color
   if (submitButton) {

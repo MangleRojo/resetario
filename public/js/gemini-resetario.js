@@ -24,8 +24,225 @@ document.addEventListener("DOMContentLoaded", () => {
   // Hasta tres glyphs pueden estar seleccionados como tácticas a la vez
   let selectedGlyphCards = [];
   let currentTacticIndex = 0;
+  let currentDimensions = [];
   let cardsData = null; // Datos del resetario para recuperar número y glyph
   let colorMeanings = null; // Colores por eje desde glyph-dictionary.json
+
+  // ========== Sistema de Audio (Web Audio API) ==========
+  let audioContext = null;
+
+  // Inicializar AudioContext (lazy loading para evitar warnings del navegador)
+  function getAudioContext() {
+    if (!audioContext) {
+      audioContext = new (window.AudioContext || window.webkitAudioContext)();
+    }
+    return audioContext;
+  }
+
+  // Generar un tono sintético estilo TP-7
+  function playTone(frequency, duration = 0.08, type = 'sine') {
+    try {
+      const ctx = getAudioContext();
+      const oscillator = ctx.createOscillator();
+      const gainNode = ctx.createGain();
+
+      oscillator.connect(gainNode);
+      gainNode.connect(ctx.destination);
+
+      oscillator.type = type;
+      oscillator.frequency.value = frequency;
+
+      // Envelope ADSR simple
+      const now = ctx.currentTime;
+      gainNode.gain.setValueAtTime(0, now);
+      gainNode.gain.linearRampToValueAtTime(0.15, now + 0.01); // Attack
+      gainNode.gain.linearRampToValueAtTime(0.1, now + 0.03); // Decay
+      gainNode.gain.setValueAtTime(0.1, now + duration - 0.02); // Sustain
+      gainNode.gain.linearRampToValueAtTime(0, now + duration); // Release
+
+      oscillator.start(now);
+      oscillator.stop(now + duration);
+    } catch (e) {
+      // Silenciar errores de audio (navegadores sin soporte)
+      console.warn('Audio no disponible:', e);
+    }
+  }
+
+  // Frecuencias para cada eje (escala pentatónica menor)
+  const ejeFrequencies = {
+    agua: 440,      // A4 - Azul
+    alimento: 523,  // C5 - Verde
+    cobijo: 587,    // D5 - Amarillo
+    energia: 659,   // E5 - Rojo
+    comunicacion: 784, // G5 - Naranja
+  };
+
+  // Sonidos para dimensiones (octava más alta)
+  const dimensionFrequencies = {
+    Tiempo: 880,      // A5
+    Espacio: 1047,    // C6
+    Información: 1175, // D6
+  };
+
+  function playEjeSound(ejeKey) {
+    const freq = ejeFrequencies[ejeKey] || 440;
+    playTone(freq, 0.1, 'triangle');
+  }
+
+  function playDimensionSound(dimension) {
+    const freq = dimensionFrequencies[dimension] || 880;
+    playTone(freq, 0.06, 'sine');
+  }
+
+  function playSubmitSound() {
+    // Acorde ascendente para submit
+    playTone(523, 0.08, 'square');
+    setTimeout(() => playTone(659, 0.08, 'square'), 50);
+    setTimeout(() => playTone(784, 0.12, 'square'), 100);
+  }
+
+  function playEscSound() {
+    // Tono descendente para reset
+    playTone(784, 0.06, 'sawtooth');
+    setTimeout(() => playTone(523, 0.08, 'sawtooth'), 40);
+  }
+
+  function generateHash(length = 16) {
+    const chars = "abcdef0123456789";
+    let out = "";
+    for (let i = 0; i < length; i++) {
+      out += chars[Math.floor(Math.random() * chars.length)];
+    }
+    return out;
+  }
+
+  function colorClassFor(colorKey) {
+    switch (colorKey) {
+      case "red":
+        return "resetario-bar-red";
+      case "blue":
+        return "resetario-bar-blue";
+      case "green":
+        return "resetario-bar-green";
+      case "yellow":
+        return "resetario-bar-yellow";
+      case "orange":
+        return "resetario-bar-orange";
+      default:
+        return "resetario-bar-neutral";
+    }
+  }
+
+  function getBarCardsForOutput(cardInfo) {
+    if (selectedGlyphCards.length > 0) {
+      return selectedGlyphCards.slice(0, 3);
+    }
+    if (cardInfo) {
+      return [
+        {
+          color: cardInfo.color || "standard",
+          ejeKey: currentEjeKey || null,
+          proximity: 0.5,
+        },
+      ];
+    }
+    return [];
+  }
+
+  function renderResetarioOutput({ text, cardInfo, loading }) {
+    if (!responseTextEl) return;
+
+    const barCards = getBarCardsForOutput(cardInfo);
+
+    const barsHtml = barCards
+      .map((c) => {
+        const prox =
+          typeof c.proximity === "number" && !Number.isNaN(c.proximity)
+            ? c.proximity
+            : 0.5;
+        // Altura entre 24px y 80px según la proximidad al centro
+        const height = 24 + Math.round(prox * 56);
+        const barClass = colorClassFor(c.color);
+        return `<div class="resetario-bar ${barClass}" style="height:${height}px"></div>`;
+      })
+      .join("");
+
+    const hash = !loading ? generateHash(16) : "";
+
+    const dimsText = currentDimensions.length
+      ? currentDimensions.join(", ")
+      : "—";
+
+    const tacticsLines = selectedGlyphCards.slice(0, 3).map((card) => {
+      const colorKey =
+        card.color || (card.ejeKey && ejeToColorKey[card.ejeKey]) || "neutral";
+      const badgeClasses = `resetario-tactic-badge resetario-tactic-badge-${colorKey}`;
+      return `<span class="${badgeClasses}">${card.title}</span>`;
+    });
+
+    const tacticsHtml =
+      tacticsLines.length > 0 ?
+        tacticsLines.join("") :
+        '<p class="resetario-section-empty">Selecciona uno o más glyphs para ver tácticas.</p>';
+
+    const resetHtml = loading
+      ? `<div class="resetario-section-content resetario-output-text-loading">
+            <div class="resetario-ai-loading">
+              <div class="loading-spinner"></div>
+            </div>
+         </div>`
+      : `<div class="resetario-section-content">
+            <p class="resetario-output-text">${text}</p>
+         </div>`;
+
+    const bodyHtml = `
+      <div class="resetario-sections">
+        <div class="resetario-section">
+          <div class="resetario-section-label">Dimensiones</div>
+          <div class="resetario-section-content">
+            <p>${dimsText}</p>
+          </div>
+        </div>
+        <div class="resetario-section">
+          <div class="resetario-section-label">Re(s)et</div>
+          ${resetHtml}
+        </div>
+        <div class="resetario-section">
+          <div class="resetario-section-label">Tácticas</div>
+          <div class="resetario-section-content resetario-tactics-row">
+            ${tacticsHtml}
+          </div>
+        </div>
+      </div>
+    `;
+
+    const footerHtml = `<div class="resetario-output-footer">
+        ${hash ? `<span class="resetario-output-hash">${hash}</span>` : ""}
+      </div>`;
+
+    const responseHtml = `
+      <div class="resetario-output" aria-label="Respuesta del Re(s)etario">
+        <div class="resetario-output-header">
+          <div class="resetario-output-title">
+            <div class="resetario-output-title-main">Re(s)etario</div>
+            <div class="resetario-output-title-sub">v.0.2</div>
+          </div>
+          <div class="resetario-output-bars">
+            ${barsHtml}
+          </div>
+        </div>
+        <div class="resetario-output-body">
+          ${bodyHtml}
+        </div>
+        ${footerHtml}
+      </div>
+    `;
+
+    responseTextEl.innerHTML = responseHtml;
+
+    // Desplazar suavemente hasta la tarjeta de respuesta
+    responseTextEl.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
 
   const ejeLabels = {
     agua: "Agua",
@@ -242,6 +459,7 @@ document.addEventListener("DOMContentLoaded", () => {
       currentGlyphIndex = null;
       currentEjeKey = null;
       currentTacticIndex = 0;
+      currentDimensions = [];
       updateTacticNavButtons();
 
       // Desactivar botones de eje visualmente
@@ -264,13 +482,13 @@ document.addEventListener("DOMContentLoaded", () => {
         });
       }
 
-    // Limpiar mensajes y tarjetas y volver a la tarjeta de ayuda inicial
+      // Limpiar mensajes y tarjetas y volver a la tarjeta de ayuda inicial
       if (statusEl) {
         statusEl.textContent = "";
       }
-    if (responseTextEl) {
-      responseTextEl.innerHTML = "";
-    }
+      if (responseTextEl) {
+        responseTextEl.innerHTML = "";
+      }
       renderInitialInfoCard();
     });
   }
@@ -280,6 +498,8 @@ document.addEventListener("DOMContentLoaded", () => {
     ejeButtons.forEach((btn) => {
       btn.addEventListener("click", async () => {
         const ejeKey = btn.dataset.eje;
+
+        playEjeSound(ejeKey);
 
         // Cambiar estado visual activo
         ejeButtons.forEach((b) => b.classList.remove("active"));
@@ -309,8 +529,8 @@ document.addEventListener("DOMContentLoaded", () => {
           const usedIds = new Set(selectedGlyphCards.map((c) => c.id));
           let candidates = Array.isArray(allCards)
             ? allCards.filter(
-                (c) => c.color === colorKey && !usedIds.has(c.id),
-              )
+              (c) => c.color === colorKey && !usedIds.has(c.id),
+            )
             : [];
 
           // Si ya usamos todos los glyphs de ese color, permitir repetir
@@ -325,10 +545,22 @@ document.addEventListener("DOMContentLoaded", () => {
           const chosen =
             candidates[Math.floor(Math.random() * candidates.length)];
 
+          // Posición aleatoria dentro del círculo (en porcentaje)
+          const top = 15 + Math.random() * 70;
+          const left = 15 + Math.random() * 70;
+
+          // Proximidad al centro del círculo (1 = muy cerca del centro, 0 = borde)
+          const dx = left - 50;
+          const dy = top - 50;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          const maxDist = Math.sqrt(35 * 35 + 35 * 35);
+          const proximity = 1 - Math.min(dist / maxDist, 1);
+
           // Registrar la táctica seleccionada junto con el eje que la generó
           selectedGlyphCards.push({
             ...chosen,
             ejeKey,
+            proximity,
           });
           currentTacticIndex = selectedGlyphCards.length - 1;
 
@@ -341,9 +573,6 @@ document.addEventListener("DOMContentLoaded", () => {
           img.src = chosen.glyph || `img/glyph/glyph_${padded}.png`;
           img.alt = `Glyph ${padded}`;
 
-          // Posición aleatoria dentro de la capa (en porcentaje)
-          const top = 15 + Math.random() * 70;
-          const left = 15 + Math.random() * 70;
           wrapper.style.top = `${top}%`;
           wrapper.style.left = `${left}%`;
 
@@ -392,7 +621,10 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    const userText = `Dimensiones seleccionadas: ${selectedDimensions.join(", ")}.`;
+    currentDimensions = selectedDimensions;
+    const userText = `Dimensiones seleccionadas: ${selectedDimensions.join(
+      ", ",
+    )}.`;
 
     // Construir texto de tácticas a partir de los glyphs seleccionados
     // Formato:
@@ -404,17 +636,17 @@ document.addEventListener("DOMContentLoaded", () => {
     const tacticsText =
       selectedGlyphCards && selectedGlyphCards.length
         ? selectedGlyphCards
-            .slice(0, 3)
-            .map(
-              (card) => {
-                const ejeLabelForCard =
-                  card.ejeKey && ejeLabels[card.ejeKey]
-                    ? `[${ejeLabels[card.ejeKey]}] `
-                    : "";
-                return `${ejeLabelForCard}${card.title} | ${card.description}`;
-              },
-            )
-            .join("\n")
+          .slice(0, 3)
+          .map(
+            (card) => {
+              const ejeLabelForCard =
+                card.ejeKey && ejeLabels[card.ejeKey]
+                  ? `[${ejeLabels[card.ejeKey]}] `
+                  : "";
+              return `${ejeLabelForCard}${card.title} | ${card.description}`;
+            },
+          )
+          .join("\n")
         : "";
 
     const prompt = tacticsText
@@ -431,17 +663,8 @@ document.addEventListener("DOMContentLoaded", () => {
     if (answerTitleEl) {
       answerTitleEl.hidden = false;
     }
-    // Mostrar spinner mientras llega la respuesta en el contenedor de respuesta,
-    // sin borrar las tarjetas de tácticas
-    if (responseTextEl) {
-      responseTextEl.innerHTML = "";
-      const spinnerWrapper = document.createElement("div");
-      spinnerWrapper.className = "resetario-ai-loading";
-      spinnerWrapper.innerHTML = `
-        <div class="loading-spinner"></div>
-      `;
-      responseTextEl.appendChild(spinnerWrapper);
-    }
+    // Dibujar la tarjeta de Resetario inmediatamente con spinner
+    renderResetarioOutput({ text: "", cardInfo: null, loading: true });
 
     try {
       // URL de la Firebase Function HTTP.
@@ -459,7 +682,7 @@ document.addEventListener("DOMContentLoaded", () => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({prompt}),
+        body: JSON.stringify({ prompt }),
       });
 
       if (!response.ok) {
@@ -523,93 +746,109 @@ document.addEventListener("DOMContentLoaded", () => {
             : null;
       }
 
-      // Mapear eje -> color de tarjeta
-      const ejeToColor = {
-        agua: "blue",
-        alimento: "green",
-        cobijo: "yellow",
-        energia: "red",
-        comunicacion: "orange",
-      };
-
-      const cardColor =
-        (currentEjeKey && ejeToColor[currentEjeKey]) ||
-        (cardInfo && cardInfo.color) ||
-        "standard";
-
-      const glyphSrc =
-        (cardInfo && cardInfo.glyph) ||
-        (currentGlyphIndex !== null
-          ? `img/glyph/glyph_${currentGlyphIndex.toString().padStart(2, "0")}.png`
-          : "");
-
-      const glyphNumber = (cardInfo && cardInfo.number) || "—";
-
-      // Texto del reverso según el botón de color/eje seleccionado
-      const backTitle =
-        (currentEjeKey && ejeLabels[currentEjeKey]) || "Respuesta";
-
-      // Construir tarjeta tipo reset-card con frente/reverso
-      const cardHTML = `
-        <div class="reset-card combination-card card-${cardColor} active" aria-label="Respuesta generada" tabindex="0">
-          <div class="card-inner">
-            <div class="card-front">
-              <div class="card-top">
-                ${
-                  glyphSrc
-                    ? `<img src="${glyphSrc}" alt="APICCA Glyph ${glyphNumber}" class="card-glyph">`
-                    : ""
-                }
-              </div>
-              <div class="card-bottom">
-                <span class="card-number">${glyphNumber}</span>
-              </div>
-            </div>
-              <div class="card-back">
-                <div class="card-back-content">
-                  <h3>${backTitle}</h3>
-                  <p>${text}</p>
-                </div>
-              </div>
-          </div>
-        </div>
-      `;
-
-      // Eliminar el spinner (si existe) y añadir la tarjeta de respuesta
-      // en su contenedor propio
-      if (responseTextEl) {
-        responseTextEl.innerHTML = cardHTML;
-      }
-
-      // Activar flip al hacer clic / Enter en la tarjeta de respuesta
-      const cardEl = responseTextEl
-        ? responseTextEl.querySelector(".reset-card")
-        : null;
-      if (cardEl) {
-        const toggleFlip = () => {
-          cardEl.classList.toggle("flipped");
-        };
-        cardEl.addEventListener("click", toggleFlip);
-        cardEl.addEventListener("keydown", (ev) => {
-          if (ev.key === "Enter" || ev.key === " ") {
-            ev.preventDefault();
-            toggleFlip();
-          }
-        });
-      }
+      // Dibujar el Resetario con el contenido final
+      renderResetarioOutput({ text, cardInfo, loading: false });
 
       if (answerSection) {
         answerSection.hidden = false;
-      }
-
-      // Hacer scroll suave hasta el contenedor de la respuesta
-      if (responseTextEl) {
-        responseTextEl.scrollIntoView({behavior: "smooth", block: "start"});
       }
     } catch (err) {
       console.error("Error llamando al asistente del Re(s)etario:", err);
       statusEl.textContent =
         "Hubo un problema de conexión con el asistente. Revisa tu conexión o inténtalo de nuevo.";
+    }
+  });
+
+  // ========== Navegación por teclado ==========
+  // Mapeo de teclas a ejes:
+  // 1 → Agua (azul)
+  // 2 → Alimento (verde)
+  // 3 → Cobijo (amarillo)
+  // 4 → Energía (rojo)
+  // 5 → Comunicación (naranja)
+  // T → Tiempo (dimensión)
+  // E → Espacio (dimensión)
+  // I → Información (dimensión)
+  // Enter → Re(s)et (submit)
+  // Escape → Esc (reset)
+
+  const keyToEje = {
+    "1": "agua",
+    "2": "alimento",
+    "3": "cobijo",
+    "4": "energia",
+    "5": "comunicacion",
+  };
+
+  const keyToDimension = {
+    "t": "Tiempo",
+    "T": "Tiempo",
+    "e": "Espacio",
+    "E": "Espacio",
+    "i": "Información",
+    "I": "Información",
+  };
+
+  document.addEventListener("keydown", (event) => {
+    // Ignorar si estamos escribiendo en un input/textarea
+    const activeElement = document.activeElement;
+    if (
+      activeElement &&
+      (activeElement.tagName === "INPUT" ||
+        activeElement.tagName === "TEXTAREA" ||
+        activeElement.isContentEditable)
+    ) {
+      return;
+    }
+
+    // Tecla Escape → disparar botón Esc
+    if (event.key === "Escape" && escButton) {
+      event.preventDefault();
+      escButton.click();
+      return;
+    }
+
+    // Tecla Enter → disparar botón Re(s)et (si está habilitado)
+    if (event.key === "Enter" && submitButton && !submitButton.disabled) {
+      event.preventDefault();
+      submitButton.click();
+      return;
+    }
+
+    // Teclas 1-5 → disparar botones de ejes
+    if (keyToEje[event.key] && ejeButtons && ejeButtons.length > 0) {
+      event.preventDefault();
+      const targetEje = keyToEje[event.key];
+
+      // Buscar el botón correspondiente al eje
+      const targetButton = Array.from(ejeButtons).find(
+        (btn) => btn.dataset.eje === targetEje
+      );
+
+      if (targetButton) {
+        playEjeSound(targetEje);
+        targetButton.click();
+      }
+      return;
+    }
+
+    // Teclas T, E, I → togglear checkboxes de dimensiones
+    if (keyToDimension[event.key]) {
+      event.preventDefault();
+      const dimensionValue = keyToDimension[event.key];
+
+      // Buscar el checkbox correspondiente a la dimensión
+      const dimensionCheckboxes = form.querySelectorAll('input[name="dimension"]');
+      const targetCheckbox = Array.from(dimensionCheckboxes).find(
+        (cb) => cb.value === dimensionValue
+      );
+
+      if (targetCheckbox) {
+        playDimensionSound(dimensionValue);
+        targetCheckbox.checked = !targetCheckbox.checked;
+        // Disparar evento change para que cualquier listener lo detecte
+        targetCheckbox.dispatchEvent(new Event('change', { bubbles: true }));
+      }
     }
   });
 });

@@ -1057,8 +1057,8 @@ footer {
 /* Sección de respuesta, centrada bajo el aparato */
 /* Sección de respuesta simple bajo el aparato */
 .resetario-ai-answer-section {
-    margin-top: 2.5rem;
-    padding: 2rem 1rem 0;
+    margin-top: 1.2rem;
+    padding: 1.2rem 1rem 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1072,7 +1072,7 @@ footer {
     background: transparent;
     border-radius: 18px;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 2.8rem 2rem;
+    padding: 2.2rem 2rem;
 }
 
 .resetario-ai-answer-title {
@@ -1094,8 +1094,8 @@ footer {
     justify-content: center;
     align-items: center;
     gap: 1.75rem;
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
 }
 
 /* Modo información inicial: comportamiento original, sin carrusel */
@@ -1171,6 +1171,243 @@ footer {
     align-items: center;
     justify-content: center;
     padding: 2rem 0;
+}
+
+/* ===========================
+   Re(s)etario output (barras)
+   =========================== */
+.resetario-output {
+    width: 100%;
+    max-width: 640px;
+    margin: 0 auto;
+    border-radius: 14px;
+    /* Reducimos padding superior para que las barras toquen casi el borde */
+    padding: 0.4rem 1.4rem 0.9rem;
+    /* Fondo blanco primario como en el diseño */
+    background: var(--primary-white);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+    color: #000;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.resetario-output-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 0;
+    /* Franja gris superior, misma estética que el footer */
+    margin-left: -1.4rem;
+    margin-right: -1.4rem;
+    margin-top: -0.4rem;
+    padding: 0.5rem 1.4rem 0.45rem;
+    background: #535353;
+    border-radius: 14px 14px 0 0;
+}
+
+.resetario-output-title-main {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--primary-white);
+}
+
+.resetario-output-title-sub {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.7rem;
+    opacity: 0.9;
+    color: var(--primary-white);
+    margin-top: 0.2rem;
+}
+
+.resetario-output-slot {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 1.6rem;
+    padding: 0.15rem 0.35rem;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.6);
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+}
+
+.resetario-output-body {
+    display: block;
+    margin-top: 0.6rem;
+}
+
+.resetario-sections {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.resetario-section {
+    padding: 0.45rem 0 0.55rem;
+}
+
+.resetario-section + .resetario-section {
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.resetario-section-label {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #777;
+    margin-bottom: 0.25rem;
+}
+
+.resetario-section-content {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #333;
+}
+
+.resetario-section-content p {
+    margin: 0;
+}
+
+.resetario-section-empty {
+    font-size: 0.85rem;
+    color: #999;
+}
+
+.resetario-output-text {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #333;
+}
+
+.resetario-output-bars {
+    /* Ocultamos temporalmente las barras del Resetario */
+    display: none;
+}
+
+.resetario-tactic-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.05rem 0.4rem;
+    border-radius: 999px;
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #fff;
+    white-space: nowrap;
+}
+
+.resetario-tactic-text {
+    flex: 1 1 auto;
+}
+
+.resetario-tactics-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+}
+
+.resetario-tactic-badge-blue {
+    background: linear-gradient(135deg, rgba(69, 152, 255, 0.75) 0%, rgba(53, 128, 230, 0.75) 100%);
+}
+
+.resetario-tactic-badge-green {
+    background: linear-gradient(135deg, rgba(0, 208, 132, 0.75) 0%, rgba(0, 168, 105, 0.75) 100%);
+}
+
+.resetario-tactic-badge-yellow {
+    background: linear-gradient(135deg, rgba(254, 231, 28, 0.8) 0%, rgba(253, 216, 0, 0.8) 100%);
+    color: #333;
+}
+
+.resetario-tactic-badge-red {
+    background: linear-gradient(135deg, rgba(253, 2, 2, 0.8) 0%, rgba(204, 0, 0, 0.8) 100%);
+}
+
+.resetario-tactic-badge-orange {
+    background: linear-gradient(135deg, rgba(255, 132, 53, 0.95) 0%, rgba(255, 90, 0, 0.95) 100%);
+}
+
+.resetario-tactic-badge-neutral {
+    background: #e0e0e0;
+    color: #555;
+}
+
+.resetario-bar {
+    width: 10px;
+    border-radius: 0 0 3px 3px;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.resetario-bar-red {
+    background: linear-gradient(180deg, #fd7a7a 0%, #fd0202 100%);
+}
+
+.resetario-bar-blue {
+    background: linear-gradient(180deg, #7fb3ff 0%, #4598ff 100%);
+}
+
+.resetario-bar-green {
+    background: linear-gradient(180deg, #6ce3b0 0%, #00d084 100%);
+}
+
+.resetario-bar-yellow {
+    background: linear-gradient(180deg, #ffef7a 0%, #fee71c 100%);
+}
+
+.resetario-bar-orange {
+    background: linear-gradient(180deg, #ffb36e 0%, #ff6b35 100%);
+}
+
+.resetario-bar-neutral {
+    background: linear-gradient(180deg, #ffffff 0%, #cccccc 100%);
+}
+
+.resetario-output-footer {
+    margin-top: 0.8rem;
+    /* Extender la franja gris hasta los bordes del contenedor blanco */
+    margin-left: -1.4rem;
+    margin-right: -1.4rem;
+    margin-bottom: -0.9rem;
+    padding: 0.5rem 1.4rem;
+    background: #535353;
+    border-radius: 0 0 14px 14px;
+    text-align: right;
+}
+
+.resetario-output-hash {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    color: var(--primary-white);
+}
+
+@media (max-width: 768px) {
+    .resetario-output {
+        max-width: 100%;
+        padding: 1rem 1rem 0.8rem;
+    }
+
+    /* Ajustar las franjas grises para que coincidan con el padding del contenido */
+    .resetario-output-header,
+    .resetario-output-footer {
+        margin-left: -1rem;
+        margin-right: -1rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .resetario-output-body {
+        align-items: flex-end;
+    }
 }
 
 /* Tarjeta de información inicial del Re(s)etario AI */
@@ -1569,7 +1806,8 @@ footer {
 
 .reset-card {
     width: 100%;
-    max-width: 320px;
+    /* Un poco más pequeñas en desktop */
+    max-width: 280px;
     flex: 0 0 auto;
     scroll-snap-align: center;
     perspective: 1000px;
@@ -2197,11 +2435,11 @@ footer {
 
 .card-top {
     background: linear-gradient(135deg, #4598ff 0%, #3580e6 100%);
-    padding: 3rem 2rem;
+    padding: 2.4rem 1.8rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 200px;
+    min-height: 170px;
     width: 100%;
     box-sizing: border-box;
     flex-shrink: 0;
@@ -2293,11 +2531,11 @@ footer {
 
 .card-bottom {
     background: linear-gradient(135deg, #4a4a4a 0%, #2d2d2d 100%);
-    padding: 2.5rem 2rem;
+    padding: 2rem 1.8rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 150px;
+    min-height: 130px;
     width: 100%;
     box-sizing: border-box;
     flex-shrink: 0;

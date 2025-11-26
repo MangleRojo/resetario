@@ -184,6 +184,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const glyphNumber = (cardInfo && cardInfo.number) || "—";
 
+      // Texto del reverso según el botón de color/eje seleccionado
+      const backTitle =
+        (currentEjeKey && ejeLabels[currentEjeKey]) || "Respuesta";
+
       // Construir tarjeta tipo reset-card con frente/reverso
       const cardHTML = `
         <div class="reset-card combination-card card-${cardColor} active" aria-label="Respuesta generada" tabindex="0">
@@ -200,12 +204,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 <span class="card-number">${glyphNumber}</span>
               </div>
             </div>
-            <div class="card-back">
-              <div class="card-back-content">
-                <h3>Respuesta</h3>
-                <p>${text}</p>
+              <div class="card-back">
+                <div class="card-back-content">
+                  <h3>${backTitle}</h3>
+                  <p>${text}</p>
+                </div>
               </div>
-            </div>
           </div>
         </div>
       `;

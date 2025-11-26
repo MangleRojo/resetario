@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const statusEl = document.getElementById("resetario-ai-status");
   const answerSection = document.getElementById("resetario-ai-answer");
   const answerTextEl = document.getElementById("resetario-ai-answer-text");
+  const responseTextEl = document.getElementById("resetario-ai-response-text");
   const answerTitleEl = document.getElementById("resetario-ai-answer-title");
   const themeToggle = document.getElementById("resetario-ai-theme-toggle");
   const resetarioSection = document.getElementById("resetario-ai");
@@ -229,10 +230,13 @@ document.addEventListener("DOMContentLoaded", () => {
         });
       }
 
-      // Limpiar mensajes y tarjetas y volver a la tarjeta de ayuda inicial
+    // Limpiar mensajes y tarjetas y volver a la tarjeta de ayuda inicial
       if (statusEl) {
         statusEl.textContent = "";
       }
+    if (responseTextEl) {
+      responseTextEl.innerHTML = "";
+    }
       renderInitialInfoCard();
     });
   }
@@ -287,8 +291,11 @@ document.addEventListener("DOMContentLoaded", () => {
           const chosen =
             candidates[Math.floor(Math.random() * candidates.length)];
 
-          // Registrar la táctica seleccionada
-          selectedGlyphCards.push(chosen);
+          // Registrar la táctica seleccionada junto con el eje que la generó
+          selectedGlyphCards.push({
+            ...chosen,
+            ejeKey,
+          });
 
           const wrapper = document.createElement("div");
           wrapper.className = `tp7-disk-glyph tp7-disk-glyph-${ejeKey}`;
@@ -332,25 +339,31 @@ document.addEventListener("DOMContentLoaded", () => {
     const userText = `Dimensiones seleccionadas: ${selectedDimensions.join(", ")}.`;
 
     // Construir texto de tácticas a partir de los glyphs seleccionados
-    // Cada glyph se interpreta como una táctica: Tactica: <title> | <description>
+    // Formato:
+    // Dimensiones seleccionadas: ...
+    //
+    // Tacticas:
+    //
+    // [Agua] Flujo | El movimiento y circulación de recursos
     const tacticsText =
       selectedGlyphCards && selectedGlyphCards.length
         ? selectedGlyphCards
             .slice(0, 3)
             .map(
-              (card) =>
-                `Tactica: ${card.title} | ${card.description}`,
+              (card) => {
+                const ejeLabelForCard =
+                  card.ejeKey && ejeLabels[card.ejeKey]
+                    ? `[${ejeLabels[card.ejeKey]}] `
+                    : "";
+                return `${ejeLabelForCard}${card.title} | ${card.description}`;
+              },
             )
             .join("\n")
         : "";
 
-    const ejeLabel =
-      currentEjeKey && ejeLabels[currentEjeKey]
-        ? `[${ejeLabels[currentEjeKey]}] `
-        : "";
     const prompt = tacticsText
-      ? `${ejeLabel}${userText}\n${tacticsText}`
-      : `${ejeLabel}${userText}`;
+      ? `${userText}\n\nTacticas:\n\n${tacticsText}`
+      : `${userText}`;
 
     // Mostrar cuadro de diálogo con el prompt que se va a enviar
     window.alert(`Prompt enviado al asistente:\n\n${prompt}`);
@@ -362,12 +375,17 @@ document.addEventListener("DOMContentLoaded", () => {
     if (answerTitleEl) {
       answerTitleEl.hidden = false;
     }
-    // Mostrar spinner mientras llega la respuesta
-    answerTextEl.innerHTML = `
-      <div class="resetario-ai-loading">
+    // Mostrar spinner mientras llega la respuesta en el contenedor de respuesta,
+    // sin borrar las tarjetas de tácticas
+    if (responseTextEl) {
+      responseTextEl.innerHTML = "";
+      const spinnerWrapper = document.createElement("div");
+      spinnerWrapper.className = "resetario-ai-loading";
+      spinnerWrapper.innerHTML = `
         <div class="loading-spinner"></div>
-      </div>
-    `;
+      `;
+      responseTextEl.appendChild(spinnerWrapper);
+    }
 
     try {
       // URL de la Firebase Function HTTP.
@@ -501,10 +519,16 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
       `;
 
-      answerTextEl.innerHTML = cardHTML;
+      // Eliminar el spinner (si existe) y añadir la tarjeta de respuesta
+      // en su contenedor propio
+      if (responseTextEl) {
+        responseTextEl.innerHTML = cardHTML;
+      }
 
-      // Activar flip al hacer clic / Enter
-      const cardEl = answerTextEl.querySelector(".reset-card");
+      // Activar flip al hacer clic / Enter en la tarjeta de respuesta
+      const cardEl = responseTextEl
+        ? responseTextEl.querySelector(".reset-card")
+        : null;
       if (cardEl) {
         const toggleFlip = () => {
           cardEl.classList.toggle("flipped");

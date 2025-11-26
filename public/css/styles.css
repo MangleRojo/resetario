@@ -859,6 +859,9 @@ footer {
     font-size: 0.95rem;
     line-height: 1.7;
     color: #f3f3f3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 @media (max-width: 768px) {

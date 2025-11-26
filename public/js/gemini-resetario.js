@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const glyphLayer = document.querySelector(".tp7-disk-glyph-layer");
   let currentEjeKey = null;
   let currentGlyphIndex = null;
+  let cardsData = null; // Datos del resetario para recuperar número y glyph
 
   const ejeLabels = {
     agua: "Agua",
@@ -19,6 +20,20 @@ document.addEventListener("DOMContentLoaded", () => {
     energia: "Energía",
     comunicacion: "Comunicación",
   };
+
+  // Cargar datos de las cartas del Re(s)etario (una sola vez)
+  async function loadCardsData() {
+    if (cardsData) return cardsData;
+    try {
+      const resp = await fetch("data/resetario-cards.json");
+      const json = await resp.json();
+      cardsData = json.cards || [];
+    } catch (e) {
+      console.error("No se pudieron cargar los datos de resetario-cards.json", e);
+      cardsData = [];
+    }
+    return cardsData;
+  }
 
   // Asegurar que la respuesta no se muestre al cargar
   if (answerSection) {
@@ -133,10 +148,89 @@ document.addEventListener("DOMContentLoaded", () => {
       const text = (data && data.text) || "No he podido generar una respuesta útil.";
 
       statusEl.textContent = "";
+
+      // Asegurar datos de cartas cargados para recuperar número / glyph
+      await loadCardsData();
+
+      // Si no hay glyph seleccionado aún, elegir uno aleatorio para esta respuesta
+      if (currentGlyphIndex === null) {
+        currentGlyphIndex = Math.floor(Math.random() * 32);
+      }
+
+      const cardInfo =
+        Array.isArray(cardsData) && cardsData.length > currentGlyphIndex
+          ? cardsData[currentGlyphIndex]
+          : null;
+
+      // Mapear eje -> color de tarjeta
+      const ejeToColor = {
+        agua: "blue",
+        alimento: "green",
+        cobijo: "yellow",
+        energia: "red",
+        comunicacion: "orange",
+      };
+
+      const cardColor =
+        (currentEjeKey && ejeToColor[currentEjeKey]) ||
+        (cardInfo && cardInfo.color) ||
+        "standard";
+
+      const glyphSrc =
+        (cardInfo && cardInfo.glyph) ||
+        (currentGlyphIndex !== null
+          ? `img/glyph/glyph_${currentGlyphIndex.toString().padStart(2, "0")}.png`
+          : "");
+
+      const glyphNumber = (cardInfo && cardInfo.number) || "—";
+
+      // Construir tarjeta tipo reset-card con frente/reverso
+      const cardHTML = `
+        <div class="reset-card combination-card card-${cardColor} active" aria-label="Respuesta generada" tabindex="0">
+          <div class="card-inner">
+            <div class="card-front">
+              <div class="card-top">
+                ${
+                  glyphSrc
+                    ? `<img src="${glyphSrc}" alt="APICCA Glyph ${glyphNumber}" class="card-glyph">`
+                    : ""
+                }
+              </div>
+              <div class="card-bottom">
+                <span class="card-number">${glyphNumber}</span>
+              </div>
+            </div>
+            <div class="card-back">
+              <div class="card-back-content">
+                <h3>Respuesta</h3>
+                <p>${text}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+
+      answerTextEl.innerHTML = cardHTML;
+
+      // Activar flip al hacer clic / Enter
+      const cardEl = answerTextEl.querySelector(".reset-card");
+      if (cardEl) {
+        const toggleFlip = () => {
+          cardEl.classList.toggle("flipped");
+        };
+        cardEl.addEventListener("click", toggleFlip);
+        cardEl.addEventListener("keydown", (ev) => {
+          if (ev.key === "Enter" || ev.key === " ") {
+            ev.preventDefault();
+            toggleFlip();
+          }
+        });
+      }
+
       if (answerSection) {
         answerSection.hidden = false;
+        answerSection.scrollIntoView({ behavior: "smooth", block: "start" });
       }
-      answerTextEl.textContent = text;
     } catch (err) {
       console.error("Error llamando al asistente del Re(s)etario:", err);
       statusEl.textContent =

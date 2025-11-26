@@ -82,7 +82,8 @@ exports.callGemini = onRequest({cors: true}, async (req, res) => {
               "para explorar tácticas de Economías Recíprocas. APICCA " +
               "COMÚN se basa en el diseño convivencial centrado en las " +
               "personas. Responde siempre en español, de forma clara, " +
-              "concreta y breve. No utilices markdown en tus respuestas.",
+              "concreta y breve, usando un máximo de 35 palabras. No " +
+              "utilices markdown en tus respuestas.",
           },
         ],
       },
@@ -98,7 +99,8 @@ exports.callGemini = onRequest({cors: true}, async (req, res) => {
           ],
         },
       ],
-      // En el futuro, aquí podremos añadir la sección `tools.fileSearch`.
+      // En el futuro, aquí podremos añadir la sección `tools.fileSearch`
+      // y, si hace falta, una generación configurada más fina.
     };
 
     const response = await fetch(url, {

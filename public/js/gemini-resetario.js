@@ -5,23 +5,30 @@ document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("resetario-ai-form");
   const questionEl = document.getElementById("resetario-ai-question");
   const statusEl = document.getElementById("resetario-ai-status");
-  const answerContainer = document.getElementById("resetario-ai-answer");
+  const answerSection = document.getElementById("resetario-ai-answer");
   const answerTextEl = document.getElementById("resetario-ai-answer-text");
   const ejeButtons = document.querySelectorAll(".tp7-eje-button");
   const glyphLayer = document.querySelector(".tp7-disk-glyph-layer");
+  let currentEjeKey = null;
+  let currentGlyphIndex = null;
+
+  const ejeLabels = {
+    agua: "Agua",
+    alimento: "Alimento",
+    cobijo: "Cobijo",
+    energia: "Energía",
+    comunicacion: "Comunicación",
+  };
+
+  // Asegurar que la respuesta no se muestre al cargar
+  if (answerSection) {
+    answerSection.hidden = true;
+  }
 
   if (!form || !questionEl) return;
 
   // Botones de ejes de color (agua, alimento, cobijo, etc.)
   if (ejeButtons && ejeButtons.length > 0) {
-    const ejeLabels = {
-      agua: "Agua",
-      alimento: "Alimento",
-      cobijo: "Cobijo",
-      energia: "Energía",
-      comunicacion: "Comunicación",
-    };
-
     ejeButtons.forEach((btn) => {
       btn.addEventListener("click", () => {
         const ejeKey = btn.dataset.eje;
@@ -31,9 +38,9 @@ document.addEventListener("DOMContentLoaded", () => {
         ejeButtons.forEach((b) => b.classList.remove("active"));
         btn.classList.add("active");
 
-        // Escribir el eje en el textarea
+        // Guardar el eje seleccionado (sin mostrarlo en el textarea)
+        currentEjeKey = ejeKey;
         if (label) {
-          questionEl.value = `[${label}] `;
           questionEl.focus();
         }
 
@@ -49,6 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
           const img = document.createElement("img");
           const index = Math.floor(Math.random() * 32); // glyph_00 a glyph_31
+          currentGlyphIndex = index;
           const padded = index.toString().padStart(2, "0");
           img.src = `img/glyph/glyph_${padded}.png`;
           img.alt = `Glyph ${padded}`;
@@ -70,11 +78,22 @@ document.addEventListener("DOMContentLoaded", () => {
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
 
-    const prompt = questionEl.value.trim();
-    if (!prompt) return;
+    const userText = questionEl.value.trim();
+    if (!userText) return;
 
-    statusEl.textContent = "Consultando al asistente del Re(s)etario...";
-    answerContainer.hidden = true;
+    const ejeLabel =
+      currentEjeKey && ejeLabels[currentEjeKey]
+        ? `[${ejeLabels[currentEjeKey]}] `
+        : "";
+    const prompt = `${ejeLabel}${userText}`;
+
+    // Limpiar el textarea justo después de construir el prompt
+    questionEl.value = "";
+
+    statusEl.textContent = "Consultando...";
+    if (answerSection) {
+      answerSection.hidden = true;
+    }
     answerTextEl.textContent = "";
 
     try {
@@ -114,7 +133,9 @@ document.addEventListener("DOMContentLoaded", () => {
       const text = (data && data.text) || "No he podido generar una respuesta útil.";
 
       statusEl.textContent = "";
-      answerContainer.hidden = false;
+      if (answerSection) {
+        answerSection.hidden = false;
+      }
       answerTextEl.textContent = text;
     } catch (err) {
       console.error("Error llamando al asistente del Re(s)etario:", err);

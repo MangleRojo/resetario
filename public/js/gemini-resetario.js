@@ -12,8 +12,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const ejeButtons = document.querySelectorAll(".tp7-eje-button");
   const glyphLayer = document.querySelector(".tp7-disk-glyph-layer");
   const submitButton = document.querySelector(".tp7-submit-button");
+  const escButton = document.getElementById("resetario-ai-esc");
   let currentEjeKey = null;
   let currentGlyphIndex = null;
+  // Hasta tres glyphs pueden estar seleccionados como tácticas a la vez
+  let selectedGlyphCards = [];
   let cardsData = null; // Datos del resetario para recuperar número y glyph
   let colorMeanings = null; // Colores por eje desde glyph-dictionary.json
 
@@ -106,6 +109,69 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  // Renderizar en el área de tarjetas las tácticas seleccionadas (glyphs)
+  function renderSelectedGlyphCards() {
+    if (!answerSection || !answerTextEl) return;
+
+    answerSection.hidden = false;
+    if (answerTitleEl) {
+      answerTitleEl.hidden = false;
+    }
+
+    if (!selectedGlyphCards.length) {
+      answerTextEl.innerHTML = "";
+      return;
+    }
+
+    const cardsHtml = selectedGlyphCards
+      .slice(0, 3)
+      .map((card) => {
+        const glyphSrc =
+          card.glyph ||
+          `img/glyph/glyph_${card.id.toString().padStart(2, "0")}.png`;
+        const glyphNumber = card.number || "—";
+        const cardColor = card.color || "standard";
+        return `
+        <div class="reset-card combination-card card-${cardColor} active" aria-label="Táctica seleccionada" tabindex="0">
+          <div class="card-inner">
+            <div class="card-front">
+              <div class="card-top">
+                <img src="${glyphSrc}" alt="APICCA Glyph ${glyphNumber}" class="card-glyph">
+              </div>
+              <div class="card-bottom">
+                <span class="card-number">${glyphNumber}</span>
+              </div>
+            </div>
+            <div class="card-back">
+              <div class="card-back-content">
+                <h3>${card.title}</h3>
+                <p>${card.description}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+      })
+      .join("");
+
+    answerTextEl.innerHTML = cardsHtml;
+
+    // Activar flip independiente para cada tarjeta
+    const cardEls = answerTextEl.querySelectorAll(".reset-card");
+    cardEls.forEach((cardEl) => {
+      const toggleFlip = () => {
+        cardEl.classList.toggle("flipped");
+      };
+      cardEl.addEventListener("click", toggleFlip);
+      cardEl.addEventListener("keydown", (ev) => {
+        if (ev.key === "Enter" || ev.key === " ") {
+          ev.preventDefault();
+          toggleFlip();
+        }
+      });
+    });
+  }
+
   if (!form) return;
 
   // Toggle de modo claro/oscuro del aparato
@@ -128,6 +194,49 @@ document.addEventListener("DOMContentLoaded", () => {
   // Mostrar tarjeta de información al cargar la página
   renderInitialInfoCard();
 
+  // Botón Esc: limpiar selecciones y volver al estado inicial
+  if (escButton) {
+    escButton.addEventListener("click", () => {
+      // Limpiar glyphs del disco
+      if (glyphLayer) {
+        while (glyphLayer.firstChild) {
+          glyphLayer.removeChild(glyphLayer.firstChild);
+        }
+      }
+
+      // Resetear estado de selección
+      selectedGlyphCards = [];
+      currentGlyphIndex = null;
+      currentEjeKey = null;
+
+      // Desactivar botones de eje visualmente
+      if (ejeButtons && ejeButtons.length > 0) {
+        ejeButtons.forEach((b) => b.classList.remove("active"));
+      }
+
+      // Desactivar botón Re(s)et hasta nueva selección
+      if (submitButton) {
+        submitButton.disabled = true;
+        submitButton.classList.add("tp7-submit-disabled");
+      }
+
+      // Limpiar dimensiones seleccionadas
+      if (form) {
+        const dimensionCheckboxes =
+          form.querySelectorAll('input[name="dimension"]');
+        dimensionCheckboxes.forEach((cb) => {
+          cb.checked = false;
+        });
+      }
+
+      // Limpiar mensajes y tarjetas y volver a la tarjeta de ayuda inicial
+      if (statusEl) {
+        statusEl.textContent = "";
+      }
+      renderInitialInfoCard();
+    });
+  }
+
   // Botones de ejes de color (agua, alimento, cobijo, etc.)
   if (ejeButtons && ejeButtons.length > 0) {
     ejeButtons.forEach((btn) => {
@@ -145,18 +254,31 @@ document.addEventListener("DOMContentLoaded", () => {
           submitButton.classList.remove("tp7-submit-disabled");
         }
 
-        // Dibujar un glyph aleatorio dentro del círculo, pero solo del color del eje
-        if (glyphLayer) {
-          // Borrar cualquier glyph previo al cambiar de color
-          while (glyphLayer.firstChild) {
-            glyphLayer.removeChild(glyphLayer.firstChild);
+        // Si ya hay tres glyphs seleccionados, no añadir más
+        if (selectedGlyphCards.length >= 3) {
+          if (statusEl) {
+            statusEl.textContent =
+              "Ya seleccionaste tres tácticas. Puedes hacer Re(s)et o recargar para elegir de nuevo.";
           }
+          return;
+        }
 
+        // Dibujar un glyph aleatorio dentro del círculo, pero solo del color del eje.
+        // Cada glyph representa una táctica potencial que el modelo usará como contexto.
+        if (glyphLayer) {
           const allCards = await loadCardsData();
           const colorKey = ejeToColorKey[ejeKey];
-          const candidates = Array.isArray(allCards)
-            ? allCards.filter((c) => c.color === colorKey)
+          const usedIds = new Set(selectedGlyphCards.map((c) => c.id));
+          let candidates = Array.isArray(allCards)
+            ? allCards.filter(
+                (c) => c.color === colorKey && !usedIds.has(c.id),
+              )
             : [];
+
+          // Si ya usamos todos los glyphs de ese color, permitir repetir
+          if (!candidates.length && Array.isArray(allCards)) {
+            candidates = allCards.filter((c) => c.color === colorKey);
+          }
 
           if (!candidates.length) {
             return;
@@ -164,6 +286,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
           const chosen =
             candidates[Math.floor(Math.random() * candidates.length)];
+
+          // Registrar la táctica seleccionada
+          selectedGlyphCards.push(chosen);
 
           const wrapper = document.createElement("div");
           wrapper.className = `tp7-disk-glyph tp7-disk-glyph-${ejeKey}`;
@@ -183,6 +308,9 @@ document.addEventListener("DOMContentLoaded", () => {
           wrapper.appendChild(img);
           glyphLayer.appendChild(wrapper);
         }
+
+        // Actualizar las tarjetas de tácticas visibles bajo el dispositivo
+        renderSelectedGlyphCards();
       });
     });
   }
@@ -203,11 +331,29 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const userText = `Dimensiones seleccionadas: ${selectedDimensions.join(", ")}.`;
 
+    // Construir texto de tácticas a partir de los glyphs seleccionados
+    // Cada glyph se interpreta como una táctica: Tactica: <title> | <description>
+    const tacticsText =
+      selectedGlyphCards && selectedGlyphCards.length
+        ? selectedGlyphCards
+            .slice(0, 3)
+            .map(
+              (card) =>
+                `Tactica: ${card.title} | ${card.description}`,
+            )
+            .join("\n")
+        : "";
+
     const ejeLabel =
       currentEjeKey && ejeLabels[currentEjeKey]
         ? `[${ejeLabels[currentEjeKey]}] `
         : "";
-    const prompt = `${ejeLabel}${userText}`;
+    const prompt = tacticsText
+      ? `${ejeLabel}${userText}\n${tacticsText}`
+      : `${ejeLabel}${userText}`;
+
+    // Mostrar cuadro de diálogo con el prompt que se va a enviar
+    window.alert(`Prompt enviado al asistente:\n\n${prompt}`);
 
     statusEl.textContent = "Consultando...";
     if (answerSection) {

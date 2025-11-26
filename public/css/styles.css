@@ -1063,7 +1063,7 @@ footer {
 
 .resetario-ai-answer {
     width: 100%;
-    max-width: 800px;
+    max-width: 1100px;
     background: transparent;
     border-radius: 18px;
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -1085,8 +1085,10 @@ footer {
     line-height: 1.7;
     color: var(--primary-white);
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
+    align-items: stretch;
+    gap: 1.75rem;
 }
 
 .resetario-ai-loading {
@@ -1369,6 +1371,23 @@ footer {
 
 .tp7-key-play {
     cursor: pointer;
+}
+
+/* Fila de controles (Esc + Re(s)et) */
+.tp7-control-row {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 1rem;
+}
+
+.tp7-esc-button {
+    flex: 0 0 auto;
+    min-width: 80px;
+}
+
+.tp7-control-row .tp7-submit-button {
+    flex: 1 1 auto;
+    margin-top: 0;
 }
 
 .tp7-key-play:hover {

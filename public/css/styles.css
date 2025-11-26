@@ -513,22 +513,22 @@ footer {
     margin: 0 auto 3.5rem auto;
     padding: 2.4rem 2.1rem 2.2rem;
     max-width: 960px;
-    border-radius: 18px;
-    background: radial-gradient(circle at top left, #3c3c3c 0, #171717 40%, #0e0e0e 100%);
-    color: #f5f5f5;
+    border-radius: 22px;
+    background: radial-gradient(circle at 20% 0, #f7f7f8 0, #ececee 40%, #dadce0 100%);
+    color: #222;
     box-shadow:
-        0 22px 45px rgba(0, 0, 0, 0.65),
-        0 0 0 1px rgba(255, 255, 255, 0.03),
-        0 0 0 1px rgba(0, 0, 0, 0.9) inset;
+        0 20px 40px rgba(0, 0, 0, 0.35),
+        0 0 0 1px rgba(255, 255, 255, 0.6),
+        0 0 0 1px rgba(0, 0, 0, 0.25) inset;
     overflow: hidden;
 }
 
 .resetario-ai-section::before {
     content: '';
     position: absolute;
-    inset: 10px;
-    border-radius: 16px;
-    border: 1px solid rgba(255, 255, 255, 0.04);
+    inset: 9px;
+    border-radius: 18px;
+    border: 1px solid rgba(200, 202, 210, 0.9);
     pointer-events: none;
 }
 
@@ -555,43 +555,47 @@ footer {
     aspect-ratio: 1 / 1;
     margin-left: 0.4rem;
     border-radius: 50%;
-    background: radial-gradient(circle at 25% 20%, #383838 0, #1a1a1a 45%, #050505 100%);
+    background: #e0e2e7;
     box-shadow:
-        0 0 0 1px rgba(255, 255, 255, 0.04),
-        0 0 0 2px #050505,
-        0 18px 28px rgba(0, 0, 0, 0.8);
+        0 0 0 1px rgba(255, 255, 255, 0.9),
+        0 0 0 2px #babdc4,
+        0 6px 10px rgba(0, 0, 0, 0.18);
 }
 
 .tp7-disk::before {
     content: '';
     position: absolute;
-    inset: 12%;
+    inset: 11%;
     border-radius: 50%;
-    border: 1px solid rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(175, 177, 186, 0.9);
 }
 
 .tp7-disk::after {
     content: '';
     position: absolute;
-    top: 16%;
-    left: 14%;
-    right: 18%;
-    bottom: 18%;
-    border-radius: 999px;
-    border-top: 1px solid rgba(255, 255, 255, 0.14);
-    transform: rotate(36deg);
+    top: 50%;
+    left: 50%;
+    width: 140%;
+    height: 1px;
+    background: linear-gradient(to right,
+            transparent 0%,
+            rgba(140, 142, 150, 0.85) 15%,
+            rgba(140, 142, 150, 0.85) 85%,
+            transparent 100%);
+    transform-origin: center;
+    transform: translate(-50%, -50%) rotate(36deg);
     opacity: 0.9;
 }
 
 .tp7-disk-center {
     position: absolute;
-    inset: 38%;
+    inset: 37%;
     border-radius: 50%;
-    background: radial-gradient(circle at 30% 20%, #333 0, #111 45%, #000 100%);
+    background: #d7d9df;
     box-shadow:
-        0 0 0 1px rgba(255, 255, 255, 0.08),
-        0 0 0 3px #050505,
-        0 10px 16px rgba(0, 0, 0, 0.8);
+        0 0 0 1px rgba(255, 255, 255, 0.95),
+        0 0 0 3px #b7bac2,
+        0 2px 4px rgba(0, 0, 0, 0.16);
 }
 
 /* Pantalla derecha tipo “TODAY” */
@@ -600,11 +604,11 @@ footer {
     align-self: stretch;
     padding: 0.7rem 0.9rem 0.8rem;
     border-radius: 10px;
-    background: radial-gradient(circle at 20% 0, #fdfdfd 0, #f0f0f0 35%, #d4d4d4 100%);
+    background: radial-gradient(circle at 20% 0, #15171d 0, #05070b 55%, #000000 100%);
     box-shadow:
         0 0 0 1px rgba(0, 0, 0, 0.85),
         0 12px 20px rgba(0, 0, 0, 0.75);
-    color: #111;
+    color: #f6f7fb;
     display: flex;
     flex-direction: column;
     gap: 0.15rem;
@@ -644,7 +648,7 @@ footer {
     min-width: 1.4rem;
     padding: 0.08rem 0.25rem;
     border-radius: 4px;
-    border: 1px solid rgba(0, 0, 0, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.75);
     font-weight: 600;
     font-size: 0.7rem;
 }
@@ -652,7 +656,7 @@ footer {
 .tp7-screen .resetario-ai-status {
     margin-top: 0.35rem;
     font-size: 0.7rem;
-    color: #333;
+    color: #cfd2e5;
 }
 
 .tp7-middle {
@@ -675,7 +679,7 @@ footer {
     font-family: 'Outfit', sans-serif;
     font-size: 0.95rem;
     line-height: 1.7;
-    color: #c2c2c2;
+    color: #4b4f58;
     margin-bottom: 1.75rem;
 }
 
@@ -705,27 +709,27 @@ footer {
     min-height: 110px;
     padding: 1rem 1.1rem;
     border-radius: 14px;
-    border: 1px solid rgba(255, 255, 255, 0.09);
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.02), rgba(0, 0, 0, 0.65));
-    color: #f5f5f5;
+    border: 1px solid rgba(180, 182, 190, 0.9);
+    background: linear-gradient(135deg, #fdfdff, #f3f4f8);
+    color: #222;
     resize: vertical;
     font-family: 'Outfit', sans-serif;
     font-size: 0.95rem;
     line-height: 1.6;
     outline: none;
-    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.7);
-    backdrop-filter: blur(6px);
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+    backdrop-filter: blur(2px);
 }
 
 .resetario-ai-textarea::placeholder {
-    color: #747474;
+    color: #9599a4;
 }
 
 .resetario-ai-textarea:focus-visible {
-    border-color: rgba(255, 255, 255, 0.35);
+    border-color: #8a8ea0;
     box-shadow:
-        0 0 0 1px rgba(255, 255, 255, 0.25),
-        0 0 0 1px rgba(0, 0, 0, 0.9) inset;
+        0 0 0 1px rgba(50, 54, 72, 0.45),
+        0 0 0 1px rgba(255, 255, 255, 0.5) inset;
 }
 
 .resetario-ai-button {
@@ -806,7 +810,7 @@ footer {
     position: relative;
     border: none;
     border-radius: 8px;
-    background: #e3e3e3;
+    background: #f1f2f5;
     box-shadow:
         0 5px 0 #9c9c9c,
         0 8px 14px rgba(0, 0, 0, 0.55);
@@ -823,7 +827,7 @@ footer {
 }
 
 .tp7-key-rec {
-    background: #e3e3e3;
+    background: #f1f2f5;
 }
 
 .tp7-key-rec::before {

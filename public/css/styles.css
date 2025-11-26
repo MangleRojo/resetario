@@ -792,6 +792,15 @@ footer {
     transition: transform 0.08s ease-out, box-shadow 0.08s ease-out, background 0.15s ease-out;
 }
 
+.tp7-submit-button:disabled,
+.tp7-submit-disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    box-shadow:
+        0 0 0 1px rgba(0, 0, 0, 0.4),
+        0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
 .resetario-ai-button:hover {
     background: rgba(230, 231, 236, 0.14);
 }
@@ -1217,7 +1226,7 @@ footer {
 }
 
 .color-node.color-yellow {
-    background: linear-gradient(135deg, #fee71c 0%, #e6d018 100%);
+    background: linear-gradient(135deg, #fee71c 0%, #fdd800 100%);
 }
 
 .color-node.color-orange {
@@ -1889,7 +1898,7 @@ footer {
 }
 
 .card-yellow .card-top {
-    background: linear-gradient(135deg, #fee71c 0%, #e6d018 100%) !important;
+    background: linear-gradient(135deg, #fee71c 0%, #fdd800 100%) !important;
 }
 
 .card-orange .card-top {
@@ -2182,7 +2191,7 @@ footer {
 }
 
 .combination-card.card-yellow .card-top {
-    background: linear-gradient(135deg, #fee71c 0%, #e6d018 100%) !important;
+    background: linear-gradient(135deg, #fee71c 0%, #fdd800 100%) !important;
 }
 
 .combination-card.card-orange .card-top {

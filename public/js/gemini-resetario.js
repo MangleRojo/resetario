@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const answerTextEl = document.getElementById("resetario-ai-answer-text");
   const ejeButtons = document.querySelectorAll(".tp7-eje-button");
   const glyphLayer = document.querySelector(".tp7-disk-glyph-layer");
+  const submitButton = document.querySelector(".tp7-submit-button");
   let currentEjeKey = null;
   let currentGlyphIndex = null;
   let cardsData = null; // Datos del resetario para recuperar número y glyph
@@ -79,6 +80,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (!form || !questionEl) return;
 
+  // Desactivar envío hasta que se seleccione un eje de color
+  if (submitButton) {
+    submitButton.disabled = true;
+    submitButton.classList.add("tp7-submit-disabled");
+  }
+
   // Mostrar tarjeta de información al cargar la página
   renderInitialInfoCard();
 
@@ -95,6 +102,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Guardar el eje seleccionado (sin mostrarlo en el textarea)
         currentEjeKey = ejeKey;
+        if (submitButton) {
+          submitButton.disabled = false;
+          submitButton.classList.remove("tp7-submit-disabled");
+        }
         if (label) {
           questionEl.focus();
         }

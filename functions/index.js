@@ -54,6 +54,18 @@ exports.callGemini = onRequest({cors: true}, async (req, res) => {
     });
   }
 
+  const fileSearchStoreName = process.env.FILE_SEARCH_STORE_NAME;
+  if (!fileSearchStoreName) {
+    logger.error(
+        "FILE_SEARCH_STORE_NAME no está definida en las variables de " +
+        "entorno.",
+    );
+    return res.status(500).json({
+      error: "Configuración del servidor incompleta: " +
+        "falta FILE_SEARCH_STORE_NAME.",
+    });
+  }
+
   const {prompt} = req.body || {};
   if (typeof prompt !== "string" || prompt.trim().length === 0) {
     return res.status(400).json({
@@ -83,7 +95,9 @@ exports.callGemini = onRequest({cors: true}, async (req, res) => {
               "COMÚN se basa en el diseño convivencial centrado en las " +
               "personas. Responde siempre en español, de forma clara, " +
               "concreta y breve, usando un máximo de 35 palabras. No " +
-              "utilices markdown en tus respuestas.",
+              "utilices markdown en tus respuestas. Usa sobre todo los " +
+              "documentos del File Search Store del Re(s)etario como " +
+              "fuente principal de información.",
           },
         ],
       },
@@ -99,8 +113,14 @@ exports.callGemini = onRequest({cors: true}, async (req, res) => {
           ],
         },
       ],
-      // En el futuro, aquí podremos añadir la sección `tools.fileSearch`
-      // y, si hace falta, una generación configurada más fina.
+      tools: [
+        {
+          fileSearch: {
+            fileSearchStoreNames: [fileSearchStoreName],
+          },
+        },
+      ],
+      // En el futuro, aquí podremos añadir más herramientas o configuración.
     };
 
     const response = await fetch(url, {

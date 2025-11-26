@@ -15,6 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let currentEjeKey = null;
   let currentGlyphIndex = null;
   let cardsData = null; // Datos del resetario para recuperar número y glyph
+  let colorMeanings = null; // Colores por eje desde glyph-dictionary.json
 
   const ejeLabels = {
     agua: "Agua",
@@ -22,6 +23,14 @@ document.addEventListener("DOMContentLoaded", () => {
     cobijo: "Cobijo",
     energia: "Energía",
     comunicacion: "Comunicación",
+  };
+
+  const ejeToColorKey = {
+    agua: "blue",
+    alimento: "green",
+    cobijo: "yellow",
+    energia: "red",
+    comunicacion: "orange",
   };
 
   // Cargar datos de las cartas del Re(s)etario (una sola vez)
@@ -36,6 +45,20 @@ document.addEventListener("DOMContentLoaded", () => {
       cardsData = [];
     }
     return cardsData;
+  }
+
+  // Cargar colores desde glyph-dictionary.json (una sola vez)
+  async function loadGlyphDictionary() {
+    if (colorMeanings) return colorMeanings;
+    try {
+      const resp = await fetch("data/glyph-dictionary.json");
+      const json = await resp.json();
+      colorMeanings = (json && json.colorMeanings) || null;
+    } catch (e) {
+      console.error("No se pudo cargar glyph-dictionary.json", e);
+      colorMeanings = null;
+    }
+    return colorMeanings;
   }
 
   // Dibujar una tarjeta de información inicial bajo el dispositivo
@@ -108,7 +131,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Botones de ejes de color (agua, alimento, cobijo, etc.)
   if (ejeButtons && ejeButtons.length > 0) {
     ejeButtons.forEach((btn) => {
-      btn.addEventListener("click", () => {
+      btn.addEventListener("click", async () => {
         const ejeKey = btn.dataset.eje;
 
         // Cambiar estado visual activo

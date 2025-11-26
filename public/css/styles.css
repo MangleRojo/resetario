@@ -562,26 +562,32 @@ footer {
     aspect-ratio: 1 / 1;
     margin-left: 0.4rem;
     border-radius: 50%;
+    /* Disco blueprint: sólo contornos y líneas técnicas en gris claro */
     background: transparent;
     box-shadow: none;
-    border: 1px dashed rgba(220, 222, 232, 0.7);
+    border: 1px solid rgba(220, 222, 232, 0.6);
 }
 
 .tp7-disk::before {
     content: '';
     position: absolute;
-    inset: 11%;
+    inset: 10%;
     border-radius: 50%;
-    border: 1px dashed rgba(220, 222, 232, 0.5);
+    border: 1px dashed rgba(220, 222, 232, 0.45);
 }
 
 .tp7-disk::after {
-    content: none;
+    content: '';
+    position: absolute;
+    inset: 22%;
+    border-radius: 50%;
+    border: 1px solid rgba(220, 222, 232, 0.4);
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.7);
 }
 
 .tp7-disk-center {
     position: absolute;
-    inset: 37%;
+    inset: 39%;
     border-radius: 50%;
     background: transparent;
     box-shadow: 0 0 0 1px rgba(220, 222, 232, 0.8);

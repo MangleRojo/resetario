@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Escribir el eje en el textarea
         if (label) {
-          questionEl.value = `${label} `;
+          questionEl.value = `[${label}] `;
           questionEl.focus();
         }
       });

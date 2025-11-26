@@ -145,21 +145,33 @@ document.addEventListener("DOMContentLoaded", () => {
           submitButton.classList.remove("tp7-submit-disabled");
         }
 
-        // Dibujar un glyph aleatorio dentro del círculo
+        // Dibujar un glyph aleatorio dentro del círculo, pero solo del color del eje
         if (glyphLayer) {
           // Borrar cualquier glyph previo al cambiar de color
           while (glyphLayer.firstChild) {
             glyphLayer.removeChild(glyphLayer.firstChild);
           }
 
+          const allCards = await loadCardsData();
+          const colorKey = ejeToColorKey[ejeKey];
+          const candidates = Array.isArray(allCards)
+            ? allCards.filter((c) => c.color === colorKey)
+            : [];
+
+          if (!candidates.length) {
+            return;
+          }
+
+          const chosen =
+            candidates[Math.floor(Math.random() * candidates.length)];
+
           const wrapper = document.createElement("div");
           wrapper.className = `tp7-disk-glyph tp7-disk-glyph-${ejeKey}`;
 
           const img = document.createElement("img");
-          const index = Math.floor(Math.random() * 32); // glyph_00 a glyph_31
-          currentGlyphIndex = index;
-          const padded = index.toString().padStart(2, "0");
-          img.src = `img/glyph/glyph_${padded}.png`;
+          currentGlyphIndex = chosen.id;
+          const padded = chosen.id.toString().padStart(2, "0");
+          img.src = chosen.glyph || `img/glyph/glyph_${padded}.png`;
           img.alt = `Glyph ${padded}`;
 
           // Posición aleatoria dentro de la capa (en porcentaje)
@@ -169,7 +181,6 @@ document.addEventListener("DOMContentLoaded", () => {
           wrapper.style.left = `${left}%`;
 
           wrapper.appendChild(img);
-
           glyphLayer.appendChild(wrapper);
         }
       });
@@ -253,15 +264,44 @@ document.addEventListener("DOMContentLoaded", () => {
       // Asegurar datos de cartas cargados para recuperar número / glyph
       await loadCardsData();
 
-      // Si no hay glyph seleccionado aún, elegir uno aleatorio para esta respuesta
-      if (currentGlyphIndex === null) {
-        currentGlyphIndex = Math.floor(Math.random() * 32);
-      }
+      let cardInfo = null;
 
-      const cardInfo =
-        Array.isArray(cardsData) && cardsData.length > currentGlyphIndex
-          ? cardsData[currentGlyphIndex]
-          : null;
+      // Si no hay glyph seleccionado aún, elegir uno aleatorio PERO solo
+      // entre los glyph del color correspondiente al eje actual
+      if (currentGlyphIndex === null) {
+        if (currentEjeKey) {
+          const ejeToColor = {
+            agua: "blue",
+            alimento: "green",
+            cobijo: "yellow",
+            energia: "red",
+            comunicacion: "orange",
+          };
+          const desiredColor = ejeToColor[currentEjeKey];
+          const candidates = Array.isArray(cardsData)
+            ? cardsData.filter((c) => c.color === desiredColor)
+            : [];
+
+          if (candidates.length) {
+            cardInfo =
+              candidates[Math.floor(Math.random() * candidates.length)];
+            currentGlyphIndex = cardInfo.id;
+          }
+        }
+
+        // Si todavía no tenemos glyph (por ejemplo, sin eje activo), usar cualquiera
+        if (currentGlyphIndex === null && Array.isArray(cardsData) && cardsData.length) {
+          const any = cardsData[Math.floor(Math.random() * cardsData.length)];
+          cardInfo = any;
+          currentGlyphIndex = any.id;
+        }
+      } else {
+        // Ya había glyph seleccionado: tomar su carta por índice/id
+        cardInfo =
+          Array.isArray(cardsData) && cardsData.length > currentGlyphIndex
+            ? cardsData[currentGlyphIndex]
+            : null;
+      }
 
       // Mapear eje -> color de tarjeta
       const ejeToColor = {

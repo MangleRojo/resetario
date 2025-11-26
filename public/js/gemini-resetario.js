@@ -8,6 +8,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const answerTextEl = document.getElementById("resetario-ai-answer-text");
   const responseTextEl = document.getElementById("resetario-ai-response-text");
   const answerTitleEl = document.getElementById("resetario-ai-answer-title");
+  const tacticsPrevBtn = document.getElementById("resetario-ai-tactics-prev");
+  const tacticsNextBtn = document.getElementById("resetario-ai-tactics-next");
+  const tacticsCounterEl = document.getElementById(
+    "resetario-ai-tactics-counter",
+  );
   const themeToggle = document.getElementById("resetario-ai-theme-toggle");
   const resetarioSection = document.getElementById("resetario-ai");
   const ejeButtons = document.querySelectorAll(".tp7-eje-button");
@@ -18,6 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let currentGlyphIndex = null;
   // Hasta tres glyphs pueden estar seleccionados como tácticas a la vez
   let selectedGlyphCards = [];
+  let currentTacticIndex = 0;
   let cardsData = null; // Datos del resetario para recuperar número y glyph
   let colorMeanings = null; // Colores por eje desde glyph-dictionary.json
 
@@ -112,6 +118,20 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  function updateTacticNavButtons() {
+    if (!tacticsPrevBtn || !tacticsNextBtn || !tacticsCounterEl) return;
+    const total = selectedGlyphCards.length;
+    if (!total) {
+      tacticsPrevBtn.disabled = true;
+      tacticsNextBtn.disabled = true;
+      tacticsCounterEl.textContent = "0 / 0";
+      return;
+    }
+    tacticsPrevBtn.disabled = currentTacticIndex <= 0;
+    tacticsNextBtn.disabled = currentTacticIndex >= total - 1;
+    tacticsCounterEl.textContent = `${currentTacticIndex + 1} / ${total}`;
+  }
+
   // Renderizar en el área de tarjetas las tácticas seleccionadas (glyphs)
   function renderSelectedGlyphCards() {
     if (!answerSection || !answerTextEl) return;
@@ -124,48 +144,52 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!selectedGlyphCards.length) {
       answerTextEl.innerHTML = "";
       // Si no hay tácticas, podemos volver a modo información cuando toque
+      currentTacticIndex = 0;
+      updateTacticNavButtons();
       return;
     }
 
-    // Al mostrar tácticas, quitar el modo información para activar el carrusel
+    // Al mostrar tácticas, quitar el modo información
     answerTextEl.classList.remove("info-mode");
 
-    const cardsHtml = selectedGlyphCards
-      .slice(0, 3)
-      .map((card) => {
-        const glyphSrc =
-          card.glyph ||
-          `img/glyph/glyph_${card.id.toString().padStart(2, "0")}.png`;
-        const glyphNumber = card.number || "—";
-        const cardColor = card.color || "standard";
-        return `
-        <div class="reset-card combination-card card-${cardColor} active" aria-label="Táctica seleccionada" tabindex="0">
-          <div class="card-inner">
-            <div class="card-front">
-              <div class="card-top">
-                <img src="${glyphSrc}" alt="APICCA Glyph ${glyphNumber}" class="card-glyph">
-              </div>
-              <div class="card-bottom">
-                <span class="card-number">${glyphNumber}</span>
-              </div>
+    // Asegurar que el índice actual está dentro de rango
+    if (currentTacticIndex >= selectedGlyphCards.length) {
+      currentTacticIndex = selectedGlyphCards.length - 1;
+    }
+
+    const card = selectedGlyphCards[currentTacticIndex];
+    const glyphSrc =
+      card.glyph ||
+      `img/glyph/glyph_${card.id.toString().padStart(2, "0")}.png`;
+    const glyphNumber = card.number || "—";
+    const cardColor = card.color || "standard";
+
+    const cardHtml = `
+      <div class="reset-card combination-card card-${cardColor} active" aria-label="Táctica seleccionada" tabindex="0">
+        <div class="card-inner">
+          <div class="card-front">
+            <div class="card-top">
+              <img src="${glyphSrc}" alt="APICCA Glyph ${glyphNumber}" class="card-glyph">
             </div>
-            <div class="card-back">
-              <div class="card-back-content">
-                <h3>${card.title}</h3>
-                <p>${card.description}</p>
-              </div>
+            <div class="card-bottom">
+              <span class="card-number">${glyphNumber}</span>
+            </div>
+          </div>
+          <div class="card-back">
+            <div class="card-back-content">
+              <h3>${card.title}</h3>
+              <p>${card.description}</p>
             </div>
           </div>
         </div>
-      `;
-      })
-      .join("");
+      </div>
+    `;
 
-    answerTextEl.innerHTML = cardsHtml;
+    answerTextEl.innerHTML = cardHtml;
 
-    // Activar flip independiente para cada tarjeta
-    const cardEls = answerTextEl.querySelectorAll(".reset-card");
-    cardEls.forEach((cardEl) => {
+    // Activar flip para la tarjeta actual
+    const cardEl = answerTextEl.querySelector(".reset-card");
+    if (cardEl) {
       const toggleFlip = () => {
         cardEl.classList.toggle("flipped");
       };
@@ -176,7 +200,9 @@ document.addEventListener("DOMContentLoaded", () => {
           toggleFlip();
         }
       });
-    });
+    }
+
+    updateTacticNavButtons();
   }
 
   if (!form) return;
@@ -215,6 +241,8 @@ document.addEventListener("DOMContentLoaded", () => {
       selectedGlyphCards = [];
       currentGlyphIndex = null;
       currentEjeKey = null;
+      currentTacticIndex = 0;
+      updateTacticNavButtons();
 
       // Desactivar botones de eje visualmente
       if (ejeButtons && ejeButtons.length > 0) {
@@ -302,6 +330,7 @@ document.addEventListener("DOMContentLoaded", () => {
             ...chosen,
             ejeKey,
           });
+          currentTacticIndex = selectedGlyphCards.length - 1;
 
           const wrapper = document.createElement("div");
           wrapper.className = `tp7-disk-glyph tp7-disk-glyph-${ejeKey}`;
@@ -325,6 +354,25 @@ document.addEventListener("DOMContentLoaded", () => {
         // Actualizar las tarjetas de tácticas visibles bajo el dispositivo
         renderSelectedGlyphCards();
       });
+    });
+  }
+
+  // Navegación de tácticas estilo mazo (una tarjeta visible a la vez)
+  if (tacticsPrevBtn) {
+    tacticsPrevBtn.addEventListener("click", () => {
+      if (currentTacticIndex > 0) {
+        currentTacticIndex -= 1;
+        renderSelectedGlyphCards();
+      }
+    });
+  }
+
+  if (tacticsNextBtn) {
+    tacticsNextBtn.addEventListener("click", () => {
+      if (currentTacticIndex < selectedGlyphCards.length - 1) {
+        currentTacticIndex += 1;
+        renderSelectedGlyphCards();
+      }
     });
   }
 

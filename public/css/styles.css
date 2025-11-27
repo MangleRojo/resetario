@@ -663,17 +663,8 @@ footer {
 
 /* Panel izquierdo tipo blueprint basado en patrón de cuadrícula recursiva */
 .tp7-disk {
-    position: relative;
-    width: 100%;
-    max-width: 120px;
-    aspect-ratio: 1 / 1;
-    margin-left: 0.4rem;
-    border-radius: 50%;
-    /* Círculo blueprint: sólo contornos en gris claro */
-    background: transparent;
-    box-shadow: none;
-    border: 1px solid rgba(220, 222, 232, 0.6);
-    z-index: 1;
+    /* Círculo oculto completamente (no ocupa espacio) */
+    display: none;
 }
 
 .tp7-disk::before {
@@ -752,9 +743,10 @@ footer {
 .tp7-screen {
     position: relative;
     align-self: stretch;
-    /* Que se vea más claramente rectangular y horizontal */
+    /* Que se vea claramente rectangular y horizontal y ocupe todo el ancho del aparato */
     padding: 0.55rem 1.4rem 0.7rem;
-    max-width: 420px;
+    width: 100%;
+    max-width: 100%;
     border-radius: 10px;
     background: rgba(5, 7, 12, 0.9);
     box-shadow: 0 0 0 1px rgba(230, 232, 240, 0.4);
@@ -1042,7 +1034,7 @@ footer {
 
 .resetario-ai-answer {
     position: relative;
-    margin-top: 1.8rem;
+    margin-top: 0.4rem;
 }
 
 .resetario-ai-answer h3 {

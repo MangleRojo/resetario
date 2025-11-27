@@ -198,6 +198,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const bodyHtml = `
       <div class="resetario-sections">
         <div class="resetario-section">
+          <div class="resetario-section-label">Tácticas</div>
           <div class="resetario-section-content resetario-tactics-row">
             ${tacticsHtml}
           </div>

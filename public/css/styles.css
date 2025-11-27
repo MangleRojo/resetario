@@ -1578,11 +1578,11 @@ footer {
 @media (max-width: 768px) {
     .resetario-ai-answer-section {
         margin-top: 2rem;
-        padding: 1.5rem 1.25rem 0;
+        padding: 1.25rem 0 0;
     }
 
     .resetario-ai-answer {
-        padding: 1.5rem 1.25rem;
+        padding: 1.25rem 0;
     }
 }
 

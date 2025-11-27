@@ -617,7 +617,7 @@ footer {
 /* Resetario IA – panel blueprint en grises */
 .resetario-ai-section {
     position: relative;
-    margin: 0 auto 3.5rem auto;
+    margin: 0 auto 1.5rem auto;
     padding: 2.4rem 2.1rem 2.2rem;
     max-width: 960px;
     border-radius: 22px;
@@ -1156,8 +1156,8 @@ footer {
 /* Sección de respuesta, centrada bajo el aparato */
 /* Sección de respuesta simple bajo el aparato */
 .resetario-ai-answer-section {
-    margin-top: 1.2rem;
-    padding: 1.2rem 1rem 0;
+    margin-top: 0.5rem;
+    padding: 1.2rem 1rem 2.5rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1577,8 +1577,8 @@ footer {
 
 @media (max-width: 768px) {
     .resetario-ai-answer-section {
-        margin-top: 2rem;
-        padding: 1.25rem 0 0;
+        margin-top: 1rem;
+        padding: 1.25rem 0 3rem;
     }
 
     .resetario-ai-answer {
@@ -1820,7 +1820,10 @@ footer {
 @media (max-width: 768px) {
     .resetario-ai-section {
         padding: 1.9rem 1.4rem 2rem;
-        margin-bottom: 2.5rem;
+        margin-bottom: 1rem;
+        margin-left: -2rem;
+        margin-right: -2rem;
+        width: calc(100% + 4rem);
     }
 
     .tp7-top-row {
@@ -3469,11 +3472,35 @@ body.keyboard-mode .key:focus {
 }
 
 .ejes-list li:before {
-    content: "→";
+    content: "";
     position: absolute;
     left: 0;
-    color: #535353;
-    font-weight: bold;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 12px;
+    height: 12px;
+    background: #535353;
+    border-radius: 2px;
+}
+
+.ejes-list li[data-color="blue"]:before {
+    background: linear-gradient(135deg, #4598ff 0%, #3580e6 100%);
+}
+
+.ejes-list li[data-color="green"]:before {
+    background: linear-gradient(135deg, #00d084 0%, #00a869 100%);
+}
+
+.ejes-list li[data-color="yellow"]:before {
+    background: linear-gradient(135deg, #fee71c 0%, #fdd800 100%);
+}
+
+.ejes-list li[data-color="red"]:before {
+    background: linear-gradient(135deg, #fd0202 0%, #cc0000 100%);
+}
+
+.ejes-list li[data-color="orange"]:before {
+    background: linear-gradient(135deg, #ff6b35 0%, #ff5722 100%);
 }
 
 /* Responsive */

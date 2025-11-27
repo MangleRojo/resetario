@@ -188,6 +188,163 @@
                 </div>
             </section>
 
+            <!-- Los Cinco Ejes -->
+            <section class="ejes-section">
+                <!-- Tabs Navigation -->
+                <div class="tabs-container">
+                    <nav class="tabs-nav" role="tablist" aria-label="Navegación de ejes de autonomía común">
+                        <button class="tab-button active" data-tab="intro" data-color="gray" role="tab"
+                            aria-selected="true" aria-controls="tab-intro" id="tab-button-intro">Introducción</button>
+                        <button class="tab-button" data-tab="agua" data-color="blue" role="tab" aria-selected="false"
+                            aria-controls="tab-agua" id="tab-button-agua">Agua</button>
+                        <button class="tab-button" data-tab="alimento" data-color="green" role="tab"
+                            aria-selected="false" aria-controls="tab-alimento" id="tab-button-alimento">Alimento</button>
+                        <button class="tab-button" data-tab="cobijo" data-color="yellow" role="tab"
+                            aria-selected="false" aria-controls="tab-cobijo" id="tab-button-cobijo">Cobijo</button>
+                        <button class="tab-button" data-tab="energia" data-color="red" role="tab"
+                            aria-selected="false" aria-controls="tab-energia" id="tab-button-energia">Energía</button>
+                        <button class="tab-button" data-tab="comunicacion" data-color="orange" role="tab"
+                            aria-selected="false" aria-controls="tab-comunicacion"
+                            id="tab-button-comunicacion">Comunicación</button>
+                    </nav>
+
+                    <!-- Tab Content -->
+                    <div class="tabs-content">
+                        <!-- Introducción -->
+                        <div class="tab-panel active" id="tab-intro" role="tabpanel" aria-labelledby="tab-button-intro">
+                            <h3>¿Qué es el Re(s)etario?</h3>
+                            <div class="eje-content">
+                                    <p>El <strong>Re(s)etario es la interfaz para programar APICCA</strong>. Se compone de
+                                    tácticas de economía recíproca que pueden ser combinadas para crear nuevas formas de
+                                    organización y colaboración basadas en el apoyo mutuo.</p>
+
+                                <h4>Los cinco ejes de autonomía común</h4>
+                                <p>La autonomía no se consigue de forma aislada, sino en conexión. Estos cinco ámbitos
+                                    son fundamentales para construir autonomía común, presentados en orden de
+                                    importancia vital:</p>
+                                <ul class="ejes-list">
+                                    <li data-color="blue"><strong>Agua</strong> - La base de la vida</li>
+                                    <li data-color="green"><strong>Alimento</strong> - El reparador del cuerpo</li>
+                                    <li data-color="yellow"><strong>Cobijo</strong> - El refugio y la estabilidad</li>
+                                    <li data-color="red"><strong>Energía</strong> - La capacidad de acción</li>
+                                    <li data-color="orange"><strong>Comunicación</strong> - La coordinación colectiva</li>
+                                </ul>
+                                <p>Para saber más sobre cada eje haga click en las pestañas de colores de arriba.</p>
+                            </div>
+                        </div>
+
+                        <!-- Agua -->
+                        <div class="tab-panel" id="tab-agua" role="tabpanel" aria-labelledby="tab-button-agua" hidden>
+                            <h3>Agua</h3>
+                            <div class="eje-content">
+                                <h4>¿Por qué es fundamental?</h4>
+                                <p>El agua es la base de la vida. Sin acceso a agua potable, la supervivencia es
+                                    imposible más allá de pocos días. Es el primero y más urgente de los cinco ámbitos
+                                    de autonomía común. El cuerpo humano, los cultivos, la higiene, todo depende del
+                                    agua.</p>
+
+                                <h4>Autonomía vs. Dependencia</h4>
+                                <p><strong>Dependencia:</strong> Estar atado a redes centralizadas de distribución de
+                                    agua, donde el acceso puede ser cortado, controlado o monetizado sin capacidad de
+                                    respuesta.</p>
+                                <p><strong>Autonomía común:</strong> Acceso colectivo a fuentes de agua, sistemas de
+                                    captación y filtración compartidos, conocimiento comunitario sobre gestión hídrica.
+                                    No se trata de cada persona con su propio pozo aislado, sino de comunidades que
+                                    gestionan el agua como bien común.</p>
+                            </div>
+                        </div>
+
+                        <!-- Alimento -->
+                        <div class="tab-panel" id="tab-alimento" role="tabpanel"
+                            aria-labelledby="tab-button-alimento" hidden>
+                            <h3>Alimento</h3>
+                            <div class="eje-content">
+                                <h4>¿Por qué es fundamental?</h4>
+                                <p>El alimento es el reparador del cuerpo. Sin acceso a nutrición adecuada, la salud y
+                                    la capacidad de acción se deterioran rápidamente. Es el segundo ámbito vital,
+                                    complementario al agua. La autonomía alimentaria es fundamental para no depender de
+                                    cadenas de suministro frágiles o explotadoras.</p>
+
+                                <h4>Autonomía vs. Dependencia</h4>
+                                <p><strong>Dependencia:</strong> Depender exclusivamente de supermercados y cadenas de
+                                    distribución globales, donde el acceso está mediado por dinero y los productores
+                                    están lejos y desconectados de los consumidores.</p>
+                                <p><strong>Autonomía común:</strong> Sistemas de producción local de alimentos (huertos
+                                    comunitarios, agricultura urbana), redes de economía recíproca basadas en el apoyo
+                                    mutuo, conocimiento compartido sobre cultivo y conservación. La autonomía
+                                    alimentaria se construye desde la solidaridad, no desde el intercambio mercantil.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Cobijo -->
+                        <div class="tab-panel" id="tab-cobijo" role="tabpanel" aria-labelledby="tab-button-cobijo"
+                            hidden>
+                            <h3>Cobijo</h3>
+                            <div class="eje-content">
+                                <h4>¿Por qué es fundamental?</h4>
+                                <p>El cobijo protege del clima, provee seguridad y estabilidad para desarrollar la vida.
+                                    Sin un espacio seguro donde habitar, es imposible construir otras formas de
+                                    autonomía. Es el tercer ámbito esencial, el refugio desde donde se puede proyectar
+                                    todo lo demás.</p>
+
+                                <h4>Autonomía vs. Dependencia</h4>
+                                <p><strong>Dependencia:</strong> Estar sometido a mercados inmobiliarios especulativos,
+                                    rentas impagables, desalojos arbitrarios, o hipotecas que condicionan décadas de
+                                    vida laboral.</p>
+                                <p><strong>Autonomía común:</strong> Formas cooperativas de vivienda, okupación
+                                    organizada, auto-construcción colectiva, co-housing. El cobijo común no es propiedad
+                                    privada ni renta perpetua, sino acceso digno y estable construido entre muchos.</p>
+                            </div>
+                        </div>
+
+                        <!-- Energía -->
+                        <div class="tab-panel" id="tab-energia" role="tabpanel" aria-labelledby="tab-button-energia"
+                            hidden>
+                            <h3>Energía</h3>
+                            <div class="eje-content">
+                                <h4>¿Por qué es fundamental?</h4>
+                                <p>La energía permite la acción, el movimiento, la transformación. Desde cocinar
+                                    alimentos hasta comunicarse o trabajar, casi toda actividad humana requiere energía.
+                                    En el mundo contemporáneo, la dependencia energética es una de las formas más
+                                    profundas de control.</p>
+
+                                <h4>Autonomía vs. Dependencia</h4>
+                                <p><strong>Dependencia:</strong> Estar atado a redes eléctricas centralizadas,
+                                    combustibles fósiles controlados por grandes corporaciones, facturas que aumentan
+                                    sin control.</p>
+                                <p><strong>Autonomía común:</strong> Sistemas de energía renovable compartidos (paneles
+                                    solares comunitarios, generadores eólicos), conocimiento sobre eficiencia
+                                    energética, reducción de consumo, gestión colectiva de recursos. La energía autónoma
+                                    es distribuida y sostenible.</p>
+                            </div>
+                        </div>
+
+                        <!-- Comunicación -->
+                        <div class="tab-panel" id="tab-comunicacion" role="tabpanel"
+                            aria-labelledby="tab-button-comunicacion" hidden>
+                            <h3>Comunicación</h3>
+                            <div class="eje-content">
+                                <h4>¿Por qué es fundamental?</h4>
+                                <p>La comunicación permite la coordinación, el aprendizaje, la organización colectiva.
+                                    Sin capacidad de comunicarnos, es imposible construir autonomía común. Es el eje que
+                                    conecta todos los demás, el que permite que la red exista.</p>
+
+                                <h4>Autonomía vs. Dependencia</h4>
+                                <p><strong>Dependencia:</strong> Depender de plataformas corporativas que extraen datos,
+                                    censuran contenidos, manipulan algoritmos y pueden cerrar cuentas arbitrariamente.
+                                    Herramientas que nos dominan en lugar de servirnos.</p>
+                                <p><strong>Autonomía común:</strong> Herramientas conviviales (en el sentido de Ivan
+                                    Illich) que potencian la colaboración sin alienar. Redes autogestionadas,
+                                    plataformas libres, tecnologías abiertas, espacios de encuentro físico. La
+                                    comunicación autónoma es horizontal, construida desde la convivialidad y el apoyo
+                                    mutuo, no desde la extracción de valor.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
         </div>
     </main>
 
@@ -220,6 +377,7 @@
 
     <script type="module" src="js/scripts.js"></script>
     <script type="module" src="js/gemini-resetario.js"></script>
+    <script type="module" src="js/documentacion.js"></script>
 </body>
 
 </html>

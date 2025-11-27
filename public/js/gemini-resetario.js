@@ -646,7 +646,7 @@ document.addEventListener("DOMContentLoaded", () => {
             (card) => {
               const ejeLabelForCard =
                 card.ejeKey && ejeLabels[card.ejeKey]
-                  ? `[${ejeLabels[card.ejeKey]}] `
+                  ? `${ejeLabels[card.ejeKey]} `
                   : "";
               return `${ejeLabelForCard}${card.title} | ${card.description}`;
             },

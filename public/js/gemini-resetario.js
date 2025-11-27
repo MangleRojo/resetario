@@ -626,6 +626,15 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
+    // Activar sonido de envío
+    playSubmitSound();
+
+    // Desactivar el botón de envío
+    if (submitButton) {
+      submitButton.disabled = true;
+      submitButton.classList.add("tp7-submit-disabled");
+    }
+
     currentDimensions = selectedDimensions;
     const userText = `Dimensiones seleccionadas: ${selectedDimensions.join(
       ", ",
@@ -709,6 +718,11 @@ document.addEventListener("DOMContentLoaded", () => {
           // ignorar errores de parseo de JSON
         }
         statusEl.textContent = message;
+        // Reactivar el botón de envío
+        if (submitButton) {
+          submitButton.disabled = false;
+          submitButton.classList.remove("tp7-submit-disabled");
+        }
         return;
       }
 
@@ -765,10 +779,21 @@ document.addEventListener("DOMContentLoaded", () => {
       if (answerSection) {
         answerSection.hidden = false;
       }
+
+      // Reactivar el botón de envío
+      if (submitButton) {
+        submitButton.disabled = false;
+        submitButton.classList.remove("tp7-submit-disabled");
+      }
     } catch (err) {
       console.error("Error llamando al asistente del Re(s)etario:", err);
       statusEl.textContent =
         "Hubo un problema de conexión con el asistente. Revisa tu conexión o inténtalo de nuevo.";
+      // Reactivar el botón de envío en caso de error
+      if (submitButton) {
+        submitButton.disabled = false;
+        submitButton.classList.remove("tp7-submit-disabled");
+      }
     }
   });
 

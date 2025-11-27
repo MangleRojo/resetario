@@ -452,6 +452,12 @@ document.addEventListener("DOMContentLoaded", () => {
   // Botón Esc: limpiar selecciones y volver al estado inicial
   if (escButton) {
     escButton.addEventListener("click", () => {
+      // Activar sonido de Esc
+      playEscSound();
+
+      // Desactivar el botón Esc
+      escButton.disabled = true;
+
       // Limpiar glyphs del disco
       if (glyphLayer) {
         while (glyphLayer.firstChild) {
@@ -495,6 +501,9 @@ document.addEventListener("DOMContentLoaded", () => {
         responseTextEl.innerHTML = "";
       }
       renderInitialInfoCard();
+
+      // Reactivar el botón Esc
+      escButton.disabled = false;
     });
   }
 
@@ -635,6 +644,11 @@ document.addEventListener("DOMContentLoaded", () => {
       submitButton.classList.add("tp7-submit-disabled");
     }
 
+    // Desactivar el botón Esc
+    if (escButton) {
+      escButton.disabled = true;
+    }
+
     currentDimensions = selectedDimensions;
     const userText = `Dimensiones seleccionadas: ${selectedDimensions.join(
       ", ",
@@ -723,6 +737,10 @@ document.addEventListener("DOMContentLoaded", () => {
           submitButton.disabled = false;
           submitButton.classList.remove("tp7-submit-disabled");
         }
+        // Reactivar el botón Esc
+        if (escButton) {
+          escButton.disabled = false;
+        }
         return;
       }
 
@@ -785,6 +803,10 @@ document.addEventListener("DOMContentLoaded", () => {
         submitButton.disabled = false;
         submitButton.classList.remove("tp7-submit-disabled");
       }
+      // Reactivar el botón Esc
+      if (escButton) {
+        escButton.disabled = false;
+      }
     } catch (err) {
       console.error("Error llamando al asistente del Re(s)etario:", err);
       statusEl.textContent =
@@ -793,6 +815,10 @@ document.addEventListener("DOMContentLoaded", () => {
       if (submitButton) {
         submitButton.disabled = false;
         submitButton.classList.remove("tp7-submit-disabled");
+      }
+      // Reactivar el botón Esc en caso de error
+      if (escButton) {
+        escButton.disabled = false;
       }
     }
   });

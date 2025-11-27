@@ -312,8 +312,10 @@ document.addEventListener("DOMContentLoaded", () => {
           <div class="card-back">
             <div class="card-back-content">
               <h4>Instrucciones</h4>
-              <p>1. Escoga hasta tres tácticas de <strong>Agua</strong>, <strong>Alimentación</strong>, <strong>Cobijo</strong>, <strong>Energía</strong> o <strong>Comunicación</strong>. <p>2. Seleccione las dimensiones de <strong>Tiempo</strong>, <strong>Espacio</strong> o <strong>Información</strong>.</p> <p>3. Pulse <strong>Re(s)et</strong>. para crear una Re(s)eta con las tácticas seleccionadas.
-              <p>Para explorar nuevas tácticas pulse <strong>Esc</strong>.</p>
+              <p>1. Escoja hasta tres tácticas de <strong>Agua</strong>, <strong>Alimentación</strong>, <strong>Cobijo</strong>, <strong>Energía</strong> o <strong>Comunicación</strong>.</p>
+              <p>2. Seleccione las dimensiones de <strong>Tiempo</strong>, <strong>Espacio</strong> o <strong>Información</strong>.</p>
+              <p>3. Pulse <strong>Re(s)et</strong> para crear una Re(s)eta con las tácticas seleccionadas.</p>
+              <p>Para más detalle metodológico consulta la <a href="/resetario/documentacion">Documentación</a>.</p>
             </div>
           </div>
         </div>

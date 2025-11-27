@@ -3471,6 +3471,15 @@ body.keyboard-mode .key:focus {
     margin-bottom: 0.8rem;
 }
 
+.eje-list-item {
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+}
+
+.eje-list-item:hover {
+    opacity: 0.8;
+}
+
 .ejes-list li:before {
     content: "";
     position: absolute;

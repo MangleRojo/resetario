@@ -510,7 +510,7 @@ footer {
 /* Manual metodológico – Documentación */
 .manual-section {
     margin: 0 auto 3rem auto;
-    max-width: 960px;
+    max-width: 900px;
 }
 
 .manual-card {
@@ -3491,6 +3491,11 @@ body.keyboard-mode .key:focus {
         margin: 0;
     }
 
+    .manual-section {
+        max-width: 100%;
+        margin: 0 0 3rem 0;
+    }
+
     .ejes-section h2 {
         font-size: 1.6rem;
     }
@@ -3505,6 +3510,13 @@ body.keyboard-mode .key:focus {
         margin-left: -2rem;
         margin-right: -2rem;
         width: calc(100% + 4rem);
+    }
+
+    .manual-card {
+        margin-left: -2rem;
+        margin-right: -2rem;
+        width: calc(100% + 4rem);
+        border-radius: 0;
     }
 
     .tabs-nav {

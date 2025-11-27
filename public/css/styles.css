@@ -1490,6 +1490,10 @@ footer {
 }
 
 @media (max-width: 768px) {
+    .resetario-ai-device {
+        max-width: 100%;
+    }
+
     .resetario-output {
         max-width: 100%;
         padding: 1rem 1rem 0.8rem;

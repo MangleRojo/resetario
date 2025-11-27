@@ -4,6 +4,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("resetario-ai-form");
   const statusEl = document.getElementById("resetario-ai-status");
+  const deviceEl = document.querySelector(".resetario-ai-device");
   const answerSection = document.getElementById("resetario-ai-answer");
   const answerTextEl = document.getElementById("resetario-ai-answer-text");
   const responseTextEl = document.getElementById("resetario-ai-response-text");
@@ -240,8 +241,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     responseTextEl.innerHTML = responseHtml;
 
-    // Desplazar suavemente hasta la tarjeta de respuesta
-    responseTextEl.scrollIntoView({ behavior: "smooth", block: "start" });
+    // Desplazar suavemente hasta la tarjeta de respuesta solo cuando ya hay respuesta del modelo
+    if (!loading) {
+      responseTextEl.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
   }
 
   const ejeLabels = {
@@ -656,6 +659,17 @@ document.addEventListener("DOMContentLoaded", () => {
       : `${userText}`;
 
     statusEl.textContent = "Consultando...";
+    // Desplazar suavemente hacia el contenedor completo del aparato
+    // dejando un pequeño margen por encima para que se vea completo
+    if (deviceEl) {
+      const rect = deviceEl.getBoundingClientRect();
+      const offset = 80; // píxeles extra por encima del aparato
+      const targetY = window.scrollY + rect.top - offset;
+      window.scrollTo({
+        top: targetY < 0 ? 0 : targetY,
+        behavior: "smooth",
+      });
+    }
     if (answerSection) {
       answerSection.hidden = false;
     }
